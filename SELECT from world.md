@@ -74,7 +74,7 @@ OR a b XOR
  1 1 1 0
  ```
 
-### ROUND 
+### ROUND CON DECIMALES 
 Utilizamos ROUND para redondear un resultado, el formato es ROUND( 'Dato'/numero, cantidad de decimales)
 En este caso mostramos poblacion entre un millon y enseñamos 2 decimales y tambien Producto interior butro entre un billon y mostramos 2 decimales
 
@@ -84,10 +84,48 @@ FROM world
 WHERE continent LIKE 'South America';
 
 ```
-###
+### ROUND CON REDONDEO
 
 ```SQL
+SELECT name, ROUND(GDP / population, -3) As GDPperCapita
+FROM world
+WHERE GDP >= 1000000000000;
+
 ```
 
+### LENGTH 
+Con LENGTH sacamos el largo de algo por ejemplo LEGTH ( capital) nos muestra la cantidad de caracteres que tiene la capital
+Podemos comparar con un LIKE dos longitudes.
+
 ```SQL
+SELECT name, capital
+  FROM world
+ WHERE LENGTH(name) LIKE LENGTH(capital); 
+
+```
+### LEFT y NOT EQUALS
+Utilizamos la funcion LEFT para aislar el primer caracter
+se puede usar <> como si fuera NOT EQUAS (diferente , no igual )
+
+```SQL
+Enseñamos los paises y las capitales de cuyos nombre de pais y de capital son diferentes pero la primera letra coinciden
+SELECT name, capital
+FROM world
+WHERE LEFT(name, 1) = LEFT(capital,1)
+AND name <> capital;
+
+```
+### NOT LIKE
+Utilizamos NOT LIKE para excluir cierto caracter o frase de la busqueda
+
+```SQL
+SELECT name
+FROM world
+WHERE name LIKE '%a%'
+AND name LIKE '%e%'
+AND name LIKE '%i%'
+AND name LIKE '%o%'
+AND name LIKE '%u%'
+AND name NOT LIKE '% %';
+
 ```
