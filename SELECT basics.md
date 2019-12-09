@@ -8,15 +8,10 @@
 ### SELECCIONAR DE UNA TABLA
 
 Utilizamos la notación **FROM** para indicar la tabla de la cual vamos a recoger información.
-
 SELECT name, population
-
 FROM world   **SELECCIONAMOS DE LA TABLA world**
-
 WHERE name >= 'France'
-
 ORDER BY population ASC
-
 LIMIT 10
 
 ### CONJUNTOS
