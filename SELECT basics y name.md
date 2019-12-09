@@ -139,3 +139,11 @@ SELECT capital, name
 FROM world
 
 WHERE capital LIKE CONCAT ( name, '_%')  **ES ASÍ AUN NO SE MUY BIEN POR QUE , CREO QUE ES POR QUE EL GUION BAJO INDICA QUE TIENE QUE HABER ALGO SI O SI ENTRE EL NOMBRE DEL PAÍS Y CUALQUIER COSA** 
+
+## REPLACE
+Usamos el replace para remplazar , el formato es REPLACE ( 'cadena' , ' a ' ,'e ') daria como resultado cedene
+SELECT name, REPLACE(capital, name, '') AS ext ***en la capital replazamos el nombre por un espacio vacio y a la fila le llamamos ext***
+
+FROM world
+
+WHERE capital LIKE CONCAT ( name, '_%')
