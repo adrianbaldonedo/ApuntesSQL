@@ -37,10 +37,57 @@ Utilizamos LIKE para buscar algo que incluya la expresion que le indicamos (Cara
 ```SQL
 SELECT name
 FROM world
-WHERE  name LIKE '%United%' 
+WHERE  name LIKE '%United%';
 ```
+### Filtar por tamaño
+Utilizamos el operador > para buscar mayores que x numero tambien usamos el OR para que haga una comprobación doble 
 
+```SQL
+SELECT name, population, area
+FROM world
+WHERE population > 250000000
+OR area > 3000000;
 
+```
+### XOR ( OR exclusivo )
+Utilizamos el OR exclusivo cuando queremos buscar por una cosa o la otra pero no por los dos.
+
+```SQL
+Manera sin XOR:
+SELECT name, population, area
+FROM world
+WHERE ( area > 3000000 OR population > 250000000)
+AND NOT ( area > 3000000 AND population > 250000000);
+
+Manera con XOR:
+SELECT name, population , area
+FROM world
+WHERE area > 3000000
+XOR population > 250000000;
+
+```
+```
+OR a b XOR
+ 0 0 0 0
+ 1 0 1 1
+ 1 1 0 1
+ 1 1 1 0
+ ```
+
+### ROUND 
+Utilizamos ROUND para redondear un resultado, el formato es ROUND( 'Dato'/numero, cantidad de decimales)
+En este caso mostramos poblacion entre un millon y enseñamos 2 decimales y tambien Producto interior butro entre un billon y mostramos 2 decimales
+
+```SQL
+SELECT name, ROUND(population / 1000000, 2) AS population, ROUND(GDP / 1000000000, 2) AS GDP
+FROM world
+WHERE continent LIKE 'South America';
+
+```
+###
+
+```SQL
+```
 
 ```SQL
 ```
