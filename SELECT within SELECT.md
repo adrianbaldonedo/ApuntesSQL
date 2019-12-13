@@ -18,12 +18,54 @@ WHERE (GDP/population) >
 AND continent = 'Europe';
 
 ```
-#### 
+#### Seleccionamos el pais y el continente de los paises que su continente sea argentina o australia ( consulta con varios selects anidados)
 
 ```SQL
+SELECT name, continent
+FROM world
+WHERE continent = ( SELECT continent
+                    FROM world
+                    WHERE name = 'Argentina')
+OR continent = ( SELECT continent
+                    FROM world
+                    WHERE name = 'Australia')
+ORDER by name ASC;
+```
 
+OTRA MANERA UTILIZANDO IN:
+```SQL
+SELECT name, continent
+FROM world
+WHERE continent IN ( SELECT continent
+                    FROM world
+                    WHERE name IN ('Argentina', 'Australia'))
+ORDER by name;
+```
+#### Mostrar paises que tienen mas gente que canada y menos que polonia ( consulta con varios selects anidados)
+
+```SQL
+SELECT name, population
+FROM world
+WHERE population > ( SELECT population
+                     FROM world
+                     WHERE name = 'Canada')
+AND population < ( SELECT population
+                     FROM world
+                     WHERE name = 'Poland');
 
 ```
+#### mostrar todos nombres del pais y la poblacion en porcentaje de todos los paises de Europa pero el porcentaje es comparado con alemania.
+
+```SQL
+SELECT name, 
+            CONCAT(ROUND(100 * population /( SELECT population 
+                                      FROM world 
+                                      WHERE name = 'Germany')) , '%')
+FROM world
+WHERE continent = 'Europe';
+
+```
+
 #### 
 
 ```SQL
