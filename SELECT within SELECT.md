@@ -52,17 +52,47 @@ WHERE population > ( SELECT population
 AND population < ( SELECT population
                      FROM world
                      WHERE name = 'Poland');
+```
+OTRA MANERA con BETWEEN
+
+```SQL
+SELECT name, population
+FROM world
+WHERE population BETWEEN ( SELECT population + 1
+                     FROM world
+                     WHERE name = 'Canada')
+                 AND ( SELECT population - 1
+                       FROM world
+                       WHERE name = 'Poland');
 
 ```
+
 #### mostrar todos nombres del pais y la poblacion en porcentaje de todos los paises de Europa pero el porcentaje es comparado con alemania.
 
 ```SQL
 SELECT name, 
             CONCAT(ROUND(100 * population /( SELECT population 
                                       FROM world 
-                                      WHERE name = 'Germany')) , '%')
+                                      WHERE name = 'Germany'), 0) , '%') As 'population (%)'
 FROM world
 WHERE continent = 'Europe';
+
+```
+#### Selecionamos los paises que tengan un GDP mayor que la suma de todos los paises de Europa
+
+```SQL
+SELECT name
+FROM world
+WHERE gdp > ALL (SELECT gdp
+                 FROM world
+                 where continent = 'Europe'
+                 AND gdp is NOT NULL);
+
+```
+#### 
+
+```SQL
+
 
 ```
 
