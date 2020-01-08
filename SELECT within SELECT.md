@@ -89,10 +89,49 @@ WHERE gdp > ALL (SELECT gdp
                  AND gdp is NOT NULL);
 
 ```
-#### 
+### Correlated or Synchronized sub query
+#### Mostramos el continente , el nombre y el area del pais mas grande con el area mas grande
 
 ```SQL
+SELECT continent, name, area
+FROM world x
+WHERE area >= ALL (SELECT area
+                   FROM world y
+                   WHERE y.continent=x.continent
+                   AND area>0);
 
+```
+#### Mostramos el nombre y el continente del primer pais ( por orden alfabetico de cada continente).
+
+```SQL
+SELECT continent, name 
+FROM world x
+WHERE name <= ALL (SELECT name 
+                   FROM world y
+                   WHERE y.continent=x.continent);
+
+```
+
+#### Encuentra los continentes donde todas los paises tiengan una poblacion menor a 250000000 despues encuentra los nombre de los paises asociados con eses continentes, muestra nombre , continente y poblacion
+
+```SQL
+SELECT name, continent, population 
+FROM world x
+WHERE 25000000 >= ALL(SELECT population
+	                FROM world y
+		        WHERE x.continent = y.continent
+                        AND y.population>0);
+
+```
+#### Algunos paises tienen una poblacion 3 veces mayor que cualquiera de sus vecinos  ( en el mismo continente)
+
+```SQL
+SELECT name, continent 
+FROM world x
+WHERE population >= ALL(SELECT population*3
+                        FROM world y
+                        WHERE x.continent = y.continent
+                        and y.name != x.name);
 
 ```
 
