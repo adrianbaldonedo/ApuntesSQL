@@ -32,10 +32,18 @@ WHERE area >= 1000000;
 ```
 
 
-#### 
+#### cual es la poblacion de pais1 , pais2 , pais 3
 
 ```SQL
 
 
 ```
 
+#### para cada continente muestra el continente y su numero de paises
+
+```SQL
+SELECT continent, COUNT(name) as 'Nº of countries'
+FROM world
+GROUP BY continent;
+
+```
