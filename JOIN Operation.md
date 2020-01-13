@@ -54,6 +54,23 @@ FROM game JOIN eteam ON game.team1=eteam.id
 WHERE eteam.coach = 'Fernando Santos';
 
 ```
+#### Lista el jugador para cada goal marcado en un partido donde el estadio fue 'National Stadium, Warsaw'
+
+```SQL
+SELECT goal.player
+FROM goal JOIN game ON game.id = goal.matchid
+WHERE game.stadium = 'National Stadium, Warsaw';
+
+```
+#### Muestra el nombre de todos los jugadores que marcaron un goal contra alemania
+
+```SQL
+SELECT DISTINCT(goal.player)
+FROM game JOIN goal ON game.id = goal.matchid 
+WHERE (game.team1='GER' OR game.team2='GER') 
+AND goal.teamid <> 'GER';
+
+```
 #### 
 
 ```SQL
