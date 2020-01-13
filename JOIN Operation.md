@@ -1,10 +1,10 @@
 # JOIN
 ### Nos permite hacer consultas de varias tablas 
 ### Estructura de ejemplo:
-'''  SQL
+```SQL
 SELECT *
   FROM game JOIN goal ON (id=matchid)
-'''
+```
 
 #### Modifica para mostrar esclusivamente el matchid y el jugador, para identificar los jugadores alemanes comprueba por teamid = 'GER'
 
