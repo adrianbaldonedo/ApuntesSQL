@@ -32,10 +32,14 @@ WHERE area >= 1000000;
 ```
 
 
-#### cual es la poblacion de pais1 , pais2 , pais 3
+#### cual es la poblacion de pais1, pais2, pais3
 
 ```SQL
-
+SELECT SUM(population) as 'Total Population'
+FROM world
+WHERE name = 'Estonia' 
+      OR name = 'Latvia'
+      OR name = 'Lithuania';
 
 ```
 
@@ -45,5 +49,25 @@ WHERE area >= 1000000;
 SELECT continent, COUNT(name) as 'Nº of countries'
 FROM world
 GROUP BY continent;
+
+```
+#### para cada continente muestra el continente y el numero de paises donde la poblacion es de por lo menos 10 millones
+
+```SQL
+SELECT continent, COUNT(name) AS 'Nº of countries'
+FROM world
+WHERE population >= 10000000
+GROUP BY continent;
+
+```
+## HAVING 
+### CUANDO EJECUTAMOS ALGO SOBRE LA TABLA PRICIPAL SE USA EL WEHERE , SI LO QUE EJECUTAMOS SE UTILIZA SOBRE LA AGRUPACION UTILIZAMOS HAVING
+#### Lista los continentes que TIENEN una poblacion totan de por lo menos 100 millones
+
+```SQL
+SELECT continent
+FROM world
+GROUP BY continent
+HAVING SUM(population) >= 100000000;
 
 ```
