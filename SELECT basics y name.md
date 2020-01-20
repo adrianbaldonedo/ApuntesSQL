@@ -42,6 +42,8 @@ SELECT name, area FROM world
   Utilizamos esta notación **LIKE** para buscar un patrón / carácter / símbolo  y que coincida
   **En SQL usar Mayúsculas y Minúsculas no es lo mismo. Es estricto el Matching de caracteres.**
   
+  La diferencia entre LIKE Y "=" a la hora de comparar es que LIKE busca una expresion regular,  y "=" es para buscar una cadena tal    cual y como esta escrita ( LIKE 'The%' vs = 'The%')
+  
   SELECT name FROM world
   
   WHERE name LIKE 'B%' **SELECCIONA DE LA TABLA LOS NOMBRES QUE TENGAN UNA B, SE PUEDE PONER %B%, %GER% %Germany%**
