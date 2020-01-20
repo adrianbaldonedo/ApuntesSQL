@@ -89,3 +89,33 @@ AND goal.teamid <> 'GER';
 
 
 ```
+#### Para cada partido donde alemania marco , enseña el matchid, la fecha del partido y el numero de goles marcados por alemania
+
+```SQL
+SELECT
+    goal.matchid,
+    game.mdate,
+    COUNT(*) AS 'goals scored'
+FROM game JOIN goal ON game.id = goal.matchid
+WHERE goal.teamid = 'GER'
+GROUP BY goal.matchid, game.mdate;
+
+```
+#### 
+
+```SQL
+
+
+```
+#### 
+
+```SQL
+
+
+```
+#### 
+
+```SQL
+
+
+```
