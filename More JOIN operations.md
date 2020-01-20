@@ -87,6 +87,28 @@ WHERE actor.name = 'Harrison Ford'
 AND ord <> 1;
 
 ```
+#### Lista todas las peliculas con su actor principal las pelicualas estrenadas en el año 1962
+```SQL
+SELECT movie.title, actor.name
+FROM movie JOIN casting ON movie.id = casting.movieid
+           JOIN actor ON actor.id = casting.actorid
+WHERE movie.yr = 1962 AND casting.ord = 1;
+
+```
+#### Cuales fueron los años mas ocupados para Rock Hudson, enseña el año y el numero de peliculas que hizo cada años en las cuales actuo en mas de dos peliculas
+```SQL
+SELECT movie.yr, COUNT( movie.title) AS 'nº of films'
+FROM movie JOIN casting ON movie.id = casting.movieid
+           JOIN actor ON casting.actorid = actor.id
+WHERE actor.name = 'Rock Hudson'
+GROUP BY movie.yr
+HAVING COUNT(movie.title) > 2;
+
+```
+####
+```SQL
+
+```
 ####
 ```SQL
 
