@@ -70,6 +70,31 @@ FROM actor JOIN casting ON actor.id = casting.actorid   -- por cada tubpla de la
 WHERE movie.title = 'Alien';
 
 ```
+#### lista todas las peliculas donde aparezca Harrison Ford
+```SQL
+SELECT movie.title
+FROM movie JOIN casting ON movie.id = casting.movieid
+           JOIN actor ON actor.id = casting.actorid
+WHERE actor.name = 'Harrison Ford';
+
+```
+#### lista todas las peliculas donde aparezca Harrison Ford pero que no sea el actor principal
+```SQL
+SELECT movie.title
+FROM movie JOIN casting ON movie.id = casting.movieid
+           JOIN actor ON actor.id = casting.actorid
+WHERE actor.name = 'Harrison Ford'
+AND ord <> 1;
+
+```
+####
+```SQL
+
+```
+####
+```SQL
+
+```
 ####
 ```SQL
 
