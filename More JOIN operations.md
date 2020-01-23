@@ -105,16 +105,36 @@ GROUP BY movie.yr
 HAVING COUNT(movie.title) > 2;
 
 ```
-####
+#### list las peliculas y el actor principal para todos las peliculas en las que aparece Julie Andrews
 ```SQL
+SELECT movie.title, actor.name
+FROM movie JOIN casting ON movie.id = movieid
+           JOIN actor ON actorid = actor.id
+WHERE casting.ord = 1 
+AND movie.id IN (SELECT movie.id
+                        FROM movie JOIN casting ON movie.id = movieid
+                                   JOIN actor ON actorid = actor.id
+                        WHERE actor.name = 'Julie Andrews'
+                        );
+```
+#### obten un lista , en orden alfabetico , de los actores que tuvieron por lo menos 30 papeles principales
+```SQL
+SELECT actor.name
+FROM actor JOIN casting ON actor.id = casting.actorid
+WHERE casting.ord = 1
+GROUP BY actor.name
+HAVING COUNT(casting.movieid) >= 30
+ORDER BY actor.name asc;
 
 ```
-####
+#### lista las peliculas que se estrenaron en el año de 1978Y EL NUMERO DE ACTORES ordenados por el numero de actores participantes y luego por titulo
 ```SQL
-
-```
-####
-```SQL
+SELECT movie.title, COUNT(casting.actorid)
+FROM movie JOIN casting ON movie.id = movieid
+           JOIN actor ON actorid = actor.id
+WHERE movie.yr = 1978
+GROUP BY movie.title
+ORDER BY COUNT(casting.actorid) DESC, movie.title ASC;
 
 ```
 ####
