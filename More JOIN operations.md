@@ -137,8 +137,35 @@ GROUP BY movie.title
 ORDER BY COUNT(casting.actorid) DESC, movie.title ASC;
 
 ```
-####
+#### lista toda la lista de gente que trabajo con 'Art Garfunkel'
 ```SQL
+
+-- SOLUCION CON JOINS
+
+SELECT DISTINCT Actor1.name   
+FROM actor AS Actor1 JOIN casting AS casting1
+                     ON Actor1.id = casting1.actorid
+                     JOIN casting AS casting2
+                     ON casting1.movieid = casting2.movieid
+                     JOIN actor AS Actor2
+                     ON Actor2.id = casting2.actorid
+WHERE Actor2.name = 'Art Garfunkel'
+AND Actor2.id <> Actor1.id;
+
+-- SOLUCION CON SUBCONSULTAS
+SELECT
+FROM
+WHERE
+
+SELECT
+FROM
+WHERE
+
+
+
+
+
+
 
 ```
 ####
