@@ -153,19 +153,24 @@ WHERE Actor2.name = 'Art Garfunkel'
 AND Actor2.id <> Actor1.id;
 
 -- SOLUCION CON SUBCONSULTAS
-SELECT
-FROM
-WHERE
+SELECT actor.name                                             
+FROM actor JOIN casting ON actor.id = casting.actorid            Dame todos los actores que actuaran en las peliculas con los ids que   WHERE actor.name <> 'Art Garfunkel'                              salen en la subconsula
+AND casting.movieid IN (
+                SELECT casting.movieid
+                FROM casting JOIN actor ON actor.id= casting.actorid     Dame todos los id de las peliculas donde salio art garfunkel
+                WHERE actor.name = 'Art Garfunkel'
+);
+-- SOLUCION CON SUBCONSULTAS DESAMBIGUADA
 
-SELECT
-FROM
-WHERE
-
-
-
-
-
-
+SELECT Actor1.name                                             
+FROM actor AS Actor1 JOIN casting AS Casting1
+                     ON Actor1.id = Casting1.actorid            
+WHERE Actor1.name <> 'Art Garfunkel'
+AND Casting1.movieid IN (
+              SELECT Casting2.movieid
+              FROM actor AS Actor2 JOIN casting AS Casting2 ON Actor2.id= Casting2.actorid
+               WHERE Actor2.name = 'Art Garfunkel'
+);
 
 ```
 ####
