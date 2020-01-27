@@ -59,7 +59,7 @@ FROM teacher LEFT JOIN dept
 ```sql
 SELECT COUNT(teacher.name) AS 'nº profes',
        COUNT(teacher.mobile) AS 'nº de moviles'
-FROM teacher
+FROM teacher;
 ```
 #### Usa la funcion COUNT Y GROUP BY dept.name para enseñar cada departamento y el numero de personas en ese deptartamento, usar RIGHT JOIN para asegurarse que el departamento Engineering aparece en la lista 
 ```sql
@@ -88,7 +88,7 @@ vacio:
   FROM bbc
 
 ```
-#### usa la funcion CASE para mostrar el nombre de cada profesor seguido de 'Sci' si el departamento del profesor es 1 o 2 y si 'Art' si es de cualquier otro departamento
+#### usa la funcion CASE WHEN para mostrar el nombre de cada profesor seguido de 'Sci' si el departamento del profesor es 1 o 2 y si 'Art' si es de cualquier otro departamento
 ```sql
 SELECT teacher.name, 
        CASE WHEN dept = 1
@@ -97,7 +97,7 @@ SELECT teacher.name,
        THEN 'Sci'
        ELSE 'Art'
     END
-FROM teacher LEFT JOIN dept ON dept.id = teacher.dept
+FROM teacher LEFT JOIN dept ON dept.id = teacher.dept;
 
 ```
 ####
