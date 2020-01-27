@@ -88,8 +88,16 @@ vacio:
   FROM bbc
 
 ```
-####
+#### usa la funcion CASE para mostrar el nombre de cada profesor seguido de 'Sci' si el departamento del profesor es 1 o 2 y si 'Art' si es de cualquier otro departamento
 ```sql
+SELECT teacher.name, 
+       CASE WHEN dept = 1
+       THEN 'Sci'
+       WHEN dept = 2
+       THEN 'Sci'
+       ELSE 'Art'
+    END
+FROM teacher LEFT JOIN dept ON dept.id = teacher.dept
 
 ```
 ####
