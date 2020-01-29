@@ -19,7 +19,7 @@ Esta estructura no siempre es igual todo depende de nuestra consulta pero nos va
 # Seleccionamos una tabla <a name="selectTabla"></a>
 Partimos de una tabla sencilla con nombres y apellidos 
 
-TABLA *trabajadores*
+TABLA **trabajadores**
 
 | ID | Nombre | Apellidos |
 | -- | ------ | --------- |
@@ -27,8 +27,11 @@ TABLA *trabajadores*
 | 02 | Antonio| Gonzalez Nuñez|
 | 03 | Juan   | Rodriguez Castro|
 
+
 Lo mas basico para hacer una consulta y seleccionar todos los campos de una tabla seria:
 ```sql
 SELECT *
 FROM trabajadores
 ```
+Despues de la notación SELECT indicariamos que columnas queremos, en este caso con * seleccionamos todas
+Despues de la notación FROM indicariamos el nombre de la tabla de la cual queremos consultar los datos
