@@ -1,7 +1,7 @@
 # Apuntes SQL
 ## Indice
 1. [Estructura](#Estructura)
-1. [Seleccionar una tabla] (#selectTabla)
+1. [Seleccionar una tabla](#selectTabla)
 
 
 
