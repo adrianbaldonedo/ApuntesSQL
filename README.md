@@ -4,6 +4,9 @@
 1. [Seleccionar una tabla](#selectTabla)
 1. [SELECT DISTINC](#selectDistinc)
 1. [WHERE](#where)
+1. [IN](#in)
+1. [BETWEEN](#between)
+1. [LIKE](#like)
 
 
 
@@ -76,5 +79,16 @@ Lo operadores utilizados en el **WHERE** son:
 | LIKE | Comparación no extricta ( Con patrones) |
 | IN | Para especificar multiple posibles valores para una columna |
 
+# Notación IN <a name="in"></a>
+Se utiliza la notación **IN** para los conjuntos, estes van entre paréntesis y en comillas simples y separados por comas.
 
+Ejemplo donde seleccionamos el conjunto de estes tres paises
+```sql
+SELECT name, population
+FROM world
+WHERE name IN ('Sweden', 'Norway', 'Denmark');
+```
+
+# Notación BETWEEN <a name="between"></a>
+# Notación LIKE <a name="like"></a>
 
