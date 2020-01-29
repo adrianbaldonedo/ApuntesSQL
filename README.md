@@ -137,7 +137,7 @@ Con este patrón en una tabla con paises nos saldria bahamas
 ```sql
 WHERE name LIKE '%a%a%a%'
 ```
-
+                    
 
 
 
