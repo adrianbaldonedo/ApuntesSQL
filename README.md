@@ -1,6 +1,6 @@
 # Apuntes SQL
 ## Indice
-1. Estructura (#Estructura)
+1. [Estructura](#Estructura)
 
 
 
@@ -100,4 +100,4 @@
 
 
 
-# Estructura
+# Estructura <a name="Estructura"/>
