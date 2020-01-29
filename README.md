@@ -18,12 +18,15 @@ Esta estructura no siempre es igual todo depende de nuestra consulta pero nos va
 
 # Seleccionamos una tabla <a name="selectTabla"></a>
 Partimos de una tabla sencilla con nombres y apellidos 
+
 TABLA *trabajadores*
-|ID |Nombre |Apellidos |
-|----------|----------|----------|
-|01|Jesus|Garcia Naveira|
-|02|Antonio|Gonzalez|Nuñez|
-|03|Juan|Rodriguez|Castro
+
+| ID | Nombre | Apellidos |
+| -- | ------ | --------- |
+| 01 | Jesus  | Garcia Naveira|
+| 02 | Antonio| Gonzalez Nuñez|
+| 03 | Juan   | Rodriguez Castro|
+
 Lo mas basico para hacer una consulta y seleccionar todos los campos de una tabla seria:
 ```sql
 SELECT *
