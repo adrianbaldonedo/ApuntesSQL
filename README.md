@@ -90,5 +90,67 @@ WHERE name IN ('Sweden', 'Norway', 'Denmark');
 ```
 
 # Notación BETWEEN <a name="between"></a>
+Se utiliza la notación **BETWEEN** para seleccionar un rango de valores intermedios entre dos números, siempre usando la notación **AND** entre los dos valores del rango.
+
+Ejemplo donde seleccionamos los valores entre 200000 y 250000 Ambos incluidos:
+```sql
+SELECT name, area
+FROM world
+WHERE area BETWEEN 200000 AND 250000
+```
+
 # Notación LIKE <a name="like"></a>
+Se utiliza la notación **LIKE** para buscar un patrón / carácter / símbolo y que coincida.
+
+En SQL usar Mayúsculas y minúsculas no es lo mismo debido a que el Matching de caracteres es extricto.
+
+La diferencia entre **LIKE** Y **"="** a la hora de comparar es que **LIKE** busca una expresión regular y **"="** sirve para buscar una cadena tal cual y como esta escrita ( **LIKE 'The%'** vs **= 'The%'**
+
+% - el signo de porcentaje representa cero, uno o mucho caracteres
+_ - el signo del guión bajo representa a un solo caracter.
+
+Estes dos signos se tambien se pueden usar combinados.
+
+Ejemplos:
+Nombres que contengan un carácter (%char%) :
+```sql
+WHERE name LIKE '%B%'
+```
+Empiecen por un carácter (char%)
+```sql
+WHERE name LIKE 'B%'
+```
+Finalicen con varios carácteres ( %string)
+```sql
+WHERE name LIKE '%land'
+```
+Que empiecen con un carácter y terminen con un conjunto de carácteres (char%charchar)
+```sql
+WHERE name LIKE 'C%ia'
+```
+Contiene un carácter doble  (%charchar%)
+```sql
+WHERE name LIKE '%ee%'
+```
+Varios caracteres repetidos pero separados (%char%char%char%char%)
+Con este patrón en una tabla con paises nos saldria bahamas
+```sql
+WHERE name LIKE '%a%a%a%'
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
