@@ -2,6 +2,8 @@
 ## Indice
 1. [Estructura](#Estructura)
 1. [Seleccionar una tabla](#selectTabla)
+1. [SELECT DISTINC](#selectDistinc)
+1. [WHERE](#where)
 
 
 
@@ -13,10 +15,11 @@ Estructura básica General:
 1. Inidcamos en el caso de tener una condición lo indicamos a continuación con *WHERE*
 1. En caso de necesitarlo le indicamos un Orden  con *ORDER BY*
 1. En caso de necesitarlo indicamos un limite a mostrar con *LIMIT*
+1. Al final de la consulta SQL cerramos el bloque de codigo con un **;**
 
 Esta estructura no siempre es igual todo depende de nuestra consulta pero nos vale para tener una primera aproximación a una estructura simple de SQL.
 
-# Seleccionamos una tabla <a name="selectTabla"></a>
+# Seleccionamos una tabla Notaciones SELECT Y FROM <a name="selectTabla"></a>
 Partimos de una tabla sencilla con nombres y apellidos 
 
 TABLA **trabajadores**
@@ -31,7 +34,47 @@ TABLA **trabajadores**
 Lo mas basico para hacer una consulta y seleccionar todos los campos de una tabla seria:
 ```sql
 SELECT *
-FROM trabajadores
+FROM trabajadores;
 ```
 Despues de la notación SELECT indicariamos que columnas queremos, en este caso con * seleccionamos todas
 Despues de la notación FROM indicariamos el nombre de la tabla de la cual queremos consultar los datos
+
+
+# Notación SELECT DISTINCT <a name="selectDistinc"></a>
+Con esta notacion selccionamos solo las columnas con un valor distinto
+Por ejemplo en una tabla con nombre de personas y direcciones en la columna pais es probable que el mismo pais salga mas veces, para evitar que se repita en nuestr consulta utilizamos la notación **SELECT DISTINCT**.
+
+```sql
+SELECT DISTICNCT Country
+FROM trabajadores;
+```
+
+# Notación WHERE <a name="where"></a>
+Utilizamos la notación **WHERE** para filtar resultados.
+El **WHERE** se usa para extraer solo los resultados que cumplen cierta condición.
+
+sintaxis:
+
+```sql
+SELECT columna1, columna2
+FROM tabla
+WHERE condicion;
+```
+Las condiciones pueden ser te varios tipos , inclus mas adelante dentro de la condición veremos que se pueden realizar consultas anidadas.
+
+Lo operadores utilizados en el **WHERE** son:
+
+| Operador | Descripción |
+| -------- | ----------- |
+| = |  igualdad extricta |
+| > | Mayor que |
+| < | Menor que |
+| >= | Mayor o igual que |
+| <= | Menor o igual que |
+| <> | NO igual ( Diferente ) |
+| BETWEEN | Comprendido entre un cierto rango  |
+| LIKE | Comparación no extricta ( Con patrones) |
+| IN | Para especificar multiple posibles valores para una columna |
+
+
+
