@@ -158,6 +158,7 @@ WHERE name LIKE '_____'
 NOTA: si nos piden como minimo 4 letras utlizamos 4 guiones bajos y luego un signo de porcentaje
 
 También se puede usar LIKE para comparaciones extrictas, como si estubiesemos usando el operador = 
+
 En el siguiente patrón en una tabla de paises nos enseñaría los paises que su pais es su propia capital
 ```sql
 SELECT capital
@@ -167,6 +168,7 @@ WHERE name LIKE capital;
 
 # Función CONCAT <a name="concat"></a>
 Se usa la función **CONCAT** para juntar una busqueda y una cadena ( Matching + String ) cuando usamos la notación **LIKE**
+
 Con este patrón en una tabla con paises nos va a mostrar los paises que su capital sea la concatenación del nombre del pais + cadena "city"
 ```sql
 WHERE capital LIKE CONCAT(name, 'City')
@@ -177,10 +179,11 @@ Con este patrón en una tabla de paises nos mostraría todos los paises que su c
 WHERE capital LIKE CONCAT ('%', name, '%')
 ```
 Por ultimo usamos la función **CONCAT** para concatenar una extension a un atributo dejando un espacio entre ellos
+
 Con este patrón en un tabla de paises nos mostraría todos los paises que su capital sea el nombre del pais + (espacio en blanco) + 
 String
 
-#**PREGUNTAR AL PROFESOR SI ESTO ESTA BIEN**
+# **PREGUNTAR AL PROFESOR SI ESTO ESTA BIEN**
 ```sql
 WHERE capital LIKE CONCAT(name, '_%')
 ```
