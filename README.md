@@ -9,9 +9,9 @@
 1. [LIKE](#like)
     - [CONCAT](#concat)
     - [REPLACE](#replace)
+1. [ALIAS](#alias)
+1. [Operaciones con SELECT](#selectOperations)
 1. [SubLenguajes SQL](#subsql)
-
-
 
 
 # Estructura <a name="Estructura"></a>
@@ -196,10 +196,35 @@ Con esta función nos mostraria el resultado "SQL MuMorial"
 SELECT REPLACE ('SQL Tutorial', 'T', 'M')
 ```
 
+# ALIAS <a name="alias"></a>
+Se utiliza los Alias cuando queremos dar a una tabla o a una columna en una tabla un nombre temporal
+Los Alias se utilizan generalmete para hacer que los nombres de las columnas sean mas legibles
+Para dar un Alias se utiliza la notación **AS**
 
+Alias para columnas
+```sql
+SELECT nombre_Columnas AS alias_Columnas
+FROM nombre_Tabla
+```
 
+Alias para tablas
+```sql
+SELECT nombre_columnas
+FROM nombre_Tabla AS alias_Tabla
+```
 
+# Operaciones con SELECT <a name="selectOperations"></a>
+Dentro del **SELECT** se pueden realizar operaciones, si una tabla nos proporciona ciertos valores y queremos hacer calculos con ellos podemos realizarlo de forma sencilla
 
+Tenemos una tabla con datos de paises y nos proporcionan la poblacion de un pais y el producto interior bruto podemos calcular el producto interior bruto per capita
+```sql
+SELECT name, (GDP / population ) AS 'GDP per Capita'
+```
+
+Con la misma tabla podemos también calcularla poblacion en millones si dividimos la poblacion entre 1000000
+```sql
+SELECT name (population / 1000000 ) As population
+```
 
 
 
