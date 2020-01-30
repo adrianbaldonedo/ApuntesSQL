@@ -11,6 +11,9 @@
     - [REPLACE](#replace)
 1. [ALIAS](#alias)
 1. [Operaciones con SELECT](#selectOperations)
+1. [OR y XOR (OR exclusivo)](#orxor)
+1. [Redondeos con ROUND](#round)
+
 1. [SubLenguajes SQL](#subsql)
 
 
@@ -221,10 +224,88 @@ Tenemos una tabla con datos de paises y nos proporcionan la poblacion de un pais
 SELECT name, (GDP / population ) AS 'GDP per Capita'
 ```
 
-Con la misma tabla podemos también calcularla poblacion en millones si dividimos la poblacion entre 1000000
+Con la misma tabla podemos también calcular la poblacion en millones si dividimos la poblacion entre 1000000
 ```sql
 SELECT name (population / 1000000 ) As population
 ```
+
+# OR y XOR (OR exclusivo) <a name="orxor"></a>
+Cuando necesitamos hacer una comparación en la que se indica "o bien compara con esto", "o bien compara con esto otro" en nuestra consulta utlizamos la notación **OR**
+
+En esta consulta pedimos el nombre , la poblacion y el area donde la poblacion es mayor que 250000000 o o el area es mayor que 3000000
+```sql
+SELECT name, population, area
+FROM world
+WHERE population > 250000000
+OR area > 3000000;
+```
+Utilizamos la notación XOR ( OR exclusivo ) cuando queremos buscar por una cosa o por la otra, pero no por las dos
+
+Esto tambien se puede hacer de dos maneras:
+```sql
+Manera con XOR:
+SELECT name, population , area
+FROM world
+WHERE area > 3000000
+XOR population > 250000000;
+
+Manera sin XOR:
+SELECT name, population, area
+FROM world
+WHERE ( area > 3000000 OR population > 250000000)
+AND NOT ( area > 3000000 AND population > 250000000);
+```
+
+# Redondeos con ROUND <a name="round"></a>
+## ROUND CON DECIMALES
+Usamos **ROUND** para redondear un resultado , el formato es ROUND ( DATO / NUMERO , cantidad de decimales)
+
+En este caso mostramos poblacion entre un millon y enseñamos 2 decimales y tambien Producto interior butro entre un billon y mostramos 2 decimales
+```sql
+SELECT name, ROUND(population / 1000000, 2) AS population, ROUND(GDP / 1000000000, 2) AS GDP
+```
+
+## ROUND CON NUMEROS MUY GRANDES 
+El número de decimales puede ser negativo, esto se redondeará al 10 más cercano (cuando p es -1) o 100 (cuando p es -2) o 1000 (cuando p es -3), etc.
+
+En esta consulta redondeamos un trillón al 1000 mas cercano
+```sql
+SELECT name, ROUND(GDP / population, -3) As GDPperCapita
+FROM world
+WHERE GDP >= 1000000000000;
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
