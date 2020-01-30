@@ -23,8 +23,15 @@
 1. [HAVING](#having)
 1. [GROUP BY](#groupby)
 1. [ORDER BY](#orderby)
+1. [JOINS](#joins)
+1. [INNER JOIN](#innerJoin)
+1. [RIGTH y LEFT JOINS](#rylJoins)
+1. [COALESCE](#coalesce)
+1. [CASE WHEN](#case)
+1. [IS NULL y IS NOT NULL](#null)
 1. [SubLenguajes SQL](#subsql)
 
+__________________________________________________________________________
 
 # Estructura <a name="Estructura"></a>
 Depende de lo que necesitemos a la hora de hacer una consulta usaremos unas notaciones o otras , siempre partimos de una tabla con lo cual la notación *FROM* es la primera que SQL interpretará.
@@ -425,6 +432,8 @@ WHERE 250000000 >= ALL ( SELECT population
 
 # Funciones SUM , COUNT y AVG <a name="sumCount"></a>
  La función COUNT() devuelve el numero de filas que coinciden con el criterio especificado
+ 
+ La funcion COUNT() no cuenta los valores nulos
  ```sql
 SELECT COUNT(nombre_columna)
 FROM nombre_tabla
@@ -480,24 +489,156 @@ FROM tabla
 ORDER BY columna1, columna2 ASC | DESC;
 ```
 
+# JOINS <a name="joins"></a>
+La notación **JOIN** se utiliza para combinar filas de dos o mas tablas, basandose en las columnas relacionadas entre ellos
 
+Por cada tupla de la tabla1 insertas todas las tuplas de la tabla2
 
+**Cuando tenemos varias tablas pero alguna de ellas es una tabla que sale de una relacion , y necesitemos hacer JOINS entre otras dos tablas que no se comunican directamente , lo que necesitamos hacer es el JOIN pasando por las relaciones que sean necesarias**
 
+Ejemplo: La relacion entre las dos tablas es el codigoCliente
+tabla1
 
+| ordenID | codigoCliente | fechaOrden |
+| ------- | ------------- | ---------- |
+| 10308 | 2  | 1996-09-18 |
+| 10309 | 37| 1996-09-19 |
+| 10310 | 77 | 1996-09-20 |
 
+tabla2
 
+| codigoCliente | Cliente |  NombreContacto | Pais |
+| ------------- | ------- | --------------- | ---- |
+| 1 | Alfredo Nuñez S.L.  | Alfredo | españa |
+| 2 | Ana Trujillo helados y emparedados  | Ana trujillo | Francia |
+| 3 | Cafe Bar Rosalia de Castro | Tino | Argentina |
+
+Sintaxis: Esta sentencia SQL va a mostrar por cada tupla de la tabla1 todas las tuplas de la tabla2
+```sql
+SELECT tabla1.ordeID, tabla2.Cliente, tabla1.fechaOrden
+FROM tabla1 JOIN tabla2;
+```
+Si queremos mostrar solo los resultados que tengan relacion , tenemos que indicarselo con la notación ON despues de JOIN y emparejar las claves relacionadas
+Sintaxis: En esta sentencia SQL solo se van mostrar los valores que sean iguales en las dos tablas
+```sql
+SELECT tabla1.ordeID, tabla2.Cliente, tabla1.fechaOrden
+FROM tabla1 JOIN tabla2 ON tabla1.codigoCliente = tabla2.codigoCliente;
+```
+
+# INNER JOIN <a name="innerJoin"></a>
+La notación **INNER JOIN** selecciona los resultados que tenga valores que concuerdan en las dos tablas
+
+Sintaxis:
+```sql
+SELECT tabla1.ordeID, tabla2.Cliente
+FROM tabla1 INNER JOIN tabla2 ON tabla1.codigoCliente = tabla2.codigoCliente;
+```
+# RIGTH y LEFT JOINS <a name="rylJoins"></a>
+La notación **RIGHT JOIN** saca todos los elementos de la derecha aun que los de la izquierda sea nulo
+
+La notación **LEFT JOIN** saca todos los elementos de la izquierda aun que los de la derecha sea nulo.
+
+sintaxis:
+```sql
+-- LEFT  JOIN:
+SELECT 
+      teacher.name As Profes,
+      dept.name As Departamentos
+ FROM teacher LEFT JOIN dept
+           ON (teacher.dept=dept.id);
+
+-- RIGHT JOIN:
+SELECT 
+      teacher.name As Profes,
+      dept.name As Departamentos
+ FROM teacher RIGHT JOIN dept
+           ON (teacher.dept=dept.id);
+
+```
+
+# COALESCE <a name="coalesce"></a>
+La función **COALESCE** coge cualquier nuemero de argumentos y devuelve el primer valor que no es null
+
+Esta función se utiliza para dar valores a los null, por ejemplo poner a cero o poner una cadena vacia para que no rompan los programas.
+
+Sintaxis:
+```sql
+SELECT teacher.name, COALESCE(teacher.mobile, '07986 444 2266') As mobile
+FROM teacher;
+```
+Tambien se usa la función **COALESCE** y la notación **LEFT JOIN** | **RIGHT JOIN** en conjunto para que siempre se muestre todos los elementos de la columna que se le indique con el LEFT o RIGHT.
+
+Sintaxis: Usa la funcion COALESCE y la funcion LEFT JOIN para imprimir el nombre del profesor y el nombre de su departamento, usando 'None' donde no hay departamento
+
+```sql
+SELECT teacher.name, COALESCE(dept.name, 'None') AS Departamento
+FROM teacher LEFT JOIN dept
+           ON (teacher.dept=dept.id);
+```
+
+# CASE WHEN<a name="case"></a>
+La notación **CASE WHEN** nos permite devolver un valor diferente según diferentes condiciones, si no hay condiciones y ningún **ELSE** entoces devuelve el valor **NULL**
+
+Sintaxis:
+```sql
+CASE WHEN condition1 THEN value1 
+       WHEN condition2 THEN value2  
+       ELSE def_value 
+  END 
+```
+Ejemplo de como se usa:
+```sql
+SELECT name, population
+      ,CASE WHEN population<1000000 
+            THEN 'small'
+            WHEN population<10000000 
+            THEN 'medium'
+            ELSE 'large'
+       END
+  FROM bbc
+```
+
+# IS NULL y IS NOT NULL <a name="null"></a>
+Para poder usar la notación **NULL** en nuestro **WHERE** se usa con **IS NULL** o **IS NOT NULL**
+
+sintaxis:
+```sql
+-- IS:
+SELECT teacher.name
+FROM teacher
+WHERE teacher.dept IS NULL;
+
+-- IS NOT:
+SELECT teacher.name
+FROM teacher
+WHERE teacher.dept IS NOT NULL;
+```
+
+________________________________________________________
 
 # SubLenguajes SQL <a name="subsql"></a>
 
 DDL (DATA DEFINITION LANGUAGE)
+
 CREATE, ALTER, DROP
+
 DML (DATA MANIPULATION LANGUAGE)
+
 INSERT, UPDATE, DELETE
+
 DQL(DATA QUARY LANGUAGE)
+
 SELECT
+
 TCL( TRANSACCION CONTROL LANGUAGE) TRANSACCION -> COMPOSICION DE DISTINTAS INSTRUCCIONES SQL
+
 COMMIT, ROLLBACK, SAFE POINT
+
 DCL (DATA CONTROL LANGUAGE) DAR PERMISOS
+
 GRANT, REVOKE
+
 SCL ( SESION CONTROL LANGUAGUE) MANEJAR DINAMICAMENTE PROPIEDADES DE UNA SESION DE USUARIO
+
 ALTER SESSION
+
