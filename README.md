@@ -13,9 +13,12 @@
 1. [Operaciones con SELECT](#selectOperations)
 1. [OR y XOR (OR exclusivo)](#orxor)
 1. [Redondeos con ROUND](#round)
-
+1. [LENGTH](#length)
+1. [LEFT] (#left)
+1. [NOT LIKE] (#notLike)
+1. [ANY Y ALL](#anyAll)
+1. [SELECT Anidados](#selectAnidados)
 1. [SubLenguajes SQL](#subsql)
-
 
 # Estructura <a name="Estructura"></a>
 Depende de lo que necesitemos a la hora de hacer una consulta usaremos unas notaciones o otras , siempre partimos de una tabla con lo cual la notación *FROM* es la primera que SQL interpretará.
@@ -275,13 +278,119 @@ FROM world
 WHERE GDP >= 1000000000000;
 ```
 
+# LENGTH <a name="length"></a>
+Con la función LENGTH podemos sacar el largo de algo
 
+Lo que es muy bueno si queremos comparar longitudes
 
+En esta consulta comparamos las longitudes de los nombres de los paises con las longitudes de los nombres de las capitales
+```sql
+SELECT name, capital
+FROM world
+WHERE LENGTH(name) LIKE LENGTH(capital);
+```
 
+# LEFT <a name="left"></a>
+Utilizamos la función **LEFT** para aislar el primer carácter
 
+Enseñamos los paises y las capitales de cuyos nombre de pais y de capital son diferentes pero la primera letra coinciden
+```sql
+SELECT name, capital
+FROM world
+WHERE LEFT(name, 1) = LEFT(capital,1)
+AND name <> capital;
+```
 
+# NOT LIKE <a name="notLike"></a>
+Se utiliza la notación **NOT LIKE** para exluir cierto carácter o frase de la consulta
 
+Usamos **NOT LIKE** para buscar palabras que contengan todas las vocales pero NO tengan espacios en blanco
+```sql
+SELECT name
+FROM world
+WHERE name LIKE '%a%'
+AND name LIKE '%e%'
+AND name LIKE '%i%'
+AND name LIKE '%o%'
+AND name LIKE '%u%'
+AND name NOT LIKE '% %';
+```
 
+# Operadores ANY Y ALL <a name="anyAll"></a>
+El operador **ANY** y el operador **ALL** se usan en las clausulas WHERE o HAVING
+
+El operador **ANY** devuelve verdadero si uno se los valores de la subconsulta cumple la condición
+
+El operador **ALL** devuelve verdadero si todos los valores de la subconsulta cumplen la condición
+
+Sintaxis:
+```sql
+ANY:
+SELECT nombre_columna
+FROM nombre_tabla
+WHERE nombre_columna operator ANY ( SELECT nombre_columna
+                                    FROM nombre_tabla 
+                                    WHERE condition);
+
+ALL:
+SELECT nombre_columna
+FROM nombre_tabla
+WHERE nombre_columna operator ALL ( SELECT nombre_columna
+                                    FROM nombre_tabla
+                                    WHERE condition);
+```
+
+# SELECT Anidados <a name="selectAnidados"></a>
+En **SQL** podemos realizar consultas con donde nuestra condición ( lo que va despues de la notación WHERE) sea otra consulta.
+
+Un ejemplo básico seria cuando una consulta de un resultado mayor que otra consulta
+
+Seleccionamos el nombre de los paises que su poblacion sea mayor que la consulta de la poblacion de rusia.
+```sql
+SELECT name
+FROM world
+WHERE population > ( SELECT population
+                     FROM world
+                     WHERE name = 'Rusia');                 
+```
+
+También se puede hacer consultas con varias consultas anidadas
+
+ejemplo: Seleccionamos el pais y el continente de los paises que su continente sea argentia o australia
+```sql
+SELECT name, continent
+FROM world
+WHERE continent = ( SELECT continent
+                    FROM world
+                    WHERE name = 'Argentina')
+OR continent = ( SELECT continent
+                 FROM world
+                 WHERE name = 'Australia');
+```
+** Otra manera de utilizar las consultas anidadas en con la notación IN ** 
+
+La misma consulta de antes con **IN** seria de la siguiente manera:
+```sql
+SELECT name, continent
+FROM world
+WHERE continent IN ( SELECT continent
+                     FROM world
+                     where name IN ('Argentina','Australia'));
+```
+
+## SUBCONSULTA CORRELACIONADA O SINCRONIZADA
+En una consulta de base de datos SQL, una subconsulta correlacionada (también conocida como subconsulta sincronizada) es una subconsulta  que utiliza valores de la consulta externa. Debido a que la subconsulta puede evaluarse una vez por cada fila procesada por la consulta externa.
+
+Ejemplo: Mostramos el continente, el nombre y el area de pais con con el area mas grande
+```sql
+SELECT continent, name, area
+FROM world x
+WHERE area >= ALL ( SELECT area
+                    FROM world y
+                    WHERE y.continent = x.continent
+                    AND area > 0 );
+```
+   
 
 
 
