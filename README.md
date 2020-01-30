@@ -11,6 +11,7 @@
     - [REPLACE](#replace)
 1. [ALIAS](#alias)
 1. [Operaciones con SELECT](#selectOperations)
+1. [AND, OR y NOT](#and)
 1. [OR y XOR (OR exclusivo)](#orxor)
 1. [Redondeos con ROUND](#round)
 1. [LENGTH](#length)
@@ -18,7 +19,12 @@
 1. [NOT LIKE](#notLike)
 1. [ANY Y ALL](#anyAll)
 1. [SELECT Anidados](#selectAnidados)
+1. [Funciones SUM y COUNT](#sumCount)
+1. [HAVING](#having)
+1. [GROUP BY](#groupby)
+1. [ORDER BY](#orderby)
 1. [SubLenguajes SQL](#subsql)
+
 
 # Estructura <a name="Estructura"></a>
 Depende de lo que necesitemos a la hora de hacer una consulta usaremos unas notaciones o otras , siempre partimos de una tabla con lo cual la notación *FROM* es la primera que SQL interpretará.
@@ -114,7 +120,7 @@ Se utiliza la notación **LIKE** para buscar un patrón / carácter / símbolo y
 
 En SQL usar Mayúsculas y minúsculas no es lo mismo debido a que el Matching de caracteres es extricto.
 
-La diferencia entre **LIKE** Y **"="** a la hora de comparar es que **LIKE** busca una expresión regular y **"="** sirve para buscar una cadena tal cual y como esta escrita ( **LIKE 'The%'** vs **= 'The%'**
+La diferencia entre **LIKE** Y **"="** a la hora de comparar es que **LIKE** busca una expresión regular y **"="** sirve para buscar una cadena tal cual y como esta escrita ( **LIKE 'The%'** vs **= 'The%'** )
 
 % - el signo de porcentaje representa cero, uno o mucho caracteres
 _ - el signo del guión bajo representa a un solo caracter.
@@ -230,6 +236,23 @@ SELECT name, (GDP / population ) AS 'GDP per Capita'
 Con la misma tabla podemos también calcular la poblacion en millones si dividimos la poblacion entre 1000000
 ```sql
 SELECT name (population / 1000000 ) As population
+```
+
+# Operadores AND, OR y NOT <a name="and"></a>
+La clausula **WHERE** puede combinarse con los operadores **AND, OR y NOT**
+
+AND y OR se usa para filtrar resultaos basandose en mas de una condicion:
+    - El operador AND muestra un resultado si todas las condiciones separadas por un AND son verdaderas
+    - El operador OR muestra un resultado si alguna de las condiciones separadas por un OR es verdadera
+El operador NOT muestra el resultado si la condición es NO VERDADERA.
+
+sintaxis: 
+```sql
+SELECT columna1, columna2
+FROM tabla
+WHERE condicion1
+OR condicion2
+AND NOT condicion3;
 ```
 
 # OR y XOR (OR exclusivo) <a name="orxor"></a>
@@ -390,28 +413,72 @@ WHERE area >= ALL ( SELECT area
                     WHERE y.continent = x.continent
                     AND area > 0 );
 ```
-   
+Otro ejemplo: Encuentra los continentes donde todas los paises tienen una población menor a 250000000 , despues encuentra los nombres de los paises asociados con eses continentes, muestra el nombre, continente y población
+```sql
+SELECT name, continent, population
+FROM world x
+WHERE 250000000 >= ALL ( SELECT population
+                        FROM world y
+                        WHERE x.continent = y.continent
+                        AND y.population > 0 );
+```
 
+# Funciones SUM , COUNT y AVG <a name="sumCount"></a>
+ La función COUNT() devuelve el numero de filas que coinciden con el criterio especificado
+ ```sql
+SELECT COUNT(nombre_columna)
+FROM nombre_tabla
+WHERE condicion;
+```
+ La función SUM() devuelve la suma total de una columna numérica
+```sql
+SELECT AVG(nombre_columna)
+FROM nombre_tabla
+WHERE condicion;
+``` 
+ La función AVG() devuelve el valor medio de una columna numérica
+```sql
+SELECT SUM(nombre_columna)
+FROM nombre_tabla
+WHERE condicion;
+```
 
+# Notación HAVING <a name="having"></a>
+La notación **HAVING** se utiliza para incluir una condición en agrupaciones, por ejemplo funciones SUM() o MAX()
 
+Ejemplo: Listamos los continentes que **TIENEN** una población total de por lo menos 100 millones
+```sql
+SELECT continent
+FROM world
+GROUP BY continent
+HAVING SUM(population) >= 100000000;
+```
 
+# Notación GROUP BY <a name="groupby"></a>
+La notación **GROUP BY** es una sentencia que agrupa filas que tienen el mismo valor en dentro de una tabla como "encuentra el numero de clientes en cada pais"
 
+Usualmete se usa con funciones de agregado como **COUNT, MAX, MIN, SUM, AVG** para agurpar el resultado en una o mas columnas
 
+Sintaxis:
+```sql
+SELECT columna
+FROM tabla
+WHERE condicion
+GROUP BY columna
+ORDER BY columna;
+```
 
+# Notación ORDER BY <a name="orderby"></a>
+La notación **ORDER BY** se utiliza para ordernar el resultado de modo ascendiente o descendiente
 
+Modo ascendeinte (**ASC**) es la opcion por defecto, para ordenar de modo descenciente se utiliza la palabra clave **DESC**
 
-
-
-
-
-
-
-
-
-
-
-
-
+sintaxis:
+```sql
+SELECT columna1, columna2
+FROM tabla
+ORDER BY columna1, columna2 ASC | DESC;
+```
 
 
 
