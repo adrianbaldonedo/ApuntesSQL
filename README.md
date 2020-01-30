@@ -7,8 +7,8 @@
 1. [IN](#in)
 1. [BETWEEN](#between)
 1. [LIKE](#like)
-  1. [CONCAT](#concat)
-  1. [REPLACE](#replace)
+    - [CONCAT](#concat)
+    - [REPLACE](#replace)
 1. [SubLenguajes SQL](#subsql)
 
 
