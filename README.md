@@ -1,20 +1,3 @@
-** METER PARA LOS SIGUIENTES APUNTES
-DDL (DATA DEFINITION LANGUAGE)
-CREATE, ALTER, DROP
-DML (DATA MANIPULATION LANGUAGE)
-INSERT, UPDATE, DELETE
-DQL(DATA QUARY LANGUAGE)
-SELECT
-TCL( TRANSACCION CONTROL LANGUAGE) TRANSACCION -> COMPOSICION DE DISTINTAS INSTRUCCIONES SQL
-COMMIT, ROLLBACK, SAFE POINT
-DCL (DATA CONTROL LANGUAGE) DAR PERMISOS
-GRANT, REVOKE
-SCL ( SESION CONTROL LANGUAGUE) MANEJAR DINAMICAMENTE PROPIEDADES DE UNA SESION DE USUARIO
-ALTER SESSION,
-
-CUANDO VEAMOS DE DQL ESTAMOS HABLANDO DE SELECT 
-** METER PARA LOS SIGUIENTES APUNTES
-
 # Apuntes SQL
 ## Indice
 1. [Estructura](#Estructura)
@@ -24,6 +7,9 @@ CUANDO VEAMOS DE DQL ESTAMOS HABLANDO DE SELECT
 1. [IN](#in)
 1. [BETWEEN](#between)
 1. [LIKE](#like)
+1. [CONCAT](#concat)
+1. [SubLenguajes SQL](#subsql)
+
 
 
 
@@ -154,7 +140,50 @@ Con este patrón en una tabla con paises nos saldria bahamas
 ```sql
 WHERE name LIKE '%a%a%a%'
 ```
-                    
+Se utiliza un guión bajo como sustituto de un carácter y solo de un carácter
+Con este patrón en una tabla con paises nos saldria los paises que como segundo caracter tienen una t
+```sql
+WHERE name LIKE '_t%'
+```
+En este patrón seguimos utilizando el guión bajo , en este caso dos veces para buscar algo que este dos letras separado
+Con este patrón en una tabla con paises nos saldrían los paises con dos letras cualquiera en medio de dos "o"
+```sql
+WHERE name LIKE '%o__o%'
+```
+Seguimos utilizando guión bajo puesto que tambien se utiliza para sacar resultado con x numero de carácteres
+Con este patron en una tabla de paises nos saldrían los paises con 5 letras y solo 5 letras
+```sql
+WHERE name LIKE '_____'
+```
+NOTA: si nos piden como minimo 4 letras utlizamos 4 guiones bajos y luego un signo de porcentaje
+
+También se puede usar LIKE para comparaciones extrictas, como si estubiesemos usando el operador = 
+En el siguiente patrón en una tabla de paises nos enseñaría los paises que su pais es su propia capital
+```sql
+SELECT capital
+FROM world
+WHERE name LIKE capital;
+```
+
+# Función CONCAT <a name="concat"></a>
+Se usa la función **CONCAT** para juntar una busqueda y una cadena ( Matching + String ) cuando usamos la notación **LIKE**
+Con este patrón en una tabla con paises nos va a mostrar los paises que su capital sea la concatenación del nombre del pais + cadena "city"
+```sql
+WHERE capital LIKE CONCAT(name, 'City')
+```
+También se usa para incluir
+Con este patrón en una tabla de paises nos mostraría todos los paises que su capital fuera una concatenación de CUALQUIER PALABRA + NOMBRE PAIS + CUALQUIER PALABRA ( sin espacios )
+```sql
+WHERE capital LIKE CONCAT ('%', name, '%')
+```
+Por ultimo usamos la función **CONCAT** para concatenar una extension a un atributo dejando un espacio entre ellos
+Con este patrón en un tabla de paises nos mostraría todos los paises que su capital sea el nombre del pais + (espacio en blanco) + 
+String
+
+#**PREGUNTAR AL PROFESOR SI ESTO ESTA BIEN**
+```sql
+WHERE capital LIKE CONCAT(name, '_%')
+```
 
 
 
@@ -169,5 +198,17 @@ WHERE name LIKE '%a%a%a%'
 
 
 
+# SubLenguajes SQL <a name="subsql"></a>
 
-
+DDL (DATA DEFINITION LANGUAGE)
+CREATE, ALTER, DROP
+DML (DATA MANIPULATION LANGUAGE)
+INSERT, UPDATE, DELETE
+DQL(DATA QUARY LANGUAGE)
+SELECT
+TCL( TRANSACCION CONTROL LANGUAGE) TRANSACCION -> COMPOSICION DE DISTINTAS INSTRUCCIONES SQL
+COMMIT, ROLLBACK, SAFE POINT
+DCL (DATA CONTROL LANGUAGE) DAR PERMISOS
+GRANT, REVOKE
+SCL ( SESION CONTROL LANGUAGUE) MANEJAR DINAMICAMENTE PROPIEDADES DE UNA SESION DE USUARIO
+ALTER SESSION
