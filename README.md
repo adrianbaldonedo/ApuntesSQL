@@ -7,7 +7,8 @@
 1. [IN](#in)
 1. [BETWEEN](#between)
 1. [LIKE](#like)
-1. [CONCAT](#concat)
+  1. [CONCAT](#concat)
+  1. [REPLACE](#replace)
 1. [SubLenguajes SQL](#subsql)
 
 
@@ -166,7 +167,7 @@ FROM world
 WHERE name LIKE capital;
 ```
 
-# Función CONCAT <a name="concat"></a>
+## Función CONCAT <a name="concat"></a>
 Se usa la función **CONCAT** para juntar una busqueda y una cadena ( Matching + String ) cuando usamos la notación **LIKE**
 
 Con este patrón en una tabla con paises nos va a mostrar los paises que su capital sea la concatenación del nombre del pais + cadena "city"
@@ -188,9 +189,12 @@ String
 WHERE capital LIKE CONCAT(name, '_%')
 ```
 
-
-
-
+## Función REPLACE <a name="replace"></a>
+La función **REPLACE** remplaza todas las ocurrencias de una subcadena dentro de una cadena con una nueva cadena
+Con esta función nos mostraria el resultado "SQL MuMorial"
+```sql
+SELECT REPLACE ('SQL Tutorial', 'T', 'M')
+```
 
 
 
