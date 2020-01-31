@@ -77,7 +77,10 @@ FROM trabajadores;
 
 # Notación WHERE <a name="where"></a>
 Utilizamos la notación **WHERE** para filtrar resultados.
+
 El **WHERE** se usa para extraer solo los resultados que cumplen cierta condición.
+
+Lo que va después del **WHERE** se llama **PREDICADO** y un predicado solo devuelve true o false
 
 sintaxis:
 
@@ -92,7 +95,7 @@ Lo operadores utilizados en el **WHERE** son:
 
 | Operador | Descripción |
 | -------- | ----------- |
-| = |  igualdad extricta |
+| = |  igualdad extricta | 
 | > | Mayor que |
 | < | Menor que |
 | >= | Mayor o igual que |
@@ -120,6 +123,14 @@ Ejemplo donde seleccionamos los valores entre 200000 y 250000 Ambos incluidos:
 SELECT name, area
 FROM world
 WHERE area BETWEEN 200000 AND 250000
+```
+Para hacer lo mismo que usando la notación **BETWEEN** sin tener que usarla se puede usar **BETWEEN**
+```sql
+WHERE age BETWEEN 20 AND 40
+
+Se haría usando >= AND <= :
+WHHERE age >= 20 
+AND age <= 40
 ```
 
 # Notación LIKE <a name="like"></a>
@@ -525,7 +536,7 @@ FROM tabla1 JOIN tabla2 ON tabla1.codigoCliente = tabla2.codigoCliente;
 ```
 
 # INNER JOIN <a name="innerJoin"></a>
-La notación **INNER JOIN** selecciona los resultados que tenga valores que concuerdan en las dos tablas
+La notación **INNER JOIN** selecciona los resultados que tenga valores que concuerdan en las dos tablas. Es decir pasa de los resultados NULL
 
 Sintaxis:
 ```sql
