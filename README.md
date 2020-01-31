@@ -203,7 +203,6 @@ Por ultimo usamos la función **CONCAT** para concatenar una extensión a un atr
 Con este patrón en un tabla de países nos mostraría todos los países que su capital sea el nombre del país + (espacio en blanco) + 
 String
 
-# **PREGUNTAR AL PROFESOR SI ESTO ESTA BIEN**
 ```sql
 WHERE capital LIKE CONCAT(name, '_%')
 ```
