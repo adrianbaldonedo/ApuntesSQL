@@ -24,10 +24,11 @@ Sintaxis:
 ```
 ```sql
 CREATE TABLE nombre_tabla (
- Columna1 tipo_dato,
- Columna2 tipo_dato,
- Columna3 tipo_dato,
- ....
+ COLUMNA TIPO_DATO
+ id INTEGER [ NOT NULL ] PRIMARY KEY,
+ nombre NCHAR(50),
+ apellido NCHAR(200),
+ fecha (DATE | TIME | TIMESTAMP)
 );
 ```
 ``` sql
