@@ -30,6 +30,7 @@ CREATE TABLE nombre_tabla (
  apellido NCHAR(200),
  fecha (DATE | TIME | TIMESTAMP)
 );
+TIPOS DE CADENAS (VARCHAR | CHAR | NCHAR | TEXT | NCHAR VARYING)
 ```
 ``` sql
 CREATE USER username IDENTIFIED BY password IDENTIFIED WITH auth_plugin;
