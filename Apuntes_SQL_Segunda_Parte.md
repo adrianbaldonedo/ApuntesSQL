@@ -16,9 +16,11 @@ La notación **CREATE** se utiliza para crear objetos de una base de datos o una
 
 Sintaxis:
 ```SQL
- CREATE DATABASE nombre_bd;
- -- o 
- CREATE SCHEMA nombre_db;
+ CREATE ( SCHEMA | DATABASE )  
+  [ IF NOT EXIST ] <nombre_bd> 
+  [ CHARACTER SET ] <nombre_setCaracteres>
+  [ COLLATE ] collation_name;
+  
 ```
 ```sql
 CREATE TABLE nombre_tabla (
