@@ -20,6 +20,14 @@ Sintaxis:
  -- o 
  CREATE SCHEMA nombre_db;
 ```
+```sql
+CREATE TABLE nombre_tabla (
+ Columna1 tipo_dato,
+ Columna2 tipo_dato,
+ Columna3 tipo_dato,
+ ....
+);
+```
 ``` sql
 CREATE USER username IDENTIFIED BY password IDENTIFIED WITH auth_plugin;
 ```
