@@ -29,7 +29,6 @@
 1. [COALESCE](#coalesce)
 1. [CASE WHEN](#case)
 1. [IS NULL y IS NOT NULL](#null)
-1. [SubLenguajes SQL](#subsql)
 
 __________________________________________________________________________
 
