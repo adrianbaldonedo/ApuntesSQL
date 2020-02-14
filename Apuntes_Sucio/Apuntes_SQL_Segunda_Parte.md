@@ -56,6 +56,8 @@ Esta es la otra opcion pero solo se usa cuando hay una columna como clave primar
 name char(80) PRIMARY KEY
 ```
 **Restriccion de clave ajena**
+Se refencia la tabla de la clave ajena y los atributos de la tabla de la clave ajena.
+ 
 
 [CONSTRAINT <nombre-restriccion>]
  
@@ -69,6 +71,5 @@ name char(80) PRIMARY KEY
  
  [ON UPDATE CASCADE | NO ACTION | SET NULL | SET DEFAULT]
  
- Se refencia la tabla de la clave ajena y los atributos de la tabla de la clave ajena.
- 
+ por defecto se pone No ACTION pero la mejor opcion casi siempre SET NULL
  
