@@ -62,7 +62,12 @@ name char(80) PRIMARY KEY
  FOREIGN KEY (<atributos>)
  
  REFERENCES <nombre-tabla-referecniada>
+ 
  [(<atributos-referenciados>)]
+ 
+ [ON DELETE CASCADE | NO ACTION | SET NULL | SET DEFAULT]
+ 
+ [ON UPDATE CASCADE | NO ACTION | SET NULL | SET DEFAULT]
  
  Se refencia la tabla de la clave ajena y los atributos de la tabla de la clave ajena.
  
