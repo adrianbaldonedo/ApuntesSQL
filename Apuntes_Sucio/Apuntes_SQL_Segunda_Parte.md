@@ -37,3 +37,33 @@ CREATE USER username IDENTIFIED BY password IDENTIFIED WITH auth_plugin;
 ```
 
 ***
+
+### DDL: CREATE -- CONSTRAINT
+**Restriccion de Clave primaria**
+
+[**CONSTRAINT** <nombre-restriccion>]
+ 
+ PRIMARY KEY (<atributos>)
+ 
+ Esta opcion se usa cuando la clave primaria se compone de dos columnas
+ 
+ ```sql
+ CONSTRAINT PK_WORLD
+ PRIMARY KEY (name, continent)
+ ```
+Esta es la otra opcion pero solo se usa cuando hay una columna como clave primaria
+```sql
+name char(80) PRIMARY KEY
+```
+**Restriccion de clave ajena**
+
+[CONSTRAINT <nombre-restriccion>]
+ 
+ FOREIGN KEY (<atributos>)
+ 
+ REFERENCES <nombre-tabla-referecniada>
+ [(<atributos-referenciados>)]
+ 
+ Se refencia la tabla de la clave ajena y los atributos de la tabla de la clave ajena.
+ 
+ 
