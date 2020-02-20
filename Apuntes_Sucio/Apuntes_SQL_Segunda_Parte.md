@@ -67,9 +67,17 @@ Se refencia la tabla de la clave ajena y los atributos de la tabla de la clave a
  
  [(<atributos-referenciados>)]
  
- [ON DELETE CASCADE | NO ACTION | SET NULL | SET DEFAULT]
+ [MATCH FULL | PARTIAL]
  
- [ON UPDATE CASCADE | NO ACTION | SET NULL | SET DEFAULT]
+ [ON DELETE 
+            CASCADE | NO ACTION | SET NULL | SET DEFAULT]
  
- por defecto se pone No ACTION pero la mejor opcion casi siempre SET NULL
+ [ON UPDATE 
+            CASCADE | NO ACTION | SET NULL | SET DEFAULT]
+ 
+ On Delete --> por defecto se pone No ACTION pero la mejor opcion casi siempre SET NULL
+ 
+ On Update --> lo mas propio sera usar la modificacion en CASCADE
+ 
+  
  
