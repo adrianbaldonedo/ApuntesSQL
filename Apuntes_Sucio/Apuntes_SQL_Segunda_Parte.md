@@ -79,5 +79,36 @@ Se refencia la tabla de la clave ajena y los atributos de la tabla de la clave a
  
  On Update --> lo mas propio sera usar la modificacion en CASCADE
  
-  
- 
+**Restriccion de unicidad **
+
+[CONSTRAINT <nombre-de-la-restriccion>]
+ UNIQUE (<atributos>),
+
+unique se usa en las claves ajenas por que son descartes de clave pirmarias pero se tienen que seguir guardando de manera que no se pueda tener dos claves ajenas con los mismos datos.
+
+**Restriccion de verificacion**
+
+es como el where , permite hacer predicados.
+Se tiene que hacer un predicado sobre atriubutos
+
+[CONSTRAINT <nombre_de_restriccion>]
+CHECK predicado (atributos)
+[[NOT] DEFERRABLE ]
+[INITIALLY INMEDIATE | DEFERABLE]  esto sirve como mecanismo para ejecutar inmediatamente o que se espere a un momento posterior . cada vez que se intenta algo del DML ( insertar un nuevo registro ,modificar o borrar) 
+
+Solo se permite la actualizacion borrado o insercion cuando el predicado devuelve true.
+
+El valor determinado es no aplazable. (NOT DEFERRABLE)
+La otra opcion seria posponer (DEFERRABLE INITIALLY DEFERRABLE)
+Con el NOT lo que se nos indica 
+
+Ejemplo: 
+```
+CHECK balance > 0
+```
+
+
+La opcion DEFEREABLE solo tiene sendito cuando hacemos "transacciones"
+
+
+
