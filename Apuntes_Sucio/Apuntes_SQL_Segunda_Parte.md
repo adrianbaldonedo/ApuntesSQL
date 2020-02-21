@@ -103,7 +103,7 @@ La otra opcion seria posponer (DEFERRABLE INITIALLY DEFERRABLE)
 Con el NOT lo que se nos indica que no es aplazable tiene que hacerse en el momento
 
 Ejemplo: 
-```
+```sql
 CHECK saldo >= 0 (
      SELECT saldo
      FROM empleado
