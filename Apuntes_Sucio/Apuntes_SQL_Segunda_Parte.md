@@ -98,15 +98,20 @@ CHECK predicado (atributos)
 
 Solo se permite la actualizacion borrado o insercion cuando el predicado devuelve true.
 
-El valor determinado es no aplazable. (NOT DEFERRABLE)
+El valor determinado es no aplazable. (NOT DEFERRABLE INITIALLY INMEDIATE)
 La otra opcion seria posponer (DEFERRABLE INITIALLY DEFERRABLE)
-Con el NOT lo que se nos indica 
+Con el NOT lo que se nos indica que no es aplazable tiene que hacerse en el momento
 
 Ejemplo: 
 ```
-CHECK balance > 0
+CHECK saldo >= 0 (
+     SELECT saldo
+     FROM empleado
+     WHERE departamento = 'A'); 
 ```
-
+Primero se escoje si es aplazable o no 
+si no es aplazable tiene que se initially inmediate
+y si es aplazable lo logico es initially deferrable
 
 La opcion DEFEREABLE solo tiene sendito cuando hacemos "transacciones"
 
