@@ -115,5 +115,53 @@ y si es aplazable lo logico es initially deferrable
 
 La opcion DEFEREABLE solo tiene sendito cuando hacemos "transacciones"
 
+## DDL : DROP
+### DROP SCHEMA
+
+```SQL
+DROP SCHEMA 
+   [ IF EXISTS ] <nombre-de-la-BD>;
+```
+
+Con IF EXITS si la base de datos no existe daria false y no un error.
+
+### DROP TABLE 
+
+```SQL
+DROP TABLE
+[IF EXISTS] <nombre-de-la-tabla>
+[ CASCADE | RESTRICT ];
+```
+RESTRICT se especifica que una tabla no se puede borrar si existe alguna dependencia
+
+CASCADE borra todo.
+
+
+## DDL : ALTER
+### ALTER TABLE
+
+Para alterar una tabla podemos , cargarnos una columna y poner una columna nueva, añadir restricciones nuevas, borrar restricciones existentes
+
+a nivel columna: con ADD y con DROP
+a nivel restricction con ADD y con DROP 
+
+Entonces ALTER table tiene 4 opciones , dos para la culumna y dos para la restriccion
+
+```sql
+ALTER TABLE <nombre-tabla> ADD [COLUMN] <atributo> <tipo-dato> NOT NULL ...
+                           DROP COLUMN <atributo> [CASCADE | RESTRICT]
+                           ADD <nombre_de_restriccion>
+                           DROP <nombre_de_restriccion>
+```
+
+
+```sql
+
+```
+
+
+
+
+```
 
 
