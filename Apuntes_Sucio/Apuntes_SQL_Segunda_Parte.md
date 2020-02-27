@@ -153,20 +153,9 @@ ALTER TABLE <nombre-tabla> ADD [COLUMN] <atributo> <tipo-dato> NOT NULL ...
                            ADD <nombre_de_restriccion>
                            DROP <nombre_de_restriccion>
 ```
-
-
-```sql
-
-```
-
-
-
-
-```
-
 #DML 
 ##DML: DELETE, INSERT, UPDATE
-## INSER
+## INSERT
 sirve para insertar una nueva tupla , entonces hay que indicar cuales son las columnas y que valores tienen las columnas
 Formula:
 ```sql
@@ -183,3 +172,19 @@ VALUES (
 (2, 'pan', 3.85),
 (3, 'leche', 4.62);
 ```
+## UPDATE
+se utiliza para actualizar las columnas en de cada tupla
+La Formula: 
+```sql
+UPDATE <nombre_de_la_tabla>
+SET <atributo1> = <valor1>, <columna2> = <valor2>, ...
+[WHERE <predicado>];
+
+Ejemplo:*
+UPDATE world
+SET name='España', continent ='Africa'
+WHERE name='spain';
+
+```
+* actualizamos la tabla mundo, todas las tuplas donde el nombre sea españa le ponemos de nombre España y el continente Africa. 
+
