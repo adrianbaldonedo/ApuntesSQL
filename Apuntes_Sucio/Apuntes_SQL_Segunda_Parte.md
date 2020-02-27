@@ -164,4 +164,22 @@ ALTER TABLE <nombre-tabla> ADD [COLUMN] <atributo> <tipo-dato> NOT NULL ...
 
 ```
 
+#DML 
+##DML: DELETE, INSERT, UPDATE
+## INSER
+sirve para insertar una nueva tupla , entonces hay que indicar cuales son las columnas y que valores tienen las columnas
+Formula:
+```sql
+INSERT INTO <nombre_de_la_tabbla> [(<atributo_1>, <atributo_2>, ...)] * l
+(VALUES (<valor1>, <valor2>, ...) | SELECT ... );** 
+```
+* os atributos si no se pone nada se ponen en orden de creación
+** En el Select tiene que ser el mismo numero de columnas, mismos dominios(tipo de datos (NCHAR, DATETIME, INTEGER)) que los de esa tabla
 
+Se puede insertar varias tuplas a la vez de esta manera , justo despues del VALUES se separan con comas.
+```sql
+VALUES (
+ 1, 'queseo', 9.99),
+(2, 'pan', 3.85),
+(3, 'leche', 4.62);
+```
