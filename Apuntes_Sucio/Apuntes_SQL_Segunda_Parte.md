@@ -188,3 +188,18 @@ WHERE name='spain';
 ```
 * actualizamos la tabla mundo, todas las tuplas donde el nombre sea españa le ponemos de nombre España y el continente Africa. 
 
+## DELETE
+se utiliza delete para borrar tuplas de una tabla
+Formula: 
+```sql
+DELETE FROM <nombre_de_la_tabla>
+[WHERE <predicado>]*;
+´´´
+* WHERE es opcional pero si no se indica una condicion nos cargariamos toda la tabla.
+
+
+Ejemplo: 
+```sql
+DELETE FROM world
+WHERE population > 100000000;
+```
