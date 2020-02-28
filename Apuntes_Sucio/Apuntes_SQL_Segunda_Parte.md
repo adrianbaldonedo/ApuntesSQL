@@ -11,6 +11,55 @@
 
 > EL DQL , DML y DDL son el nucleo de SQL
 
+# TIPOS DE DATOS (DOMINIOS)
+si al escoger el tipo de datos utilizamos el que mas se ajuste , las bases de datos trabajan mas rapdio , escoger el mejor tipo de datos = mejor rendimiento
+
+
+SMALLINT - numeros enteros cortos - rango 	-32768 to +32767
+INTEGER - numeros enteros - 4bytes - rango -2147483648 to +2147483647
+BIGINT - enteros largos - 8 bytes - rango -9223372036854775808 to 9223372036854775807
+DECIMAL - numeros decimales - hasta 131072 de digitos antes de la coma y hasta 16383 digitos decimales despues de la coma
+REAL - numeros decimales pequeños - 6 digitos decimales
+
+MONEY - monedas - 8 bytes - rango -92233720368547758.08 to +92233720368547758.07
+
+TEXT - texto - de longitud ilimitada variable
+CHAR(N) - Longitud fija - 1 byte 
+VARCHAR(N) - Longitud variable
+
+DATE - fechas - 4 bytes
+TIME - hora del dia - 8 bytes
+TIMESTAMP - hora del dia y fecha del dia
+INTERVAL
+
+BOOLEAN - verdadero o falso - 1 byte valores (TRUE , FALSE , NULL ).
+
+POINT - punto en un plano . 16 bytes (x,y)
+BOX - caja rectangular - 32 bytes
+CIDR - direcciones ipv4 y ipv6 .- 7 o 19 bytes
+INET - direcciones ipv4 y ipv6 host and networks - 7 o 19 bytes
+MACADDR - direcciones mac - 6 bytes
+UUID 
+JSON
+HSTORE
+
+nosotos vamos a utilizar para numeros : Integer , real , decimal
+
+para texto : Text , char, varchar
+
+Para fechas: date , time , timestamp
+
+Para boolean : boolean
+
+Para dinero : money 
+
+
+
+
+
+
+
+
 # DDL: Create
 La notación **CREATE** se utiliza para crear objetos de una base de datos o una base de datos en si y tambien para crear usuarios.
 
