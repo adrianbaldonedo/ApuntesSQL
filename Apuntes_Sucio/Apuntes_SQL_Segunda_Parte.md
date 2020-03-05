@@ -11,56 +11,43 @@
 
 > EL DQL , DML y DDL son el nucleo de SQL
 
-# TIPOS DE DATOS (DOMINIOS)
-si al escoger el tipo de datos utilizamos el que mas se ajuste , las bases de datos trabajan mas rapdio , escoger el mejor tipo de datos = mejor rendimiento
+# TIPOS DE DATOS (DOMINIOS) <a name="tiposDominios"></a>
+
+> Al escoger el tipo de datos utilizamos el que mas se ajuste, las bases de datos trabajan mas rapdio , escoger el mejor tipo de datos = mejor rendimiento
+
+| Notación | Descripción | Rango |
+| -------- | ----------- | ------|
+| SMALLINT | numeros enteros cortos | -32768 to +32767 |
+| **INTEGER** | **numeros enteros, 4bytes** | **-2147483648 to +2147483647** |
+| BIGINT |  enteros largos, 8 bytes | -9223372036854775808 to 9223372036854775807 |
+| **DECIMAL** | **numeros decimales** | **hasta 131072 de digitos antes de la coma y hasta 16383 digitos decimales despues de la coma** |
+| **REAL** | **numeros decimales pequeños** | **6 digitos decimales** |
+|  |  |  |
+| **MONEY** | **monedas, 8 bytes** | **-92233720368547758.08 to +92233720368547758.07** |
+|  |  |  |
+| **TEXT** | **texto** | **longitud ilimitada variable** |
+| **CHAR(N)** | **N caracteres, 1 byte por carácter** | **Longitud fija** |
+| **VARCHAR(N)** | **cadena de N caracteres** | **Longitud variable** |
+|  |  |  |
+| **DATE** | **fechas** | **4 bytes** |
+| **TIME** | **hora del dia** | **8 bytes** |
+| **TIMESTAMP** | **hora del dia y fecha del dia** |  |
+| INTERVAL |  |  |
+|  |  |  |
+| **BOOLEAN** | **verdadero o falso, 1 byte** | **TRUE , FALSE , NULL** |
+|  |  |  |
+| POINT | punto en un plan, 16 bytes | x,y |
+| BOX | caja rectangular, 32 bytes |  |
+|  |  |  |
+| CIDR | direcciones ipv4 y ipv6 | 7 o 19 bytes |
+| INET | direcciones ipv4 y ipv6 host and networks | 7 o 19 bytes |
+| MACADDR | direcciones mac | 6 bytes |
+| UUID  |  |  |
+| JSON |  |  |
+| HSTORE |  |  |
 
 
-SMALLINT - numeros enteros cortos - rango 	-32768 to +32767
-INTEGER - numeros enteros - 4bytes - rango -2147483648 to +2147483647
-BIGINT - enteros largos - 8 bytes - rango -9223372036854775808 to 9223372036854775807
-DECIMAL - numeros decimales - hasta 131072 de digitos antes de la coma y hasta 16383 digitos decimales despues de la coma
-REAL - numeros decimales pequeños - 6 digitos decimales
-
-MONEY - monedas - 8 bytes - rango -92233720368547758.08 to +92233720368547758.07
-
-TEXT - texto - de longitud ilimitada variable
-CHAR(N) - Longitud fija - 1 byte 
-VARCHAR(N) - Longitud variable
-
-DATE - fechas - 4 bytes
-TIME - hora del dia - 8 bytes
-TIMESTAMP - hora del dia y fecha del dia
-INTERVAL
-
-BOOLEAN - verdadero o falso - 1 byte valores (TRUE , FALSE , NULL ).
-
-POINT - punto en un plano . 16 bytes (x,y)
-BOX - caja rectangular - 32 bytes
-CIDR - direcciones ipv4 y ipv6 .- 7 o 19 bytes
-INET - direcciones ipv4 y ipv6 host and networks - 7 o 19 bytes
-MACADDR - direcciones mac - 6 bytes
-UUID 
-JSON
-HSTORE
-
-nosotos vamos a utilizar para numeros : Integer , real , decimal
-
-para texto : Text , char, varchar
-
-Para fechas: date , time , timestamp
-
-Para boolean : boolean
-
-Para dinero : money 
-
-
-
-
-
-
-
-
-# DDL: Create
+# DDL: Create <a name="ddlCreate"></a>
 La notación **CREATE** se utiliza para crear objetos de una base de datos o una base de datos en si y tambien para crear usuarios.
 
 Sintaxis:
@@ -87,7 +74,7 @@ CREATE USER username IDENTIFIED BY password IDENTIFIED WITH auth_plugin;
 
 ***
 
-### DDL: CREATE -- CONSTRAINT
+### DDL: CREATE -- CONSTRAINT <a name="ddlCreateContraint"></a>
 **Restriccion de Clave primaria**
 
 [**CONSTRAINT** <nombre-restriccion>]
@@ -164,8 +151,8 @@ y si es aplazable lo logico es initially deferrable
 
 La opcion DEFEREABLE solo tiene sendito cuando hacemos "transacciones"
 
-## DDL : DROP
-### DROP SCHEMA
+## DDL : DROP <a name="ddlDrop"></a>
+### DROP SCHEMA <a name="ddlDropSchema"></a>
 
 ```SQL
 DROP SCHEMA 
@@ -174,7 +161,7 @@ DROP SCHEMA
 
 Con IF EXITS si la base de datos no existe daria false y no un error.
 
-### DROP TABLE 
+### DROP TABLE <a name="ddlDropTable"></a>
 
 ```SQL
 DROP TABLE
@@ -186,8 +173,8 @@ RESTRICT se especifica que una tabla no se puede borrar si existe alguna depende
 CASCADE borra todo.
 
 
-## DDL : ALTER
-### ALTER TABLE
+## DDL : ALTER <a name="ddlAlter"></a>
+### ALTER TABLE <a name="ddlAlterTable"></a>
 
 Para alterar una tabla podemos , cargarnos una columna y poner una columna nueva, añadir restricciones nuevas, borrar restricciones existentes
 
@@ -204,7 +191,7 @@ ALTER TABLE <nombre-tabla> ADD [COLUMN] <atributo> <tipo-dato> NOT NULL ...
 ```
 #DML 
 ##DML: DELETE, INSERT, UPDATE
-## INSERT
+## INSERT <a name="ddlInsert"></a>
 sirve para insertar una nueva tupla , entonces hay que indicar cuales son las columnas y que valores tienen las columnas
 Formula:
 ```sql
@@ -221,7 +208,7 @@ VALUES (
 (2, 'pan', 3.85),
 (3, 'leche', 4.62);
 ```
-## UPDATE
+## UPDATE <a name="ddlUpdate"></a>
 se utiliza para actualizar las columnas en de cada tupla
 La Formula: 
 ```sql
@@ -237,7 +224,7 @@ WHERE name='spain';
 ```
 * actualizamos la tabla mundo, todas las tuplas donde el nombre sea españa le ponemos de nombre España y el continente Africa. 
 
-## DELETE
+## DELETE <a name="ddlDelete"></a>
 se utiliza delete para borrar tuplas de una tabla
 Formula: 
 ```sql
