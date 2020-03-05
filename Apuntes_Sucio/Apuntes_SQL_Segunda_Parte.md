@@ -2,21 +2,28 @@
 
 ## SubLenguajes SQL <a name="subsql"></a>
 
-1. DQL(DATA QUARY LANGUAGE) -- SELECT
-1. DML (DATA MANIPULATION LANGUAGE) -- Opera sobre los datos -- INSERT, UPDATE, DELETE
-1. DDL (DATA DEFINITION LANGUAGE) -- Opera sobre la los objetos de la base de datos (sobre la estructura) -- CREATE, ALTER, DROP
-1. TCL( TRANSACCION CONTROL LANGUAGE) -- TRANSACCIÓN -> COMPOSICIÓN DE DISTINTAS INSTRUCCIONES SQL -- COMMIT, ROLLBACK, SAFE POINT
-1. DCL (DATA CONTROL LANGUAGE) -- DAR PERMISOS -- GRANT, REVOKE
-1. SCL ( SESION CONTROL LANGUAGUE) -- MANEJAR DINÁMICAMENTE PROPIEDADES DE UNA SESIÓN DE USUARIO -- ALTER SESSION
-
 > EL DQL , DML y DDL son el nucleo de SQL
+
+| Notación | Nombre | Contenido |
+| -------- | ------ | --------- |
+| DQL | DATA QUARY LANGUAGE | SELECT |
+| DML | DATA MANIPULATION LANGUAGE | Opera sobre los datos -- INSERT, UPDATE, DELETE |
+| DDL | DATA DEFINITION LANGUAGE | Opera sobre la los objetos de la base de datos (sobre la estructura) -- CREATE, ALTER, DROP |
+| TCL | TRANSACCION CONTROL LANGUAGE | TRANSACCIÓN -> COMPOSICIÓN DE DISTINTAS INSTRUCCIONES SQL -- COMMIT, ROLLBACK, SAFE POINT |
+| DCL | DATA CONTROL LANGUAGE | DAR PERMISOS -- GRANT, REVOKE |
+| SCL | SESION CONTROL LANGUAGUE | MANEJAR DINÁMICAMENTE PROPIEDADES DE UNA SESIÓN DE USUARIO -- ALTER SESSION |
+
 
 # TIPOS DE DATOS (DOMINIOS) <a name="tiposDominios"></a>
 
-> Al escoger el tipo de datos utilizamos el que mas se ajuste, las bases de datos trabajan mas rapdio , escoger el mejor tipo de datos = mejor rendimiento
+> Si al escoger el tipo de datos utilizamos el que mas se ajuste, las bases de datos trabajan mas rapdio
 
-| Notación | Descripción | Rango |
-| -------- | ----------- | ------|
+> Escoger el mejor tipo de datos = mejor rendimiento
+
+Lista de Dominios mas comunes ( en negrita los que utilizaremos).
+
+| Tipo de Dato | Descripción | Rango |
+| ------------ | ----------- | ------|
 | SMALLINT | numeros enteros cortos | -32768 to +32767 |
 | **INTEGER** | **numeros enteros, 4bytes** | **-2147483648 to +2147483647** |
 | BIGINT |  enteros largos, 8 bytes | -9223372036854775808 to 9223372036854775807 |
