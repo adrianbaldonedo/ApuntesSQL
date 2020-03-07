@@ -5,10 +5,10 @@
 1. [Dominios](#tiposDominios)
 1. [DDL: Create](#ddlCreate)
 1. [DDL: CREATE -- CONSTRAINT](#ddlCreateContraint)
-    - [Restriccion de clave primaria](#ConstraintPK)
-    - [Resticcion de clave ajena](#ConstraintFK)
-    - [Restriccion de Unicidad](#ConstraintUnique)
-    - [Restriccion de verificacion](#ConstraintCheck) 
+    - [RestricciÓn de clave primaria](#ConstraintPK)
+    - [RestricciÓn de clave ajena](#ConstraintFK)
+    - [RestricciÓn de Unicidad](#ConstraintUnique)
+    - [RestricciÓn de verificación](#ConstraintCheck) 
 1. [DDL : DROP](#ddlDrop)
     - [DROP SCHEMA](#ddlDropSchema)
     - [DROP TABLE](#ddlDropTable)
@@ -27,7 +27,7 @@ __________________________________________________________________________
 
 | Notación | Nombre | Contenido |
 | -------- | ------ | --------- |
-| DQL | DATA QUARY LANGUAGE | SELECT |
+| DQL | DATA QUERY LANGUAGE | SELECT |
 | DML | DATA MANIPULATION LANGUAGE | Opera sobre los datos -- INSERT, UPDATE, DELETE |
 | DDL | DATA DEFINITION LANGUAGE | Opera sobre la los objetos de la base de datos (sobre la estructura) -- CREATE, ALTER, DROP |
 | TCL | TRANSACCION CONTROL LANGUAGE | TRANSACCIÓN -> COMPOSICIÓN DE DISTINTAS INSTRUCCIONES SQL -- COMMIT, ROLLBACK, SAFE POINT |
@@ -38,7 +38,7 @@ __________________________________________________________________________
 
 # TIPOS DE DATOS (DOMINIOS) <a name="tiposDominios"></a>
 
-> Si al escoger el tipo de datos utilizamos el que mas se ajuste, las bases de datos trabajan mas rapdio
+> Si al escoger el tipo de datos utilizamos el que mas se ajuste, las bases de datos trabajan mas rápido
 
 > Escoger el mejor tipo de datos = mejor rendimiento
 
@@ -47,10 +47,10 @@ Lista de Dominios mas comunes ( en negrita los que utilizaremos).
 | Tipo de Dato | Descripción | Rango |
 | ------------ | ----------- | ------|
 | SMALLINT | numeros enteros cortos | -32768 to +32767 |
-| **INTEGER** | **numeros enteros, 4bytes** | **-2147483648 to +2147483647** |
+| **INTEGER** | **números enteros, 4bytes** | **-2147483648 to +2147483647** |
 | BIGINT |  enteros largos, 8 bytes | -9223372036854775808 to 9223372036854775807 |
-| **DECIMAL** | **numeros decimales** | **hasta 131072 de digitos antes de la coma y hasta 16383 digitos decimales despues de la coma** |
-| **REAL** | **numeros decimales pequeños** | **6 digitos decimales** |
+| **DECIMAL** | **números decimales** | **hasta 131072 de dígitos antes de la coma y hasta 16383 dígitos decimales despues de la coma** |
+| **REAL** | **números decimales pequeños** | **6 dígitos decimales** |
 |  |  |  |
 | **MONEY** | **monedas, 8 bytes** | **-92233720368547758.08 to +92233720368547758.07** |
 |  |  |  |
@@ -59,8 +59,8 @@ Lista de Dominios mas comunes ( en negrita los que utilizaremos).
 | **VARCHAR(N)** | **cadena de N caracteres** | **Longitud variable** |
 |  |  |  |
 | **DATE** | **fechas** | **4 bytes** |
-| **TIME** | **hora del dia** | **8 bytes** |
-| **TIMESTAMP** | **hora del dia y fecha del dia** |  |
+| **TIME** | **hora del día** | **8 bytes** |
+| **TIMESTAMP** | **hora del día y fecha del día** |  |
 | INTERVAL |  |  |
 |  |  |  |
 | **BOOLEAN** | **verdadero o falso, 1 byte** | **TRUE , FALSE , NULL** |
@@ -78,7 +78,7 @@ Lista de Dominios mas comunes ( en negrita los que utilizaremos).
 [VOLVER AL INDICE](#INDICE)
 
 # DDL: Create <a name="ddlCreate"></a>
-La notación **CREATE** se utiliza para crear objetos de una base de datos o una base de datos en si y tambien para crear usuarios.
+La notación **CREATE** se utiliza para crear objetos de una base de datos o una base de datos en si y también para crear usuarios.
 
 ### Para crear una base de datos nueva utilizamos la notación CREATE SCHEMA
 
@@ -96,7 +96,7 @@ Ejemplo:
 CREATE SCHEMA proyectoDeInvestigacion;
 ```
 
-### Para crear una nueva tabla dentro de una base de datos utilizamos la notacion CREATE TABLE
+### Para crear una nueva tabla dentro de una base de datos utilizamos la notación CREATE TABLE
 
 Sintaxis:
 
@@ -135,11 +135,11 @@ CREATE USER jdovalf IDENTIFIED BY abc123. INDENTIFIED WITH auth_plugin;
 
 ### DDL: CREATE -- CONSTRAINTS <a name="ddlCreateContraint"></a>
 
-**Restriccion de Clave primaria**<a name="ConstraintPK"></a> 
+**Restricción de Clave primaria**<a name="ConstraintPK"></a> 
 
 Cuando creamos una tabla tenemos que especificar la clave primaria de la tabla , la cual no puede ser null , ni repetirse. Para esto utilizamos notación **CONSTRAINT**.
 
-Hay varias maneras de utlizar esta formula , cuando la clave es una sola utlizamos la siguiente notación:
+Hay varias maneras de utilizar esta formula , cuando la clave es una sola utilizamos la siguiente notación:
 
 Sintaxis:
 ```sql
@@ -155,11 +155,11 @@ nombre_Dep VARCHAR(50) PRIMARY KEY
 );
 ```
 
-La siguiente opcion se usa cuando la clave primaria se compone de dos columnas
+La siguiente opción se usa cuando la clave primaria se compone de dos columnas
 
 Sintaxis: 
 ```sql
-PRIMARY KEY (<nomre_clave1>, <nombre_clave2>)
+PRIMARY KEY (<nombre_clave1>, <nombre_clave2>)
 ```
 Ejemplo:
 ```sql
@@ -171,11 +171,11 @@ PRIMARY KEY (nombre_Dep, nombre_Sede)
 ```
 [VOLVER AL INDICE](#INDICE)
 
-**Restriccion de clave ajena** <a name="ConstraintFK"></a>
+**Restricción de clave ajena** <a name="ConstraintFK"></a>
 
-En las tablas tambien tenemos que indicar cuales son las claves ajenas e indicar a que columna de otra tabla referencian.
+En las tablas también tenemos que indicar cuales son las claves ajenas e indicar a que columna de otra tabla que referencia.
 
-Se refencia la tabla de la clave ajena y los atributos de la tabla de la clave ajena.
+Se referencia la tabla de la clave ajena y los atributos de la tabla de la clave ajena.
  
 Sintaxis 
 ```sql
@@ -187,9 +187,9 @@ FOREIGN KEY (<atributos>) REFERENCES <nombre-tabla-referecniada> [(<atributos-re
 [ON UPDATE 
     CASCADE | NO ACTION | SET NULL | SET DEFAULT]
 ```
-> On Delete --> por defecto se pone No ACTION pero la mejor opcion casi siempre SET NULL
+> On Delete --> por defecto se pone No ACTION pero la mejor opción casi siempre SET NULL
  
-> On Update --> lo mas propio sera usar la modificacion en CASCADE
+> On Update --> lo mas propio sera usar la modificación en CASCADE
 
 ```sql
 CREATE TABLE proyectoDeInvestigacion.GRUPO(
@@ -205,11 +205,11 @@ FOREIGN KEY (lider) REFERENCES (nombre_Dep, nombre_Sede) proyectoDeInvestigacion
 ```
 [VOLVER AL INDICE](#INDICE)
 
-**Restriccion de unicidad** <a name="ConstraintUnique"></a>
+**Restricción de unicidad** <a name="ConstraintUnique"></a>
 
-> Para las claves secundarias ( los descartes de claves primarias ) se usa la resticcion de unicidad **UNIQUE**
+> Para las claves secundarias ( los descartes de claves primarias ) se usa la restricción de unicidad **UNIQUE**
 
-> Se usa en las claves ajenas por que son descartes de clave pirmarias pero se tienen que seguir guardando de manera que no se pueda tener dos claves ajenas con los mismos datos.
+> Se usa en las claves ajenas por que son descartes de clave primarias pero se tienen que seguir guardando de manera que no se pueda tener dos claves ajenas con los mismos datos.
 
 Sintaxis:
 ```sql
@@ -228,29 +228,29 @@ fecha_fin DATE
 ```
 [VOLVER AL INDICE](#INDICE)
 
-**Restriccion de verificacion** <a name="ConstraintCheck"></a>
+**Restricción de verificación** <a name="ConstraintCheck"></a>
 
->La notacion **CHECK** es como el **WHERE** , permite hacer predicados.
+>La notación **CHECK** es como el **WHERE** , permite hacer predicados.
 
 > El predicado tiene que hacerse sobre los atributos
 
 > Sirve como mecanismo para ejecutar inmediatamente o que se espere a un momento posterior . cada vez que se intenta algo del DML ( insertar un nuevo registro ,modificar o borrar).
 
-> Solo se permite la actualizacion borrado o insercion cuando el predicado devuelve true.
+> Solo se permite la actualización borrado o inserción cuando el predicado devuelve true.
 
 > El valor determinado es no aplazable. (NOT DEFERRABLE INITIALLY INMEDIATE)
 
-> La otra opcion seria posponer (DEFERRABLE INITIALLY DEFERRABLE)
+> La otra opción seria posponer (DEFERRABLE INITIALLY DEFERRABLE)
 
 > Con el NOT lo que se nos indica que no es aplazable tiene que hacerse en el momento
 
-> Primero se escoje si es aplazable o no, si no es aplazable tiene que se initially inmediate y si es aplazable lo logico es initially deferrable
+> Primero se escoje si es aplazable o no, si no es aplazable tiene que se initially inmediate y si es aplazable lo lógico es initially deferrable
 
-> La opcion DEFEREABLE solo tiene sendito cuando hacemos "transacciones"
+> La opción DEFEREABLE solo tiene sentido cuando hacemos "transacciones"
 
 Sintaxis:
 ```sql
-[CONSTRAINT <nombre_de_restriccion>]
+[CONSTRAINT <nombre_de_restricción>]
 CHECK predicado (atributos)
 [[NOT] DEFERRABLE ]
 [INITIALLY INMEDIATE | DEFERABLE]
@@ -271,9 +271,9 @@ CHECK (
 
 ### DROP SCHEMA <a name="ddlDropSchema"></a>
 
-> Si queremos borrar una base de datos utlizamos la notación **DROP SCHEMA** o **DROP DATABASE**
+> Si queremos borrar una base de datos utilizamos la notación **DROP SCHEMA** o **DROP DATABASE**
 
-> Con la notación **IF EXISTS** en caso de que la base de datos no exista nos devolveria false y no un error. 
+> Con la notación **IF EXISTS** en caso de que la base de datos no exista nos devolvería false y no un error. 
 
 Sintaxis: 
 ```SQL
@@ -289,7 +289,7 @@ DROP SCHEMA IF EXISTS proyectoDeInvestigacion;
 
 ### DROP TABLE <a name="ddlDropTable"></a>
 
-> Si queremos borrar una tabla de una base de datos utilizamos la notacion **DROP TABLE **
+> Si queremos borrar una tabla de una base de datos utilizamos la notación **DROP TABLE **
 
 > Con la notación **RESTRICT** se especifica que una tabla nos e puede borrar si existe alguna dependencia.
 
@@ -311,20 +311,20 @@ DROP TABLE IF EXISTS proyectoDeInvestigacion.DEPARTAMENTO CASCADE;
 ## DDL : ALTER <a name="ddlAlter"></a>
 ### ADD Y DROP COLUMN <a name="add_drop_col"></a>
 
-> Para alterar una tabla utlizamos la notación ALTER TABLE, con ella podemos modificar una colunma, añadir restricciones nuevas, borrar restricciones existentes
+> Para alterar una tabla utilizamos la notación ALTER TABLE, con ella podemos modificar una columna, añadir restricciones nuevas, borrar restricciones existentes
 
 > A nivel columna: con ADD y con DROP
 
 > A nivel restricction con ADD y con DROP 
 
-> Entonces ALTER table tiene 4 opciones , dos para la culumna y dos para la restriccion
+> Entonces ALTER table tiene 4 opciones , dos para la columna y dos para la restricción
 
 Sintaxis: 
 ```sql
 ALTER TABLE <nombre-tabla> ADD [COLUMN] <atributo> <tipo-dato> NOT NULL ...
                            DROP COLUMN <atributo> [CASCADE | RESTRICT]
-                           ADD <nombre_de_restriccion>
-                           DROP <nombre_de_restriccion>
+                           ADD <nombre_de_restricción>
+                           DROP <nombre_de_restricción>
 ```
 Ejemplos:
 ```sql
@@ -353,22 +353,22 @@ SELECT * information_schema.table_constraints WHERE table_name ='<nombre_tabla>'
 
 Sintaxis:
 ```sql
-INSERT INTO <nombre_de_la_tabbla> [(<atributo_1>, <atributo_2>, ...)]
+INSERT INTO <nombre_de_la_tabla> [(<atributo_1>, <atributo_2>, ...)]
 VALUES (<valor1>, <valor2>, ...) | SELECT ... );
 ```
 
-> Los atributos si no se indica el orden estes se inertaran en el orden de cuando se creo la tabla.
+> Los atributos si no se indica el orden estes se insertaran en el orden de cuando se creo la tabla.
 
-> En el Select se tiene que indicar con el mismo número de columnas, mismos dominios(tipo de datos (NCHAR, DATETIME, INTEGER)) que los de esa tabla
+> En el **SELECT** se tiene que indicar con el mismo número de columnas, mismos dominios(tipo de datos (NCHAR, DATETIME, INTEGER)) que los de esa tabla
 
-> Se puede insertar varias tuplas a la vez de esta manera , justo despues del VALUES se separan con comas.
+> Se puede insertar varias tuplas a la vez de esta manera , justo después del VALUES se separan con comas.
 
 Ejemplo:
 
 ```sql
 INSERT INTO proyectoDeInvestigacion.DEPARTAMENTOS
 VALUES 
-( 'Informatica', '981725631', 'Juan Perez'),
+( 'Informática', '981725631', 'Juan Pérez'),
 ( 'Laboratorio', '981778952', 'Pedro Rivas'),
 ( 'RRHH', '981763984', 'Miguel Otero');
 ```
@@ -389,10 +389,10 @@ SET <atributo1> = <valor1>, <columna2> = <valor2>, ...
 Ejemplo:
 ```sql
 UPDATE world
-SET name='España', continent ='Africa'
+SET name='España', continent ='África'
 WHERE name='spain';
 ```
-> En este ejemplo se actualizan todas las tuplas de la tabla mundo donde el nombre sea spain, y le ponemos de nombre España y el continente Africa. 
+> En este ejemplo se actualizan todas las tuplas de la tabla mundo donde el nombre sea spain, y le ponemos de nombre España y el continente África. 
 
 [VOLVER AL INDICE](#INDICE)
 
@@ -413,6 +413,6 @@ Ejemplo:
 DELETE FROM world
 WHERE population > 100000000;
 ```
-> Borramos todas las tuplas de la tabla world donde la poblacion sea mayor que cien millones de personas.
+> Borramos todas las tuplas de la tabla world donde la población sea mayor que cien millones de personas.
 
 [VOLVER AL INDICE](#INDICE)
