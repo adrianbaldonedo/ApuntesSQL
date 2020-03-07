@@ -113,7 +113,7 @@ CREATE USER jdovalf IDENTIFIED BY abc123. INDENTIFIED WITH auth_plugin;
 
 **Restriccion de Clave primaria**
 
-Cuando creamos una tabla tenemos que especificar la clave primaria de la tabla , la cual no puede ser null , ni repetirse. Para esto utilizamos notación CONSTRAINT.
+Cuando creamos una tabla tenemos que especificar la clave primaria de la tabla , la cual no puede ser null , ni repetirse. Para esto utilizamos notación **CONSTRAINT**.
 
 Hay varias maneras de utlizar esta formula , cuando la clave es una sola utlizamos la siguiente notación:
 
@@ -179,28 +179,55 @@ FOREIGN KEY (lider) REFERENCES (nombre_Dep, nombre_Sede) proyectoDeInvestigacion
 );
 ```
 
-**Restriccion de unicidad **
+**Restriccion de unicidad**
 
+> Para las claves secundarias ( los descartes de claves primarias ) se usa la resticcion de unicidad **UNIQUE**
+
+> Se usa en las claves ajenas por que son descartes de clave pirmarias pero se tienen que seguir guardando de manera que no se pueda tener dos claves ajenas con los mismos datos.
+
+Sintaxis:
+```sql
 [CONSTRAINT <nombre-de-la-restriccion>]
- UNIQUE (<atributos>),
+UNIQUE (<atributos>),
+```
 
-unique se usa en las claves ajenas por que son descartes de clave pirmarias pero se tienen que seguir guardando de manera que no se pueda tener dos claves ajenas con los mismos datos.
+Ejemplo:
+```sql
+CREATE TABLE proyectoDeInvestigacion.PROYECTO (
+cod_Proyecto INTEGER PRIMARY KEY,
+nombre_Proyecto VARCHAR(50) NOT NULL UNIQUE,
+fecha_inicio DATE NOT NULL,
+fecha_fin DATE
+);
+```
 
 **Restriccion de verificacion**
 
-es como el where , permite hacer predicados.
-Se tiene que hacer un predicado sobre atriubutos
+>La notacion **CHECK** es como el **WHERE** , permite hacer predicados.
 
+> El predicado tiene que hacerse sobre los atributos
+
+> Sirve como mecanismo para ejecutar inmediatamente o que se espere a un momento posterior . cada vez que se intenta algo del DML ( insertar un nuevo registro ,modificar o borrar).
+
+> Solo se permite la actualizacion borrado o insercion cuando el predicado devuelve true.
+
+> El valor determinado es no aplazable. (NOT DEFERRABLE INITIALLY INMEDIATE)
+
+> La otra opcion seria posponer (DEFERRABLE INITIALLY DEFERRABLE)
+
+> Con el NOT lo que se nos indica que no es aplazable tiene que hacerse en el momento
+
+> Primero se escoje si es aplazable o no, si no es aplazable tiene que se initially inmediate y si es aplazable lo logico es initially deferrable
+
+> La opcion DEFEREABLE solo tiene sendito cuando hacemos "transacciones"
+
+Sintaxis:
+```sql
 [CONSTRAINT <nombre_de_restriccion>]
 CHECK predicado (atributos)
 [[NOT] DEFERRABLE ]
-[INITIALLY INMEDIATE | DEFERABLE]  esto sirve como mecanismo para ejecutar inmediatamente o que se espere a un momento posterior . cada vez que se intenta algo del DML ( insertar un nuevo registro ,modificar o borrar) 
-
-Solo se permite la actualizacion borrado o insercion cuando el predicado devuelve true.
-
-El valor determinado es no aplazable. (NOT DEFERRABLE INITIALLY INMEDIATE)
-La otra opcion seria posponer (DEFERRABLE INITIALLY DEFERRABLE)
-Con el NOT lo que se nos indica que no es aplazable tiene que hacerse en el momento
+[INITIALLY INMEDIATE | DEFERABLE]
+```
 
 Ejemplo: 
 ```sql
@@ -209,11 +236,7 @@ CHECK saldo >= 0 (
      FROM empleado
      WHERE departamento = 'A'); 
 ```
-Primero se escoje si es aplazable o no 
-si no es aplazable tiene que se initially inmediate
-y si es aplazable lo logico es initially deferrable
 
-La opcion DEFEREABLE solo tiene sendito cuando hacemos "transacciones"
 
 ## DDL : DROP <a name="ddlDrop"></a>
 ### DROP SCHEMA <a name="ddlDropSchema"></a>
