@@ -231,34 +231,53 @@ CHECK predicado (atributos)
 
 Ejemplo: 
 ```sql
-CHECK saldo >= 0 (
-     SELECT saldo
-     FROM empleado
-     WHERE departamento = 'A'); 
+CHECK ( 
+    saldo >= (
+    SELECT saldo
+    FROM empleado
+    WHERE departamento = 'A')
+); 
 ```
 
 
 ## DDL : DROP <a name="ddlDrop"></a>
+
 ### DROP SCHEMA <a name="ddlDropSchema"></a>
 
+> Si queremos borrar una base de datos utlizamos la notación **DROP SCHEMA** o **DROP DATABASE**
+
+> Con la notación **IF EXISTS** en caso de que la base de datos no exista nos devolveria false y no un error. 
+
+Sintaxis: 
 ```SQL
 DROP SCHEMA 
    [ IF EXISTS ] <nombre-de-la-BD>;
 ```
 
-Con IF EXITS si la base de datos no existe daria false y no un error.
+Ejemplo:
+```sql
+DROP SCHEMA IF EXISTS proyectoDeInvestigacion;
+```
 
 ### DROP TABLE <a name="ddlDropTable"></a>
+
+> Si queremos borrar una tabla de una base de datos utilizamos la notacion **DROP TABLE **
+
+> Con la notación **RESTRICT** se especifica que una tabla nos e puede borrar si existe alguna dependencia.
+
+> Con la notación **CASCADE** se borra todo.
+
+Sintaxis:
 
 ```SQL
 DROP TABLE
 [IF EXISTS] <nombre-de-la-tabla>
 [ CASCADE | RESTRICT ];
 ```
-RESTRICT se especifica que una tabla no se puede borrar si existe alguna dependencia
-
-CASCADE borra todo.
-
+Ejemplo: 
+```sql
+DROP TABLE IF EXISTS proyectoDeInvestigacion.DEPARTAMENTO CASCADE;
+```
 
 ## DDL : ALTER <a name="ddlAlter"></a>
 ### ALTER TABLE <a name="ddlAlterTable"></a>
