@@ -338,7 +338,7 @@ ALTER TABLE proyectoDeInvestigacion.DEPARTAMENTO DROP CONSTRAINT telefono_check;
 SELECT * information_schema.table_constraints WHERE table_name ='<nombre_tabla>';
 ```
 
-1. [DML INSEtR - UPDATE - DELETE](#dmlInsUODEL)
+1. [DML INSERT - UPDATE - DELETE](#dmlInsUODEL)
 ##DML INSEtR - UPDATE - DELETE <a name="dmlInsUODEL"></a>
 
 ## INSERT <a name="dmlInsert"></a>
