@@ -14,7 +14,7 @@
     - [DROP TABLE](#ddlDropTable)
 1. [DDL : ALTER](#ddlAlter)
     - [ALTER TABLE Y DROP TABLE](#ddlAlterTable)
-1. [DML INSEtR - UPDATE - DELETE](#dmlInsUODEL)
+1. [DML INSERT - UPDATE - DELETE](#dmlInsUODEL)
     - [INSERT](#dmlInsert)
     - [UPDATE](#dmlUpdate)
     - [DELETE](#dmlDelete)
@@ -336,9 +336,7 @@ ALTER TABLE proyectoDeInvestigacion.DEPARTAMENTO DROP CONSTRAINT telefono_check;
 ```sql
 SELECT * information_schema.table_constraints WHERE table_name ='<nombre_tabla>';
 ```
-
-1. [DML INSERT - UPDATE - DELETE](#dmlInsUODEL)
-##DML INSEtR - UPDATE - DELETE <a name="dmlInsUODEL"></a>
+# DML INSERT - UPDATE - DELETE <a name="dmlInsUODEL"></a>
 
 ## INSERT <a name="dmlInsert"></a>
 
