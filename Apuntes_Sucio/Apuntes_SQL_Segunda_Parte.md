@@ -1,6 +1,6 @@
 # Apuntes SQL - DDL y DML.
 
-## Indice
+## Indice  <a name="INDICE"></a>
 1. [SubLenguajes SQL](#subsql)
 1. [Dominios](#tiposDominios)
 1. [DDL: Create](#ddlCreate)
@@ -12,15 +12,13 @@
 1. [DDL : DROP](#ddlDrop)
     - [DROP SCHEMA](#ddlDropSchema)
     - [DROP TABLE](#ddlDropTable)
-1. [DDL : ALTER](#ddlAlter)
+1. [DDL : ALTER TABLE](#ddlAlter)
     - [ADD Y DROP COLUMN](#add_drop_col)
 1. [DML INSERT - UPDATE - DELETE](#dmlInsUODEL)
     - [INSERT](#dmlInsert)
     - [UPDATE](#dmlUpdate)
     - [DELETE](#dmlDelete)
 __________________________________________________________________________
-
-
 
 
 ## SubLenguajes SQL <a name="subsql"></a>
@@ -36,6 +34,7 @@ __________________________________________________________________________
 | DCL | DATA CONTROL LANGUAGE | DAR PERMISOS -- GRANT, REVOKE |
 | SCL | SESION CONTROL LANGUAGUE | MANEJAR DINÁMICAMENTE PROPIEDADES DE UNA SESIÓN DE USUARIO -- ALTER SESSION |
 
+[VOLVER AL INDICE] (#INDICE)
 
 # TIPOS DE DATOS (DOMINIOS) <a name="tiposDominios"></a>
 
