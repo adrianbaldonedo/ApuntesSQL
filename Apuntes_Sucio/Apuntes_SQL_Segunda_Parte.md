@@ -11,10 +11,10 @@
 1. [DDL : ALTER](#ddlAlter)
     - [ALTER TABLE](#ddlDropSchema)
     - [DROP TABLE](#ddlAlterTable)
-1. [DDL : ALTER](#)
-    - [INSERT](#ddlInsert)
-    - [UPDATE](#ddlUpdate)
-    - [DELETE](#ddlDelete)
+1. [DML INSEtR - UPDATE - DELETE](#dmlInsUODEL)
+    - [INSERT](#dmlInsert)
+    - [UPDATE](#dmlUpdate)
+    - [DELETE](#dmlDelete)
 __________________________________________________________________________
 
 
@@ -334,10 +334,10 @@ ALTER TABLE proyectoDeInvestigacion.DEPARTAMENTO DROP CONSTRAINT telefono_check;
 SELECT * information_schema.table_constraints WHERE table_name ='<nombre_tabla>';
 ```
 
-#DML 
-##DML: DELETE, INSERT, UPDATE
+1. [DML INSEtR - UPDATE - DELETE](#dmlInsUODEL)
+##DML INSEtR - UPDATE - DELETE <a name="dmlInsUODEL"></a>
 
-## INSERT <a name="ddlInsert"></a>
+## INSERT <a name="dmlInsert"></a>
 
 > Sirve para insertar una nueva tupla, hay que indicar cuales son las columnas y que valores tienen las columnas
 
@@ -363,7 +363,7 @@ VALUES
 ( 'RRHH', '981763984', 'Miguel Otero');
 ```
 
-## UPDATE <a name="ddlUpdate"></a>
+## UPDATE <a name="dmlUpdate"></a>
 
 > Se utiliza para actualizar las columnas en de cada tupla
 
@@ -383,7 +383,7 @@ WHERE name='spain';
 ```
 > En este ejemplo se actualizan todas las tuplas de la tabla mundo donde el nombre sea spain, y le ponemos de nombre España y el continente Africa. 
 
-## DELETE <a name="ddlDelete"></a>
+## DELETE <a name="dmlDelete"></a>
 
 > Se utiliza la notación **DELETE** para borrar tuplas de una tabla
 
