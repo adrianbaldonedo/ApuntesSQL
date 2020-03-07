@@ -67,14 +67,16 @@ Sintaxis:
   [ COLLATE ] collation_name;
   
 ```
+
 Ejemplo: 
-'''sql
+```sql
 CREATE SCHEMA proyectoDeInvestigacion;
-'''
+```
 
 ### Para crear una nueva tabla dentro de una base de datos utilizamos la notacion CREATE TABLE
 
 Sintaxis:
+
 ```sql
 CREATE TABLE nombre_tabla (
  COLUMNA TIPO_DATO
@@ -85,14 +87,15 @@ CREATE TABLE nombre_tabla (
  [CONSTRAINT]
 );
 ```
+
 Ejemplo: 
-'''sql
+```sql
 CREATE TABLE proyectoDeInvestigacion.DEPARTAMENTO(
 nombre_Dep VARCHAR(50) PRIMARY KEY,
 telefono INTEGER NOT NULL,
 director INTEGER,
 FOREIGN KEY (director) REFERENCES proyectoDeInvestigacion.PROFESOR (DNI)
-'''
+```
 
 Para crear usuarios usamos la notación CREATE USER 
 
@@ -101,9 +104,9 @@ Sintaxis:
 CREATE USER username IDENTIFIED BY password IDENTIFIED WITH auth_plugin;
 ```
 Ejemplo:
-''' sql
+``` sql
 CREATE USER jdovalf IDENTIFIED BY abc123. INDENTIFIED WITH auth_plugin;
-'''
+```
 
 ### DDL: CREATE -- CONSTRAINT <a name="ddlCreateContraint"></a>
 **Restriccion de Clave primaria**
