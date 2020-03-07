@@ -364,17 +364,20 @@ WHERE name='spain';
 > En este ejemplo se actualizan todas las tuplas de la tabla mundo donde el nombre sea spain, y le ponemos de nombre España y el continente Africa. 
 
 ## DELETE <a name="ddlDelete"></a>
-se utiliza delete para borrar tuplas de una tabla
-Formula: 
+
+> Se utiliza la notación **DELETE** para borrar tuplas de una tabla
+
+> La notación **WHERE** es opcional pero si no se usa borramos todo el contenido de la tabla.
+
+Sintaxis:
+
 ```sql
 DELETE FROM <nombre_de_la_tabla>
 [WHERE <predicado>]*;
 ´´´
-* WHERE es opcional pero si no se indica una condicion nos cargariamos toda la tabla.
-
-
 Ejemplo: 
 ```sql
 DELETE FROM world
 WHERE population > 100000000;
 ```
+> Borramos todas las tuplas de la tabla world donde la poblacion sea mayor que cien millones de personas.
