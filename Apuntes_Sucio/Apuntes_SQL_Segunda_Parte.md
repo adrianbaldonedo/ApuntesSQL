@@ -308,45 +308,60 @@ ALTER TABLE proyectoDeInvestigacion.DEPARTAMENTO ADD CHECK(LENGTH(telefono_movil
 ALTER TABLE proyectoDeInvestigacion.DEPARTAMENTO DROP CONSTRAINT telefono_check;
 
 ```
+
 > NOTA: si no se le da un nombre a las Restricciones se puede comprobar cual es el nombre por defecto con el siguiente comando 
 ```sql
 SELECT * information_schema.table_constraints WHERE table_name ='<nombre_tabla>';
-´´´
+```
 
 #DML 
 ##DML: DELETE, INSERT, UPDATE
-## INSERT <a name="ddlInsert"></a>
-sirve para insertar una nueva tupla , entonces hay que indicar cuales son las columnas y que valores tienen las columnas
-Formula:
-```sql
-INSERT INTO <nombre_de_la_tabbla> [(<atributo_1>, <atributo_2>, ...)] * l
-(VALUES (<valor1>, <valor2>, ...) | SELECT ... );** 
-```
-* os atributos si no se pone nada se ponen en orden de creación
-** En el Select tiene que ser el mismo numero de columnas, mismos dominios(tipo de datos (NCHAR, DATETIME, INTEGER)) que los de esa tabla
 
-Se puede insertar varias tuplas a la vez de esta manera , justo despues del VALUES se separan con comas.
+## INSERT <a name="ddlInsert"></a>
+
+> Sirve para insertar una nueva tupla, hay que indicar cuales son las columnas y que valores tienen las columnas
+
+Sintaxis:
 ```sql
-VALUES (
- 1, 'queseo', 9.99),
-(2, 'pan', 3.85),
-(3, 'leche', 4.62);
+INSERT INTO <nombre_de_la_tabbla> [(<atributo_1>, <atributo_2>, ...)]
+VALUES (<valor1>, <valor2>, ...) | SELECT ... );
 ```
+
+> Los atributos si no se indica el orden estes se inertaran en el orden de cuando se creo la tabla.
+
+> En el Select se tiene que indicar con el mismo número de columnas, mismos dominios(tipo de datos (NCHAR, DATETIME, INTEGER)) que los de esa tabla
+
+> Se puede insertar varias tuplas a la vez de esta manera , justo despues del VALUES se separan con comas.
+
+Ejemplo:
+
+```sql
+INSERT INTO proyectoDeInvestigacion.DEPARTAMENTOS
+VALUES 
+( 'Informatica', '981725631', 'Juan Perez'),
+( 'Laboratorio', '981778952', 'Pedro Rivas'),
+( 'RRHH', '981763984', 'Miguel Otero');
+```
+
 ## UPDATE <a name="ddlUpdate"></a>
-se utiliza para actualizar las columnas en de cada tupla
-La Formula: 
+
+> Se utiliza para actualizar las columnas en de cada tupla
+
+Sintaxis: 
+
 ```sql
 UPDATE <nombre_de_la_tabla>
 SET <atributo1> = <valor1>, <columna2> = <valor2>, ...
 [WHERE <predicado>];
+```
 
-Ejemplo:*
+Ejemplo:
+```sql
 UPDATE world
 SET name='España', continent ='Africa'
 WHERE name='spain';
-
 ```
-* actualizamos la tabla mundo, todas las tuplas donde el nombre sea españa le ponemos de nombre España y el continente Africa. 
+> En este ejemplo se actualizan todas las tuplas de la tabla mundo donde el nombre sea spain, y le ponemos de nombre España y el continente Africa. 
 
 ## DELETE <a name="ddlDelete"></a>
 se utiliza delete para borrar tuplas de una tabla
