@@ -81,9 +81,9 @@ Sintaxis:
 CREATE TABLE nombre_tabla (
  COLUMNA TIPO_DATO
  Columna1 INTEGER [ NOT NULL ] PRIMARY KEY,
- Columna2 NCHAR(50),
- Columna3 NCHAR(200),
- Columna4 Date
+ Columna2 VARCHAR(50),
+ Columna3 VARCHAR(200),
+ Columna4 DATE
  [CONSTRAINT]
 );
 ```
@@ -95,6 +95,7 @@ nombre_Dep VARCHAR(50) PRIMARY KEY,
 telefono INTEGER NOT NULL,
 director INTEGER,
 FOREIGN KEY (director) REFERENCES proyectoDeInvestigacion.PROFESOR (DNI)
+);
 ```
 
 Para crear usuarios usamos la notación CREATE USER 
@@ -109,22 +110,42 @@ CREATE USER jdovalf IDENTIFIED BY abc123. INDENTIFIED WITH auth_plugin;
 ```
 
 ### DDL: CREATE -- CONSTRAINT <a name="ddlCreateContraint"></a>
-**Restriccion de Clave primaria**
 
-[**CONSTRAINT** <nombre-restriccion>]
- 
- PRIMARY KEY (<atributos>)
- 
- Esta opcion se usa cuando la clave primaria se compone de dos columnas
- 
- ```sql
- CONSTRAINT PK_WORLD
- PRIMARY KEY (name, continent)
- ```
-Esta es la otra opcion pero solo se usa cuando hay una columna como clave primaria
+**Restriccion de Clave primaria**
+Cuando creamos una tabla tenemos que especificar la clave primaria de la tabla , la cual no puede ser null , ni repetirse. Para esto utilizamos notación CONSTRAINT.
+
+Hay varias maneras de utlizar esta formula , cuando la clave es una sola utlizamos la siguiente notación:
+
+Sintaxis:
 ```sql
-name char(80) PRIMARY KEY
+CREATE TABLE <nombre_tabla>(
+<nombre_clave> <tipo_dato> PRIMARY KEY
+);
 ```
+
+Ejemplo:
+```sql
+CREATE TABLE proyectoDeInvestigacion.DEPARTAMENTO(
+nombre_Dep VARCHAR(50) PRIMARY KEY
+);
+```
+
+La siguiente opcion se usa cuando la clave primaria se compone de dos columnas
+
+Sintaxis: 
+```sql
+PRIMARY KEY (<nomre_clave1>, <nombre_clave2>)
+```
+Ejemplo:
+```sql
+CREATE TABLE proyectoDeInvestigacion.UBICACION(
+nombre_Dep VARCHAR(50),
+nombre_Sede VARCHAR(50),
+PRIMARY KEY (nombre_Dep, nombre_Sede)
+);
+PRIMARY KEY (name, continent)
+```
+
 **Restriccion de clave ajena**
 Se refencia la tabla de la clave ajena y los atributos de la tabla de la clave ajena.
  
