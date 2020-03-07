@@ -5,6 +5,10 @@
 1. [Dominios](#tiposDominios)
 1. [DDL: Create](#ddlCreate)
 1. [DDL: CREATE -- CONSTRAINT](#ddlCreateContraint)
+    - [Restriccion de clave primaria](#ConstraintPK)
+    - [Resticcion de clave ajena](#ConstraintFK)
+    - [Restriccion de Unicidad](#ConstraintUnique)
+    - [Restriccion de verificacion](#ConstraintCheck) 
 1. [DDL : DROP](#ddlDrop)
     - [DROP SCHEMA](#ddlDropSchema)
     - [DROP TABLE](#ddlDropTable)
@@ -129,9 +133,9 @@ Ejemplo:
 CREATE USER jdovalf IDENTIFIED BY abc123. INDENTIFIED WITH auth_plugin;
 ```
 
-### DDL: CREATE -- CONSTRAINT <a name="ddlCreateContraint"></a>
+### DDL: CREATE -- CONSTRAINTS <a name="ddlCreateContraint"></a>
 
-**Restriccion de Clave primaria**
+**Restriccion de Clave primaria**<a name="ConstraintPK"></a> 
 
 Cuando creamos una tabla tenemos que especificar la clave primaria de la tabla , la cual no puede ser null , ni repetirse. Para esto utilizamos notación **CONSTRAINT**.
 
@@ -166,7 +170,7 @@ PRIMARY KEY (nombre_Dep, nombre_Sede)
 );
 ```
 
-**Restriccion de clave ajena**
+**Restriccion de clave ajena** <a name="ConstraintFK"></a>
 
 En las tablas tambien tenemos que indicar cuales son las claves ajenas e indicar a que columna de otra tabla referencian.
 
@@ -199,7 +203,7 @@ FOREIGN KEY (lider) REFERENCES (nombre_Dep, nombre_Sede) proyectoDeInvestigacion
 );
 ```
 
-**Restriccion de unicidad**
+**Restriccion de unicidad** <a name="ConstraintUnique"></a>
 
 > Para las claves secundarias ( los descartes de claves primarias ) se usa la resticcion de unicidad **UNIQUE**
 
@@ -221,7 +225,7 @@ fecha_fin DATE
 );
 ```
 
-**Restriccion de verificacion**
+**Restriccion de verificacion** <a name="ConstraintCheck"></a>
 
 >La notacion **CHECK** es como el **WHERE** , permite hacer predicados.
 
