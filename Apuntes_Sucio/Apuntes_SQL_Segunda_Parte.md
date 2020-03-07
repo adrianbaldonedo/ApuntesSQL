@@ -112,6 +112,7 @@ CREATE USER jdovalf IDENTIFIED BY abc123. INDENTIFIED WITH auth_plugin;
 ### DDL: CREATE -- CONSTRAINT <a name="ddlCreateContraint"></a>
 
 **Restriccion de Clave primaria**
+
 Cuando creamos una tabla tenemos que especificar la clave primaria de la tabla , la cual no puede ser null , ni repetirse. Para esto utilizamos notación CONSTRAINT.
 
 Hay varias maneras de utlizar esta formula , cuando la clave es una sola utlizamos la siguiente notación:
@@ -143,33 +144,43 @@ nombre_Dep VARCHAR(50),
 nombre_Sede VARCHAR(50),
 PRIMARY KEY (nombre_Dep, nombre_Sede)
 );
-PRIMARY KEY (name, continent)
 ```
 
 **Restriccion de clave ajena**
+
+En las tablas tambien tenemos que indicar cuales son las claves ajenas e indicar a que columna de otra tabla referencian.
+
 Se refencia la tabla de la clave ajena y los atributos de la tabla de la clave ajena.
  
-
+Sintaxis 
+```sql
 [CONSTRAINT <nombre-restriccion>]
+FOREIGN KEY (<atributos>) REFERENCES <nombre-tabla-referecniada> [(<atributos-referenciados>)]
+[MATCH FULL | PARTIAL]
+[ON DELETE 
+    CASCADE | NO ACTION | SET NULL | SET DEFAULT]
+[ON UPDATE 
+    CASCADE | NO ACTION | SET NULL | SET DEFAULT]
+```
+> On Delete --> por defecto se pone No ACTION pero la mejor opcion casi siempre SET NULL
  
- FOREIGN KEY (<atributos>)
- 
- REFERENCES <nombre-tabla-referecniada>
- 
- [(<atributos-referenciados>)]
- 
- [MATCH FULL | PARTIAL]
- 
- [ON DELETE 
-            CASCADE | NO ACTION | SET NULL | SET DEFAULT]
- 
- [ON UPDATE 
-            CASCADE | NO ACTION | SET NULL | SET DEFAULT]
- 
- On Delete --> por defecto se pone No ACTION pero la mejor opcion casi siempre SET NULL
- 
- On Update --> lo mas propio sera usar la modificacion en CASCADE
- 
+> On Update --> lo mas propio sera usar la modificacion en CASCADE
+
+```sql
+CREATE TABLE proyectoDeInvestigacion.GRUPO(
+nombre_Grupo VARCHAR(50),
+nombre_Dep VARCHAR(50),
+area INTEGER NOT NULL,
+lider INTEGER,
+PRIMARY KEY (nombre_Grupo, nombre_Dep),
+FOREIGN KEY (lider) REFERENCES 
+
+PRIMARY KEY (nombre_Dep, nombre_Sede) proyectoDeInvestigacion.PROFESOR (DNI)
+    ON DELETE SET NULL,
+    ON UPDATE CASCADE
+);
+```
+
 **Restriccion de unicidad **
 
 [CONSTRAINT <nombre-de-la-restriccion>]
