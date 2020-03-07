@@ -282,19 +282,37 @@ DROP TABLE IF EXISTS proyectoDeInvestigacion.DEPARTAMENTO CASCADE;
 ## DDL : ALTER <a name="ddlAlter"></a>
 ### ALTER TABLE <a name="ddlAlterTable"></a>
 
-Para alterar una tabla podemos , cargarnos una columna y poner una columna nueva, añadir restricciones nuevas, borrar restricciones existentes
+> Para alterar una tabla utlizamos la notación ALTER TABLE, con ella podemos modificar una colunma, añadir restricciones nuevas, borrar restricciones existentes
 
-a nivel columna: con ADD y con DROP
-a nivel restricction con ADD y con DROP 
+> A nivel columna: con ADD y con DROP
 
-Entonces ALTER table tiene 4 opciones , dos para la culumna y dos para la restriccion
+> A nivel restricction con ADD y con DROP 
 
+> Entonces ALTER table tiene 4 opciones , dos para la culumna y dos para la restriccion
+
+Sintaxis: 
 ```sql
 ALTER TABLE <nombre-tabla> ADD [COLUMN] <atributo> <tipo-dato> NOT NULL ...
                            DROP COLUMN <atributo> [CASCADE | RESTRICT]
                            ADD <nombre_de_restriccion>
                            DROP <nombre_de_restriccion>
 ```
+Ejemplos:
+```sql
+ALTER TABLE proyectoDeInvestigacion.DEPARTAMENTO ADD COLUMN telefono_movil INTEGER;
+
+ALTER TABLE proyectoDeInvestigacion.DEPARTAMENTO DROP COLUMN telefono;
+
+ALTER TABLE proyectoDeInvestigacion.DEPARTAMENTO ADD CHECK(LENGTH(telefono_movil) < 10 );
+
+ALTER TABLE proyectoDeInvestigacion.DEPARTAMENTO DROP CONSTRAINT telefono_check;
+
+```
+> NOTA: si no se le da un nombre a las Restricciones se puede comprobar cual es el nombre por defecto con el siguiente comando 
+```sql
+SELECT * information_schema.table_constraints WHERE table_name ='<nombre_tabla>';
+´´´
+
 #DML 
 ##DML: DELETE, INSERT, UPDATE
 ## INSERT <a name="ddlInsert"></a>
