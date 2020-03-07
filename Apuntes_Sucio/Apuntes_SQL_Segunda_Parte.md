@@ -13,7 +13,7 @@
     - [DROP SCHEMA](#ddlDropSchema)
     - [DROP TABLE](#ddlDropTable)
 1. [DDL : ALTER](#ddlAlter)
-    - [ALTER TABLE Y DROP TABLE](#ddlAlterTable)
+    - [ADD Y DROP COLUMN](#add_drop_col)
 1. [DML INSERT - UPDATE - DELETE](#dmlInsUODEL)
     - [INSERT](#dmlInsert)
     - [UPDATE](#dmlUpdate)
@@ -303,7 +303,7 @@ DROP TABLE IF EXISTS proyectoDeInvestigacion.DEPARTAMENTO CASCADE;
 ```
 
 ## DDL : ALTER <a name="ddlAlter"></a>
-### ALTER TABLE <a name="ddlAlterTable"></a>
+### ADD Y DROP COLUMN <a name="add_drop_col"></a>
 
 > Para alterar una tabla utlizamos la notación ALTER TABLE, con ella podemos modificar una colunma, añadir restricciones nuevas, borrar restricciones existentes
 
