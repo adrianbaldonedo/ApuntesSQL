@@ -57,6 +57,8 @@ Lista de Dominios mas comunes ( en negrita los que utilizaremos).
 # DDL: Create <a name="ddlCreate"></a>
 La notación **CREATE** se utiliza para crear objetos de una base de datos o una base de datos en si y tambien para crear usuarios.
 
+### Para crear una base de datos nueva utilizamos la notación CREATE SCHEMA
+
 Sintaxis:
 ```SQL
  CREATE ( SCHEMA | DATABASE )  
@@ -65,21 +67,43 @@ Sintaxis:
   [ COLLATE ] collation_name;
   
 ```
+Ejemplo: 
+'''sql
+CREATE SCHEMA proyectoDeInvestigacion;
+'''
+
+### Para crear una nueva tabla dentro de una base de datos utilizamos la notacion CREATE TABLE
+
+Sintaxis:
 ```sql
 CREATE TABLE nombre_tabla (
  COLUMNA TIPO_DATO
- id INTEGER [ NOT NULL ] PRIMARY KEY,
- nombre NCHAR(50),
- apellido NCHAR(200),
- fecha (DATE | TIME | TIMESTAMP)
+ Columna1 INTEGER [ NOT NULL ] PRIMARY KEY,
+ Columna2 NCHAR(50),
+ Columna3 NCHAR(200),
+ Columna4 Date
+ [CONSTRAINT]
 );
-TIPOS DE CADENAS (VARCHAR | CHAR | NCHAR | TEXT | NCHAR VARYING)
 ```
+Ejemplo: 
+'''sql
+CREATE TABLE proyectoDeInvestigacion.DEPARTAMENTO(
+nombre_Dep VARCHAR(50) PRIMARY KEY,
+telefono INTEGER NOT NULL,
+director INTEGER,
+FOREIGN KEY (director) REFERENCES proyectoDeInvestigacion.PROFESOR (DNI)
+'''
+
+Para crear usuarios usamos la notación CREATE USER 
+
+Sintaxis:
 ``` sql
 CREATE USER username IDENTIFIED BY password IDENTIFIED WITH auth_plugin;
 ```
-
-***
+Ejemplo:
+''' sql
+CREATE USER jdovalf IDENTIFIED BY abc123. INDENTIFIED WITH auth_plugin;
+'''
 
 ### DDL: CREATE -- CONSTRAINT <a name="ddlCreateContraint"></a>
 **Restriccion de Clave primaria**
