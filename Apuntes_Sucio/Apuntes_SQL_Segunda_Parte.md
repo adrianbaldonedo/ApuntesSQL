@@ -407,7 +407,7 @@ Sintaxis:
 ```sql
 DELETE FROM <nombre_de_la_tabla>
 [WHERE <predicado>]*;
-´´´
+```
 Ejemplo: 
 ```sql
 DELETE FROM world
