@@ -414,3 +414,5 @@ DELETE FROM world
 WHERE population > 100000000;
 ```
 > Borramos todas las tuplas de la tabla world donde la poblacion sea mayor que cien millones de personas.
+
+[VOLVER AL INDICE](#INDICE)
