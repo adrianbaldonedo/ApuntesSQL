@@ -173,9 +173,7 @@ nombre_Dep VARCHAR(50),
 area INTEGER NOT NULL,
 lider INTEGER,
 PRIMARY KEY (nombre_Grupo, nombre_Dep),
-FOREIGN KEY (lider) REFERENCES 
-
-PRIMARY KEY (nombre_Dep, nombre_Sede) proyectoDeInvestigacion.PROFESOR (DNI)
+FOREIGN KEY (lider) REFERENCES (nombre_Dep, nombre_Sede) proyectoDeInvestigacion.PROFESOR (DNI)
     ON DELETE SET NULL,
     ON UPDATE CASCADE
 );
