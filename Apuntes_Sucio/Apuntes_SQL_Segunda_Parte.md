@@ -1,4 +1,24 @@
-# Apuntes SQL segunda parte.
+# Apuntes SQL - DDL y DML.
+
+## Indice
+1. [SubLenguajes SQL](#subsql)
+1. [Dominios](#tiposDominios)
+1. [DDL: Create](#ddlCreate)
+1. [DDL: CREATE -- CONSTRAINT](#ddlCreateContraint)
+1. [DDL : DROP](#ddlDrop)
+    - [DROP SCHEMA](#ddlDropSchema)
+    - [DROP TABLE](#ddlDropTable)
+1. [DDL : ALTER](#ddlAlter)
+    - [ALTER TABLE](#ddlDropSchema)
+    - [DROP TABLE](#ddlAlterTable)
+1. [DDL : ALTER](#)
+    - [INSERT](#ddlInsert)
+    - [UPDATE](#ddlUpdate)
+    - [DELETE](#ddlDelete)
+__________________________________________________________________________
+
+
+
 
 ## SubLenguajes SQL <a name="subsql"></a>
 
