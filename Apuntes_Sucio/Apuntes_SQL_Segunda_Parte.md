@@ -34,7 +34,7 @@ __________________________________________________________________________
 | DCL | DATA CONTROL LANGUAGE | DAR PERMISOS -- GRANT, REVOKE |
 | SCL | SESION CONTROL LANGUAGUE | MANEJAR DINÁMICAMENTE PROPIEDADES DE UNA SESIÓN DE USUARIO -- ALTER SESSION |
 
-[VOLVER AL INDICE] (#INDICE)
+[VOLVER AL INDICE](#INDICE)
 
 # TIPOS DE DATOS (DOMINIOS) <a name="tiposDominios"></a>
 
