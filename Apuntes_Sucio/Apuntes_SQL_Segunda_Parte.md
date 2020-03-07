@@ -75,6 +75,7 @@ Lista de Dominios mas comunes ( en negrita los que utilizaremos).
 | JSON |  |  |
 | HSTORE |  |  |
 
+[VOLVER AL INDICE](#INDICE)
 
 # DDL: Create <a name="ddlCreate"></a>
 La notación **CREATE** se utiliza para crear objetos de una base de datos o una base de datos en si y tambien para crear usuarios.
@@ -130,6 +131,7 @@ Ejemplo:
 ``` sql
 CREATE USER jdovalf IDENTIFIED BY abc123. INDENTIFIED WITH auth_plugin;
 ```
+[VOLVER AL INDICE](#INDICE)
 
 ### DDL: CREATE -- CONSTRAINTS <a name="ddlCreateContraint"></a>
 
@@ -167,6 +169,7 @@ nombre_Sede VARCHAR(50),
 PRIMARY KEY (nombre_Dep, nombre_Sede)
 );
 ```
+[VOLVER AL INDICE](#INDICE)
 
 **Restriccion de clave ajena** <a name="ConstraintFK"></a>
 
@@ -200,6 +203,7 @@ FOREIGN KEY (lider) REFERENCES (nombre_Dep, nombre_Sede) proyectoDeInvestigacion
     ON UPDATE CASCADE
 );
 ```
+[VOLVER AL INDICE](#INDICE)
 
 **Restriccion de unicidad** <a name="ConstraintUnique"></a>
 
@@ -222,6 +226,7 @@ fecha_inicio DATE NOT NULL,
 fecha_fin DATE
 );
 ```
+[VOLVER AL INDICE](#INDICE)
 
 **Restriccion de verificacion** <a name="ConstraintCheck"></a>
 
@@ -260,7 +265,7 @@ CHECK (
     WHERE departamento = 'A')
 ); 
 ```
-
+[VOLVER AL INDICE](#INDICE)
 
 ## DDL : DROP <a name="ddlDrop"></a>
 
@@ -280,6 +285,7 @@ Ejemplo:
 ```sql
 DROP SCHEMA IF EXISTS proyectoDeInvestigacion;
 ```
+[VOLVER AL INDICE](#INDICE)
 
 ### DROP TABLE <a name="ddlDropTable"></a>
 
@@ -300,6 +306,7 @@ Ejemplo:
 ```sql
 DROP TABLE IF EXISTS proyectoDeInvestigacion.DEPARTAMENTO CASCADE;
 ```
+[VOLVER AL INDICE](#INDICE)
 
 ## DDL : ALTER <a name="ddlAlter"></a>
 ### ADD Y DROP COLUMN <a name="add_drop_col"></a>
@@ -335,6 +342,9 @@ ALTER TABLE proyectoDeInvestigacion.DEPARTAMENTO DROP CONSTRAINT telefono_check;
 ```sql
 SELECT * information_schema.table_constraints WHERE table_name ='<nombre_tabla>';
 ```
+
+[VOLVER AL INDICE](#INDICE)
+
 # DML INSERT - UPDATE - DELETE <a name="dmlInsUODEL"></a>
 
 ## INSERT <a name="dmlInsert"></a>
@@ -362,6 +372,7 @@ VALUES
 ( 'Laboratorio', '981778952', 'Pedro Rivas'),
 ( 'RRHH', '981763984', 'Miguel Otero');
 ```
+[VOLVER AL INDICE](#INDICE)
 
 ## UPDATE <a name="dmlUpdate"></a>
 
@@ -382,6 +393,8 @@ SET name='España', continent ='Africa'
 WHERE name='spain';
 ```
 > En este ejemplo se actualizan todas las tuplas de la tabla mundo donde el nombre sea spain, y le ponemos de nombre España y el continente Africa. 
+
+[VOLVER AL INDICE](#INDICE)
 
 ## DELETE <a name="dmlDelete"></a>
 
