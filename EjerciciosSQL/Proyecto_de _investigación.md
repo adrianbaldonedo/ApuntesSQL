@@ -19,3 +19,18 @@ A partir do esquema relacional proporcionado, implementalo en PostgreSQL.
 
 
 ![Imagen ejercicio proyecto de investigacion](https://github.com/dam108/ApuntesSQL/blob/master/EjerciciosSQL/img/Ejercicios_PDI.PNG)
+
+
+____________________________________________________________________________
+
+Supuestos sin implemementar: 
+
+La fecha de inicio tiene que ser antes que la fecha de fin esto se implementaria con un **CHECK**
+Se podria usar un **ASERT** para comprobar qwue todo el dinero financiado se invierte en el proyecto. ( pero esto no lo se hacer)
+
+Formulas: 
+
+```sql
+
+
+```
