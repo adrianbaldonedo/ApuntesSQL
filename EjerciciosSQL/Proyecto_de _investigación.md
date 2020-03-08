@@ -56,7 +56,7 @@ nome_Grupo VARCHAR(50),
 nome_Departamento VARCHAR(50),
 area INTEGER NOT NULL,
 lider INTEGER,
-PRIMARY KEY (nome_Grupo, nomeDepartamento)
+PRIMARY KEY (nome_Grupo, nome_Departamento)
 );
 
 CREATE TABLE proyectoDeInvestigacion.PROFESOR (
