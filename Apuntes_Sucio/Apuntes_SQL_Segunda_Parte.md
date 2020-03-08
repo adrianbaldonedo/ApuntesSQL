@@ -289,7 +289,7 @@ DROP SCHEMA IF EXISTS proyectoDeInvestigacion;
 
 ### DROP TABLE <a name="ddlDropTable"></a>
 
-> Si queremos borrar una tabla de una base de datos utilizamos la notación **DROP TABLE **
+> Si queremos borrar una tabla de una base de datos utilizamos la notación **DROP TABLE**
 
 > Con la notación **RESTRICT** se especifica que una tabla nos e puede borrar si existe alguna dependencia.
 
