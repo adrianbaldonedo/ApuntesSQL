@@ -98,7 +98,6 @@ cantidade_Financianda MONEY NOT NULL,
 PRIMARY KEY (nome_Programa, codigo_Proxecto)
 );
 
-
 ALTER TABLE  proyectoDeInvestigacion.UBICACION ADD CONSTRAINT  clave_ajena1_ubicacion 
 FOREIGN KEY (nome_Sede) REFERENCES proyectoDeInvestigacion.SEDE (nome_Sede) 
 ON DELETE CASCADE ON UPDATE CASCADE;
@@ -117,7 +116,7 @@ ON DELETE SET NULL ON UPDATE CASCADE;
 
 ALTER TABLE  proyectoDeInvestigacion.GRUPO ADD CONSTRAINT  clave_ajena2_grupo 
 FOREIGN KEY ( nome_Departamento ) REFERENCES proyectoDeInvestigacion.DEPARTAMENTO (nome_Departamento) 
-ON DELETE CASCADE UPDATE CASCADE;
+ON DELETE CASCADE ON UPDATE CASCADE;
 
 ALTER TABLE  proyectoDeInvestigacion.PROFESOR ADD CONSTRAINT clave_ajena1_profesor 
 FOREIGN KEY (nome_Grupo, nome_Departamento) REFERENCES proyectoDeInvestigacion.GRUPO (nome_Grupo, nome_Departamento) 
