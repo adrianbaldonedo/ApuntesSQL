@@ -83,7 +83,7 @@ orzamento DECIMAL NOT NULL,
 data_Inicio DATE NOT NULL,
 data_Fin DATE,
 nome_Grupo VARCHAR(50),
-nome_Departamenteo VARCHAR(50)
+nome_Departamento VARCHAR(50)
 );
 
 CREATE TABLE proyectoDeInvestigacion.PROGRAMA (
