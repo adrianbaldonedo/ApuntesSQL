@@ -31,6 +31,7 @@ Se podria usar un **ASERT** para comprobar qwue todo el dinero financiado se inv
 Formulas: 
 
 ```sql
+
 CREATE SCHEMA proyectoDeInvestigacion;
 
 CREATE TABLE proyectoDeInvestigacion.SEDE (
@@ -44,17 +45,11 @@ nome_Departamento VARCHAR(50),
 PRIMARY KEY (nome_sede, nome_Departamento)
 );
 
-ALTER TABLE  proyectoDeInvestigacion.UBICACION ADD CONSTRAINT  clave_ajena1_ubicacion FOREIGN KEY (nome_Sede) REFERENCES proyectoDeInvestigacion.SEDE (nome_Sede) ON DELETE CASCADE ON UPDATE CASCADE;
-
-ALTER TABLE proyectoDeInvestigacion.UBICACION ADD CONSTRAINT clave_ajena2_ubicacion FOREIGN KEY (nome_Departamento) REFERENCES  proyectoDeInvestigacion.DEPARTAMENTO (nome_Departamento) ON DELETE CASCADE ON UPDATE CASCADE;
-
 CREATE TABLE  proyectoDeInvestigacion.DEPARTAMENTO (
 nome_Departamento VARCHAR(50) PRIMARY KEY,
 telefono INTEGER NOT NULL,
 director INTEGER
 );
-
-ALTER TABLE proyectoDeInvestigacion.DEPARTAMENTO  ADD CONSTRAINT clave_ajena1_departamento FOREIGN KEY  ( director ) REFERENCES proyectoDeInvestigacion.PROFESOR (DNI) ON DELETE SET NULL ON UPDATE CASCADE;
 
 CREATE TABLE proyectoDeInvestigacion.GRUPO (
 nome_Grupo VARCHAR(50),
@@ -64,8 +59,6 @@ lider INTEGER,
 PRIMARY KEY (nome_Grupo, nomeDepartamento)
 );
 
-ALTER TABLE  proyectoDeInvestigacion.GRUPO ADD CONSTRAINT  clave_ajena1_grupo FOREIGN KEY ( lider ) REFERENCES proyectoDeInvestigacion.PROFESOR (DNI) ON DELETE SET NULL ON UPDATE CASCADE;
-
 CREATE TABLE proyectoDeInvestigacion.PROFESOR (
 DNI INTEGER PRIMARY KEY,
 nome_Profesor VARCHAR(50) NOT NULL,
@@ -73,8 +66,6 @@ titulacion VARCHAR(30) NOT NULL,
 experiencia VARCHAR(30),
 grupo VARCHAR(50)
 );
-
-ALTER TABLE  proyectoDeInvestigacion.PROFESOR ADD CONSTRAINT clave_ajena1_profesor FOREIGN KEY (nome_Grupo, nome_Departamento) REFERENCES proyectoDeInvestigacion.GRUPO (nome_Grupo, nome_Departamento) ON DELETE SET NULL ON UPDATE CASCADE ;
 
 CREATE TABLE proyectoDeInvestigacion.PARTICIPA (
 DNI INTEGER,
@@ -85,10 +76,6 @@ dedicacion VARCHAR(50) NOT NULL,
 PRIMARY KEY (DNI, codigo_Proxecto)
 );
 
-ALTER TABLE  proyectoDeInvestigacion.PARTICIPA ADD CONSTRAINT clave_ajena1_participa FOREIGN KEY (DNI) REFERENCES  proyectoDeInvestigacion.PROFESOR (DNI) ON DELETE RESTRICT ON UPDATE CASCADE;
-
-ALTER TABLE  proyectoDeInvestigacion.PARTICIPA ADD CONSTRAINT clave_ajena2_participa FOREIGN KEY (codigo_Proxecto) REFERENCES proyectoDeInvestigacion.PROXECTO (codigo_Proxecto) ON DELETE RESTRICT ON UPDATE CASCADE;
-
 CREATE TABLE proyectoDeInvestigacion.PROXECTO (
 codigo_Proxecto INTEGER PRIMARY KEY,
 nome_Proxecto VARCHAR(50) NOT NULL UNIQUE,
@@ -97,8 +84,6 @@ data_Inicio DATE NOT NULL,
 grupo VARCHAR(50),
 data_Fin DATE
 );
-
-ALTER TABLE  proyectoDeInvestigacion.PROXECTO ADD CONSTRAINT clave_ajena1_proxecto FOREIGN KEY (nome_Grupo, nome_Departamento) REFERENCES  proyectoDeInvestigacion.GRUPO (nome_Grupo, nome_Departamento) ON DELETE CASCADE ON UPDATE CASCADE;
 
 CREATE TABLE proyectoDeInvestigacion.PROGRAMA (
 nome_Programa VARCHAR(50) PRIMARY KEY,
@@ -112,8 +97,24 @@ cantidade_Financianda MONEY NOT NULL,
 PRIMARY KEY (nome_Programa, codigo_Proxecto)
 );
 
-ALTER TABLE  proyectoDeInvestigacion.FINANCIA ADD CONSTRAINT clave_ajena1_financia FOREIGN KEY (nome_Programa) REFERENCES  proyectoDeInvestigacion.FINANCIA (nome_Programa) ON DELETE CASCADE ON UPDATE CASCADE;
 
+ALTER TABLE  proyectoDeInvestigacion.UBICACION ADD CONSTRAINT  clave_ajena1_ubicacion FOREIGN KEY (nome_Sede) REFERENCES proyectoDeInvestigacion.SEDE (nome_Sede) ON DELETE CASCADE ON UPDATE CASCADE;
+
+ALTER TABLE proyectoDeInvestigacion.UBICACION ADD CONSTRAINT clave_ajena2_ubicacion FOREIGN KEY (nome_Departamento) REFERENCES  proyectoDeInvestigacion.DEPARTAMENTO (nome_Departamento) ON DELETE CASCADE ON UPDATE CASCADE;
+
+ALTER TABLE proyectoDeInvestigacion.DEPARTAMENTO  ADD CONSTRAINT clave_ajena1_departamento FOREIGN KEY  ( director ) REFERENCES proyectoDeInvestigacion.PROFESOR (DNI) ON DELETE SET NULL ON UPDATE CASCADE;
+
+ALTER TABLE  proyectoDeInvestigacion.GRUPO ADD CONSTRAINT  clave_ajena1_grupo FOREIGN KEY ( lider ) REFERENCES proyectoDeInvestigacion.PROFESOR (DNI) ON DELETE SET NULL ON UPDATE CASCADE;
+
+ALTER TABLE  proyectoDeInvestigacion.PROFESOR ADD CONSTRAINT clave_ajena1_profesor FOREIGN KEY (nome_Grupo, nome_Departamento) REFERENCES proyectoDeInvestigacion.GRUPO (nome_Grupo, nome_Departamento) ON DELETE SET NULL ON UPDATE CASCADE ;
+
+ALTER TABLE  proyectoDeInvestigacion.PARTICIPA ADD CONSTRAINT clave_ajena1_participa FOREIGN KEY (DNI) REFERENCES  proyectoDeInvestigacion.PROFESOR (DNI) ON DELETE RESTRICT ON UPDATE CASCADE;
+
+ALTER TABLE  proyectoDeInvestigacion.PARTICIPA ADD CONSTRAINT clave_ajena2_participa FOREIGN KEY (codigo_Proxecto) REFERENCES proyectoDeInvestigacion.PROXECTO (codigo_Proxecto) ON DELETE RESTRICT ON UPDATE CASCADE;
+
+ALTER TABLE  proyectoDeInvestigacion.PROXECTO ADD CONSTRAINT clave_ajena1_proxecto FOREIGN KEY (nome_Grupo, nome_Departamento) REFERENCES  proyectoDeInvestigacion.GRUPO (nome_Grupo, nome_Departamento) ON DELETE CASCADE ON UPDATE CASCADE;
+
+ALTER TABLE  proyectoDeInvestigacion.FINANCIA ADD CONSTRAINT clave_ajena1_financia FOREIGN KEY (nome_Programa) REFERENCES  proyectoDeInvestigacion.FINANCIA (nome_Programa) ON DELETE CASCADE ON UPDATE CASCADE;
 
 ALTER TABLE  proyectoDeInvestigacion.FINANCIA ADD CONSTRAINT clave_ajena2_financia  FOREIGN KEY (codigo_Proxecto) REFERENCES  proyectoDeInvestigacion.PROXECTO (codigo_Proxecto) ON DELETE CASCADE ON UPDATE CASCADE;
 
