@@ -118,7 +118,7 @@ ON DELETE SET NULL ON UPDATE CASCADE;
 
 ALTER TABLE  proyectoDeInvestigacion.GRUPO ADD CONSTRAINT  clave_ajena2_grupo 
 FOREIGN KEY ( nome_Departamento ) REFERENCES proyectoDeInvestigacion.DEPARTAMENTO (nome_Departamento) 
-ON DELETE SET CASCADE UPDATE CASCADE;
+ON DELETE CASCADE UPDATE CASCADE;
 
 ALTER TABLE  proyectoDeInvestigacion.PROFESOR ADD CONSTRAINT clave_ajena1_profesor 
 FOREIGN KEY (nome_Grupo, nome_Departamento) REFERENCES proyectoDeInvestigacion.GRUPO (nome_Grupo, nome_Departamento) 
