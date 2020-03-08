@@ -64,7 +64,8 @@ DNI INTEGER PRIMARY KEY,
 nome_Profesor VARCHAR(50) NOT NULL,
 titulacion VARCHAR(30) NOT NULL,
 experiencia VARCHAR(30),
-grupo VARCHAR(50)
+nome_Grupo VARCHAR(50),
+nome_Departamenteo(50)
 );
 
 CREATE TABLE proyectoDeInvestigacion.PARTICIPA (
@@ -81,7 +82,8 @@ codigo_Proxecto INTEGER PRIMARY KEY,
 nome_Proxecto VARCHAR(50) NOT NULL UNIQUE,
 orzamento VARCHAR(30) NOT NULL,
 data_Inicio DATE NOT NULL,
-grupo VARCHAR(50),
+nome_Grupo VARCHAR(50),
+nome_Departamenteo(50),
 data_Fin DATE
 );
 
