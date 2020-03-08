@@ -16,3 +16,4 @@ De cada planeta coñécese o seu nome e código, a galaxia e coordenadas nas que
 
 A partir do esquema relacional proporcionado, implementalo en PostgreSQL.
 
+![Imagen ejercicio Naves Espaciales](https://github.com/dam108/ApuntesSQL/blob/master/EjerciciosSQL/img/Ejercicios_NE.PNG)
