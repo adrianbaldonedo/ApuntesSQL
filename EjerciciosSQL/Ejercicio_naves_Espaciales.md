@@ -25,7 +25,7 @@ suponemos que el número de tripulantes no supera la capacidad de las camaras , 
 
 ```sql
 
-CREATE SCHEMA IF EXISTS nEspaciales;
+CREATE SCHEMA IF NOT EXISTS nEspaciales;
 
 CREATE TABLE nEspaciales.SERVIZO (
 clave_Servizo INTEGER,
@@ -45,8 +45,8 @@ localizacion VARCHAR(50)
 
 CREATE TABLE nEspaciales.CAMARA (
 codigo_Dependencia INTEGER PRIMARY KEY,
-categoria NOT NULL,
-capacidade NOT NULL,
+categoria VARCHAR(15) NOT NULL,
+capacidade INTEGER NOT NULL,
 CHECK (capacidade > 0)
 );
 
@@ -56,7 +56,7 @@ nome_Tripulacion VARCHAR(30) NOT NULL,
 codigo_Camara INTEGER NOT NULL,
 codigo_Dependencia INTEGER NOT NULL,
 categoria VARCHAR(20) NOT NULL,
-antiguedade DATE NOT NULL,
+antiguedade INTEGER NOT NULL,
 procedencia VARCHAR(50) NOT NULL,
 adm boolean NOT NULL,
 CHECK (antiguedade > 0)
