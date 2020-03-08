@@ -80,11 +80,11 @@ PRIMARY KEY (DNI, codigo_Proxecto)
 CREATE TABLE proyectoDeInvestigacion.PROXECTO (
 codigo_Proxecto INTEGER PRIMARY KEY,
 nome_Proxecto VARCHAR(50) NOT NULL UNIQUE,
-orzamento VARCHAR(30) NOT NULL,
+orzamento DECIMAL NOT NULL,
 data_Inicio DATE NOT NULL,
+data_Fin DATE,
 nome_Grupo VARCHAR(50),
-nome_Departamenteo(50),
-data_Fin DATE
+nome_Departamenteo(50)
 );
 
 CREATE TABLE proyectoDeInvestigacion.PROGRAMA (
