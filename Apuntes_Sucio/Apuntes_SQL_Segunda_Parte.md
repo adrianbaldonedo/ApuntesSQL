@@ -340,7 +340,9 @@ ALTER TABLE proyectoDeInvestigacion.DEPARTAMENTO DROP CONSTRAINT telefono_check;
 
 > NOTA: si no se le da un nombre a las Restricciones se puede comprobar cual es el nombre por defecto con el siguiente comando 
 ```sql
-SELECT * information_schema.table_constraints WHERE table_name ='<nombre_tabla>';
+SELECT *
+FROM INFORMATION_SCHEMA.table_constraints
+WHERE TABLE_NAME = 'proyectodeinvestigacion.departamento';
 ```
 
 [VOLVER AL INDICE](#INDICE)
