@@ -137,7 +137,7 @@ FOREIGN KEY (nome_Grupo, nome_Departamento) REFERENCES  proyectoDeInvestigacion.
 ON DELETE CASCADE ON UPDATE CASCADE;
 
 ALTER TABLE  proyectoDeInvestigacion.FINANCIA ADD CONSTRAINT clave_ajena1_financia 
-FOREIGN KEY (nome_Programa) REFERENCES  proyectoDeInvestigacion.FINANCIA (nome_Programa) 
+FOREIGN KEY (nome_Programa) REFERENCES  proyectoDeInvestigacion.PROGRAMA (nome_Programa) 
 ON DELETE CASCADE ON UPDATE CASCADE;
 
 ALTER TABLE  proyectoDeInvestigacion.FINANCIA ADD CONSTRAINT clave_ajena2_financia 
