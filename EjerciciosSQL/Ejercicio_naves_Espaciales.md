@@ -17,3 +17,164 @@ De cada planeta coñécese o seu nome e código, a galaxia e coordenadas nas que
 A partir do esquema relacional proporcionado, implementalo en PostgreSQL.
 
 ![Imagen ejercicio Naves Espaciales](https://github.com/dam108/ApuntesSQL/blob/master/EjerciciosSQL/img/Ejercicios_NE.PNG)
+
+
+________________________________________________________
+
+```sql
+
+CREATE SCHEMA IF EXISTS nEspaciales;
+
+CREATE TABLE nEspaciales.SERVIZO (
+ clave_Servizo INTEGER,
+ nome_Servizo VARCHAR(30),
+ PRIMARY KEY (clave_Servizo, nome_servizo)
+ );
+
+CREATE TABLE nEspaciales.DEPENDENCIA(
+codigo_Dependencia INTEGER PRIMARY KEY,
+nome_Dependencia VARCHAR(30) NOT NULL UNIQUE,
+clave_Servizo INTEGER,
+nome_Servizo VARCHAR(30),
+funcion VARCHAR(20),
+localizacion VARCHAR(50)
+);
+
+ALTER TABLE nEspaciales.DEPENDENCIA ADD CONSTRAINT clave_ajena1_dependencia
+FOREIGN KEY (clave_Servizo) REFERENCES nEspaciales.SERVIZO (clave_Servizo)
+ON DELETEE CASCADE ON UPDATE CASCADE;
+
+ALTER TABLE nEspaciales.DEPENDENCIA ADD CONSTRAINT clave_ajena2_dependencia
+FOREIGN KEY (nome_Servizo) REFERENCES nEspaciales.SERVIZO (nome_Servizo)
+ON DELETE CASCADE ON UPDATE CASCADE;
+
+CREATE TABLE nEspaciales.CAMARA (
+codigo_Dependencia INTEGER PRIMARY KEY,
+categoria NOT NULL,
+capacidade NOT NULL
+);
+
+ALTER TABLE nEspaciales.CAMARA ADD CONSTRAINT clave_ajena1_camara
+FOREIGN KEY (codigo_Dependencia) REFERENCES nEspaciales.DEPENDENCIA (codigo_Dependencia)
+ON DELETE CASCACDE ON UPDATE CASCADE;
+
+CREATE TABLE nEspaciales.TRIPULACION (
+codigo_Tripulacion INTEGER PRIMARY KEY,
+nome_Tripulacion VARCHAR(30) NOT NULL,
+codigo_Camara INTEGER,
+codigo_Dependencia INTEGER,
+categoria VARCHAR(20) NOT NULL,
+antiguedade DATE NOT NULL,
+procedencia VARCHAR(50) NOT NULL,
+adm boolean NOT NULL
+);
+
+ALTER TABLE nEspaciales.TRIPULACION ADD CONSTRAINT clave_ajena1_tripulacion
+FOREIGN KEY (codigo_Camara) REFERENCES nEspaciales.CAMARA(codigo_Dependencia)
+ON DELETE CASCADE ON UPDATE CASCADE;
+
+ALTER TABLE nEspaciales.TRIPULACION ADD CONSTRAINT clave_ajena2_tripulacion
+FOREIGN KEY (codigo_Dependencia) REFERENCES nEspaciales.DEPENDENCIA(codigo_Dependencia)
+ON DELETE CASCADE ON UPDATE CASCADE;
+
+CREATE TABLE VISITA (
+codigo_Tripulacion INTEGER,
+codigo_Planeta INTEGER,
+data_visita DATE,
+tempo TIMESTAMP,
+PRIMARY KEY (codigo_Tripulacion, codigo_Planeta, data_visita)
+);
+
+ALTER TABLE nEspaciales.VISITA ADD CONSTRAINT clave_ajena1_visita
+FOREIGN KEY (codigo_Tripulacion) REFERENCES nEspaciales.TRIPULACION (codigo_Tripulacion)
+ON DELTE CASCADE ON UPDATE CASCADE;
+
+ALTER TABLE nEspaciales.VISITA ADD CONSTRAINT clave_ajena2_visita
+FOREIGN KEY (codigo_Planeta) REFERENCES nEspaciales.PLANETA (codigo_Planeta)
+ON DELTE CASCADE ON UPDATE CASCADE;
+
+CREATE TABLE nEspaciales.PLANETA (
+codigo_Planeta INTEGER PRIMARY KEY,
+nome_Planeta VARCHAR(30) NOT NULL UNIQUE,
+galaxia VARCHAR(30) NOT NULL,
+coordenadas VARCHAR(20) NOT NULL UNIQUE
+);
+
+CREATE TABLE nEspaciales.HABITA(
+codigo_Planeta INTEGER,
+nome_Raza VARCHAR(30),
+poblacion_Parcial VARCHAR(20) NOT NULL,
+PRIMARY KEY (codigo_Planeta, nome_Raza)
+);
+
+ALTER TABLE nEspaciales.HABITA ADD CONSTRAINT clave_ajena1_habita
+FOREIGN KEY (codigo_Planeta) REFERENCES nEspaciales.PLANETA (codigo_Planeta)
+ON DELETE CASCADE ON UPDATE CASCADE;
+
+ALTER TABLE nEspaciales.HABITA ADD CONSTRAINT clave_ajena2_habita
+FOREIGN KEY (nome_Raza) REFERENCES nEspaciales.RAZA (nome_Raza)
+ON DELETE CASCADE ON UPDATE CASCADE;
+
+CREATE TABLE nEspaciales.RAZA (
+nome_Raza VARCHAR(30) PRIMARY KEY,
+altura DECIMAL NOT NULL,
+anchura DECIMAL NOT NULL,
+peso DECIMAL NOT NULL, 
+poblacion_Total INTEGER NOT NULL
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+```
