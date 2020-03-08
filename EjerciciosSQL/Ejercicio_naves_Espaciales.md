@@ -21,6 +21,8 @@ A partir do esquema relacional proporcionado, implementalo en PostgreSQL.
 
 ________________________________________________________
 
+suponemos que el número de tripulantes no supera la capacidad de las camaras , esto se comprobaría con un **ASSERT**
+
 ```sql
 
 CREATE SCHEMA IF EXISTS nEspaciales;
