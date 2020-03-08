@@ -64,7 +64,7 @@ nome_Profesor VARCHAR(50) NOT NULL,
 titulacion VARCHAR(30) NOT NULL,
 experiencia VARCHAR(30),
 nome_Grupo VARCHAR(50),
-nome_Departamenteo VARCHAR(50)
+nome_Departamento VARCHAR(50)
 );
 
 CREATE TABLE proyectoDeInvestigacion.PARTICIPA (
