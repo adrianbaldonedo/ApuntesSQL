@@ -31,7 +31,6 @@ Se podria usar un **ASERT** para comprobar qwue todo el dinero financiado se inv
 Formulas: 
 
 ```sql
-
 CREATE SCHEMA proyectoDeInvestigacion;
 
 CREATE TABLE proyectoDeInvestigacion.SEDE (
@@ -65,7 +64,7 @@ nome_Profesor VARCHAR(50) NOT NULL,
 titulacion VARCHAR(30) NOT NULL,
 experiencia VARCHAR(30),
 nome_Grupo VARCHAR(50),
-nome_Departamenteo(50)
+nome_Departamenteo VARCHAR(50)
 );
 
 CREATE TABLE proyectoDeInvestigacion.PARTICIPA (
@@ -84,11 +83,11 @@ orzamento DECIMAL NOT NULL,
 data_Inicio DATE NOT NULL,
 data_Fin DATE,
 nome_Grupo VARCHAR(50),
-nome_Departamenteo(50)
+nome_Departamenteo VARCHAR(50)
 );
 
 CREATE TABLE proyectoDeInvestigacion.PROGRAMA (
-nome_Programa VARCHAR(50) PRIMARY KEY,
+nome_Programa VARCHAR(50) PRIMARY KEY
 );
 
 CREATE TABLE proyectoDeInvestigacion.FINANCIA (
