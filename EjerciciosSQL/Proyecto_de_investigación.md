@@ -152,14 +152,14 @@ ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- A FOREIGHN KEY de Profesor esta mal. Facer unha nova
 -- FOREIGN KEY con B:N M:N
+
 ALTER TABLE proyectoDeInvestigacion.PROFESOR
 DROP CONSTRAINT clave_ajena1_profesor;
 
-ALTER TABLE PROFESOR 
+ALTER TABLE proyectoDeInvestigacion.PROFESOR 
 ADD CONSTRAINT clave_ajena1_profesor
 FOREIGN KEY (nome_Grupo, nome_Departamento)
 REFERENCES proyectoDeInvestigacion.GRUPO (nome_Grupo, nome_Departamento)
 ON DELETE SET NULL
 ON UPDATE NO ACTION;
-
 ```
