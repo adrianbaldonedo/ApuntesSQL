@@ -33,49 +33,49 @@ Formulas:
 ```sql
 CREATE SCHEMA proyectoDeInvestigacion;
 
-CREATE DOMAIN tipo_Codigo CHAR(5);
-CREATE DOMAIN tipo_DNI    CHAR(9);
-CREATE DOMAIN telefono    CHAR(9);
-CREATE DOMAIN nome_valido VARCHAR(30);
+CREATE DOMAIN proyectoDeInvestigacion.tipo_Codigo CHAR(5);
+CREATE DOMAIN proyectoDeInvestigacion.tipo_DNI    CHAR(9);
+CREATE DOMAIN proyectoDeInvestigacion.telefono    CHAR(9);
+CREATE DOMAIN proyectoDeInvestigacion.nome_valido VARCHAR(30);
 
 CREATE TABLE proyectoDeInvestigacion.SEDE (
-nome_Sede nome_valido PRIMARY KEY,
-campus nome_valido NOT NULL
+nome_Sede proyectoDeInvestigacion.nome_valido PRIMARY KEY,
+campus proyectoDeInvestigacion.nome_valido NOT NULL
 );
 
 CREATE TABLE proyectoDeInvestigacion.UBICACION (
-nome_Sede nome_valido,
-nome_Departamento nome_valido,
+nome_Sede proyectoDeInvestigacion.nome_valido,
+nome_Departamento proyectoDeInvestigacion.nome_valido,
 PRIMARY KEY (nome_sede, nome_Departamento)
 );
 
 CREATE TABLE  proyectoDeInvestigacion.DEPARTAMENTO (
-nome_Departamento nome_valido PRIMARY KEY,
-telefono telefono NOT NULL,
-director tipo_DNI
+nome_Departamento proyectoDeInvestigacion.nome_valido PRIMARY KEY,
+telefono proyectoDeInvestigacion.telefono NOT NULL,
+director proyectoDeInvestigacion.tipo_DNI
 -- FK (director)
 );
 
 CREATE TABLE proyectoDeInvestigacion.GRUPO (
-nome_Grupo VARCHAR(50),
-nome_Departamento VARCHAR(50),
-area INTEGER NOT NULL,
-lider INTEGER,
+nome_Grupo proyectoDeInvestigacion.nome_valido,
+nome_Departamento proyectoDeInvestigacion.nome_valido,
+area proyectoDeInvestigacion.nome_valido NOT NULL,
+lider proyectoDeInvestigacion.tipo_DNI,
 PRIMARY KEY (nome_Grupo, nome_Departamento)
 );
 
 CREATE TABLE proyectoDeInvestigacion.PROFESOR (
-DNI INTEGER PRIMARY KEY,
-nome_Profesor VARCHAR(50) NOT NULL,
+DNI proyectoDeInvestigacion.tipo_DNI PRIMARY KEY,
+nome_Profesor proyectoDeInvestigacion.nome_valido NOT NULL,
 titulacion VARCHAR(30) NOT NULL,
 experiencia VARCHAR(30),
-nome_Grupo VARCHAR(50),
-nome_Departamento VARCHAR(50)
+nome_Grupo proyectoDeInvestigacion.nome_valido,
+nome_Departamento proyectoDeInvestigacion.nome_valido
 );
 
 CREATE TABLE proyectoDeInvestigacion.PARTICIPA (
-DNI INTEGER,
-codigo_Proxecto INTEGER,
+DNI proyectoDeInvestigacion.tipo_DNI,
+codigo_Proxecto proyectoDeInvestigacion.tipo_Codigo,
 data_Inicio DATE NOT NULL,
 data_cese DATE,
 dedicacion VARCHAR(50) NOT NULL,
@@ -83,22 +83,22 @@ PRIMARY KEY (DNI, codigo_Proxecto)
 );
 
 CREATE TABLE proyectoDeInvestigacion.PROXECTO (
-codigo_Proxecto INTEGER PRIMARY KEY,
-nome_Proxecto VARCHAR(50) NOT NULL UNIQUE,
+codigo_Proxecto proyectoDeInvestigacion.tipo_Codigo PRIMARY KEY,
+nome_Proxecto proyectoDeInvestigacion.nome_valido NOT NULL UNIQUE,
 orzamento DECIMAL NOT NULL,
 data_Inicio DATE NOT NULL,
 data_Fin DATE,
-nome_Grupo VARCHAR(50),
-nome_Departamento VARCHAR(50)
+nome_Grupo proyectoDeInvestigacion.nome_valido,
+nome_Departamento proyectoDeInvestigacion.nome_valido
 );
 
 CREATE TABLE proyectoDeInvestigacion.PROGRAMA (
-nome_Programa VARCHAR(50) PRIMARY KEY
+nome_Programa proyectoDeInvestigacion.nome_valido PRIMARY KEY
 );
 
 CREATE TABLE proyectoDeInvestigacion.FINANCIA (
-nome_Programa VARCHAR(50),
-codigo_Proxecto INTEGER,
+nome_Programa proyectoDeInvestigacion.nome_valido,
+codigo_Proxecto proyectoDeInvestigacion.tipo_Codigo,
 numero_Proxecto INTEGER NOT NULL,
 cantidade_Financianda MONEY NOT NULL,
 PRIMARY KEY (nome_Programa, codigo_Proxecto)
