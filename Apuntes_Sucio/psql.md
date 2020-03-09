@@ -6,3 +6,7 @@ select nspname from pg_catalog.pg_namespace;
 \dt schema;
 
 listamos las tablas que hay dentro del schema
+
+\dn para mostrar los schemas que tenemos creados.
+
+
