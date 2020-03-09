@@ -80,8 +80,9 @@ DNI proyectoDeInvestigacion.tipo_DNI,
 codigo_Proxecto proyectoDeInvestigacion.tipo_Codigo,
 data_Inicio DATE NOT NULL,
 data_cese DATE,
-dedicacion VARCHAR(50) NOT NULL,
-PRIMARY KEY (DNI, codigo_Proxecto)
+dedicacion INTEGER NOT NULL,
+PRIMARY KEY (DNI, codigo_Proxecto),
+CHECK( data_ces > data_Inicio)
 );
 
 CREATE TABLE proyectoDeInvestigacion.PROXECTO (
