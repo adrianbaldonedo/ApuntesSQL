@@ -33,21 +33,27 @@ Formulas:
 ```sql
 CREATE SCHEMA proyectoDeInvestigacion;
 
+CREATE DOMAIN tipo_Codigo CHAR(5);
+CREATE DOMAIN tipo_DNI    CHAR(9);
+CREATE DOMAIN telefono    CHAR(9);
+CREATE DOMAIN nome_valido VARCHAR(30);
+
 CREATE TABLE proyectoDeInvestigacion.SEDE (
-nome_Sede VARCHAR(50)  PRIMARY KEY,
-campus VARCHAR(30) NOT NULL
+nome_Sede nome_valido PRIMARY KEY,
+campus nome_valido NOT NULL
 );
 
 CREATE TABLE proyectoDeInvestigacion.UBICACION (
-nome_Sede VARCHAR(50),
-nome_Departamento VARCHAR(50),
+nome_Sede nome_valido,
+nome_Departamento nome_valido,
 PRIMARY KEY (nome_sede, nome_Departamento)
 );
 
 CREATE TABLE  proyectoDeInvestigacion.DEPARTAMENTO (
-nome_Departamento VARCHAR(50) PRIMARY KEY,
-telefono INTEGER NOT NULL,
-director INTEGER
+nome_Departamento nome_valido PRIMARY KEY,
+telefono telefono NOT NULL,
+director tipo_DNI
+-- FK (director)
 );
 
 CREATE TABLE proyectoDeInvestigacion.GRUPO (
