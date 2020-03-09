@@ -61,6 +61,7 @@ nome_Grupo proyectoDeInvestigacion.nome_valido,
 nome_Departamento proyectoDeInvestigacion.nome_valido,
 area proyectoDeInvestigacion.nome_valido NOT NULL,
 lider proyectoDeInvestigacion.tipo_DNI,
+-- FK lider
 PRIMARY KEY (nome_Grupo, nome_Departamento)
 );
 
