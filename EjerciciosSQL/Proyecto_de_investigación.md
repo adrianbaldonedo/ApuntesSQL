@@ -69,9 +69,10 @@ CREATE TABLE proyectoDeInvestigacion.PROFESOR (
 DNI proyectoDeInvestigacion.tipo_DNI PRIMARY KEY,
 nome_Profesor proyectoDeInvestigacion.nome_valido NOT NULL,
 titulacion VARCHAR(30) NOT NULL,
-experiencia VARCHAR(30),
+experiencia INTEGER,
 nome_Grupo proyectoDeInvestigacion.nome_valido,
 nome_Departamento proyectoDeInvestigacion.nome_valido
+-- FK nome_Grupo, nome_Departamento 
 );
 
 CREATE TABLE proyectoDeInvestigacion.PARTICIPA (
