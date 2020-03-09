@@ -75,6 +75,13 @@ Lista de Dominios mas comunes ( en negrita los que utilizaremos).
 | JSON |  |  |
 | HSTORE |  |  |
 
+**Si queremos crear un dominio utilizamos la notacion CREATE DOMAIN <nombre_dominio>;**
+```sql
+CREATE DOMAIN tipo_Codigo CHAR(5);
+CREATE DOMAIN tipo_DNI    CHAR(9);
+CREATE DOMAIN nome_valido VARCHAR(30);
+```
+
 [VOLVER AL INDICE](#INDICE)
 
 # DDL: Create <a name="ddlCreate"></a>
