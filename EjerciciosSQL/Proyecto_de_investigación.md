@@ -150,4 +150,6 @@ ALTER TABLE  proyectoDeInvestigacion.FINANCIA ADD CONSTRAINT clave_ajena2_financ
 FOREIGN KEY (codigo_Proxecto) REFERENCES  proyectoDeInvestigacion.PROXECTO (codigo_Proxecto) 
 ON DELETE CASCADE ON UPDATE CASCADE;
 
+-- A FOREIGHN KEY de Profesor esta mal 
+
 ```
