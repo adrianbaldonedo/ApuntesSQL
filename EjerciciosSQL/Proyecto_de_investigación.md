@@ -132,7 +132,7 @@ ON DELETE RESTRICT ON UPDATE CASCADE;
 
 ALTER TABLE  proyectoDeInvestigacion.PROXECTO ADD CONSTRAINT clave_ajena1_proxecto 
 FOREIGN KEY (nome_Grupo, nome_Departamento) REFERENCES  proyectoDeInvestigacion.GRUPO (nome_Grupo, nome_Departamento) 
-ON DELETE CASCADE ON UPDATE CASCADE;
+ON DELETE SET NULL ON UPDATE CASCADE;
 
 ALTER TABLE  proyectoDeInvestigacion.FINANCIA ADD CONSTRAINT clave_ajena1_financia 
 FOREIGN KEY (nome_Programa) REFERENCES  proyectoDeInvestigacion.PROGRAMA (nome_Programa) 
