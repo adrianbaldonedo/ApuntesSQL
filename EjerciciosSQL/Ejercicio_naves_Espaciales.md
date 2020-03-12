@@ -53,11 +53,11 @@ CHECK (capacidade > 0)
 );
 
 CREATE TABLE nEspaciales.TRIPULACION (
-codigo_Tripulacion INTEGER PRIMARY KEY,
-nome_Tripulacion VARCHAR(30) NOT NULL,
-codigo_Camara INTEGER NOT NULL,
-codigo_Dependencia INTEGER NOT NULL,
-categoria VARCHAR(20) NOT NULL,
+codigo_Tripulacion tipo_Codigo PRIMARY KEY,
+nome_Tripulacion nome_valido NOT NULL,
+codigo_Camara tipo_Codigo NOT NULL,
+codigo_Dependencia tipo_Codigo NOT NULL,
+categoria nome_valido NOT NULL,
 antiguedade INTEGER NOT NULL,
 procedencia VARCHAR(50) NOT NULL,
 adm boolean NOT NULL,
@@ -65,23 +65,23 @@ CHECK (antiguedade > 0)
 );
 
 CREATE TABLE nEspaciales.VISITA (
-codigo_Tripulacion INTEGER,
-codigo_Planeta INTEGER,
+codigo_Tripulacion tipo_Codigo,
+codigo_Planeta tipo_Codigo,
 data_visita DATE,
 tempo INTEGER NOT NULL,
 PRIMARY KEY (codigo_Tripulacion, codigo_Planeta, data_visita)
 );
 
 CREATE TABLE nEspaciales.PLANETA (
-codigo_Planeta INTEGER PRIMARY KEY,
-nome_Planeta VARCHAR(30) NOT NULL UNIQUE,
-galaxia VARCHAR(30) NOT NULL,
+codigo_Planeta tipo_Codigo PRIMARY KEY,
+nome_Planeta nome_valido NOT NULL UNIQUE,
+galaxia nome_valido NOT NULL,
 coordenadas VARCHAR(20) NOT NULL UNIQUE
 );
 
 CREATE TABLE nEspaciales.HABITA(
-codigo_Planeta INTEGER,
-nome_Raza VARCHAR(30),
+codigo_Planeta tipo_Codigo,
+nome_Raza nome_valido,
 poblacion_Parcial INTEGER NOT NULL,
 PRIMARY KEY (codigo_Planeta, nome_Raza),
 CHECK (poblacion_Parcial > 0)
