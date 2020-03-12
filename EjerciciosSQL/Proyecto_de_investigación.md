@@ -88,7 +88,7 @@ CHECK( data_ces > data_Inicio)
 CREATE TABLE proyectoDeInvestigacion.PROXECTO (
 codigo_Proxecto proyectoDeInvestigacion.tipo_Codigo PRIMARY KEY,
 nome_Proxecto proyectoDeInvestigacion.nome_valido NOT NULL UNIQUE,
-orzamento DECIMAL NOT NULL,
+orzamento MONEY NOT NULL,
 data_Inicio DATE NOT NULL,
 data_Fin DATE,
 nome_Grupo proyectoDeInvestigacion.nome_valido,
