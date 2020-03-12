@@ -92,7 +92,8 @@ orzamento MONEY NOT NULL,
 data_Inicio DATE NOT NULL,
 data_Fin DATE,
 nome_Grupo proyectoDeInvestigacion.nome_valido,
-nome_Departamento proyectoDeInvestigacion.nome_valido
+nome_Departamento proyectoDeInvestigacion.nome_valido,
+CHECK (data_Inicio < data_Fin)
 );
 
 CREATE TABLE proyectoDeInvestigacion.PROGRAMA (
@@ -164,3 +165,28 @@ REFERENCES proyectoDeInvestigacion.GRUPO (nome_Grupo, nome_Departamento)
 ON DELETE SET NULL
 ON UPDATE NO ACTION;
 ```
+
+-- despues de un tiempo queremos que la fecha de incicio de PROXECTO se aunica
+ALTER TABLE proyectoDeInvestigacion.PROXECTO
+  ADD CONSTRAINT data_Inicio_Unica
+  UNIQUE (data_Inicio);
+
+-- para modificar el tipo de un campo
+ALTER TABLE proyectoDeInvestigacion.FINANCIA
+  DROP COLUMNN cantidade_Financianda;
+  
+ALTER TABLE proyectoDeInvestigacion.FINANCIA
+ADD COLUMN cantidad_Financiando MONEY NOT NULL;
+
+-- otra opciO para la anterior
+ALTER TABLE proyectoDeInvestigacion.FINANCIA 
+ALTER COLUMN cantidad_Financiada TYPE CHAR(9);
+
+-- comprobar que el orxamento incluye todo lo financiando con Assertion
+
+CREATE ASSERTION O_Orzamento_Include_Todo_O_Financiado
+-- PEUDOCODIGO!!! ESTO NO FUNCIONA
+-- CHECK (<PREDICADO>)
+CHECK Proxecto.Orzamento >= SUM(financia.cantidade_Financiada)
+);
+  
