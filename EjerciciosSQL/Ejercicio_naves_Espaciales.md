@@ -27,25 +27,27 @@ suponemos que el número de tripulantes no supera la capacidad de las camaras , 
 
 CREATE SCHEMA IF NOT EXISTS nEspaciales;
 
+CREATE DOMAIN tipo_Codigo CHAR(5);
+CREATE DOMAIN nome_valido VARCHAR(40);
+
 CREATE TABLE nEspaciales.SERVIZO (
-clave_Servizo INTEGER,
-nome_Servizo VARCHAR(30),
+clave_Servizo tipo_Codigo,
+nome_Servizo nome_valido,
 PRIMARY KEY (clave_Servizo, nome_servizo),
-CHECK (clave_Servizo > 0)
 );
 
 CREATE TABLE nEspaciales.DEPENDENCIA(
-codigo_Dependencia INTEGER PRIMARY KEY,
-nome_Dependencia VARCHAR(30) NOT NULL UNIQUE,
-clave_Servizo INTEGER NOT NULL,
-nome_Servizo VARCHAR(30) NOT NULL,
+codigo_Dependencia tipo_Codigo PRIMARY KEY,
+nome_Dependencia nome_valido NOT NULL UNIQUE,
+clave_Servizo tipo_Codigo NOT NULL,
+nome_Servizo nome_valido NOT NULL,
 funcion VARCHAR(20),
-localizacion VARCHAR(50)
+localizacion VARCHAR(20)
 );
 
 CREATE TABLE nEspaciales.CAMARA (
-codigo_Dependencia INTEGER PRIMARY KEY,
-categoria VARCHAR(15) NOT NULL,
+codigo_Dependencia tipo_Codigo PRIMARY KEY,
+categoria nome_valido NOT NULL,
 capacidade INTEGER NOT NULL,
 CHECK (capacidade > 0)
 );
