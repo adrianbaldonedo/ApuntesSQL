@@ -12,37 +12,37 @@
 ```sql
 CREATE SCHEMA IF NOT EXISTS nEspaciales;
 
-CREATE DOMAIN tipo_Codigo CHAR(5);
-CREATE DOMAIN nome_valido VARCHAR(40);
+CREATE DOMAIN CHAR(5) CHAR(5);
+CREATE DOMAIN VARCHAR(40) VARCHAR(40);
 
 CREATE TABLE nEspaciales.SERVIZO (
-clave_Servizo tipo_Codigo,
-nome_Servizo nome_valido,
+clave_Servizo CHAR(5),
+nome_Servizo VARCHAR(40),
 PRIMARY KEY (clave_Servizo, nome_servizo),
 );
 
 CREATE TABLE nEspaciales.DEPENDENCIA(
-codigo_Dependencia tipo_Codigo PRIMARY KEY,
-nome_Dependencia nome_valido NOT NULL UNIQUE,
-clave_Servizo tipo_Codigo NOT NULL,
-nome_Servizo nome_valido NOT NULL,
+codigo_Dependencia CHAR(5) PRIMARY KEY,
+nome_Dependencia VARCHAR(40) NOT NULL UNIQUE,
+clave_Servizo CHAR(5) NOT NULL,
+nome_Servizo VARCHAR(40) NOT NULL,
 funcion VARCHAR(20),
 localizacion VARCHAR(20)
 );
 
 CREATE TABLE nEspaciales.CAMARA (
-codigo_Dependencia tipo_Codigo PRIMARY KEY,
-categoria nome_valido NOT NULL,
+codigo_Dependencia CHAR(5) PRIMARY KEY,
+categoria VARCHAR(40) NOT NULL,
 capacidade INTEGER NOT NULL,
 CHECK (capacidade > 0)
 );
 
 CREATE TABLE nEspaciales.TRIPULACION (
-codigo_Tripulacion tipo_Codigo PRIMARY KEY,
-nome_Tripulacion nome_valido NOT NULL,
-codigo_Camara tipo_Codigo NOT NULL,
-codigo_Dependencia tipo_Codigo NOT NULL,
-categoria nome_valido NOT NULL,
+codigo_Tripulacion CHAR(5) PRIMARY KEY,
+nome_Tripulacion VARCHAR(40) NOT NULL,
+codigo_Camara CHAR(5) NOT NULL,
+codigo_Dependencia CHAR(5) NOT NULL,
+categoria VARCHAR(40) NOT NULL,
 antiguedade INTEGER NOT NULL,
 procedencia VARCHAR(50) NOT NULL,
 adm boolean NOT NULL,
@@ -50,23 +50,23 @@ CHECK (antiguedade > 0)
 );
 
 CREATE TABLE nEspaciales.VISITA (
-codigo_Tripulacion tipo_Codigo,
-codigo_Planeta tipo_Codigo,
+codigo_Tripulacion CHAR(5),
+codigo_Planeta CHAR(5),
 data_visita DATE,
 tempo INTEGER NOT NULL,
 PRIMARY KEY (codigo_Tripulacion, codigo_Planeta, data_visita)
 );
 
 CREATE TABLE nEspaciales.PLANETA (
-codigo_Planeta tipo_Codigo PRIMARY KEY,
-nome_Planeta nome_valido NOT NULL UNIQUE,
-galaxia nome_valido NOT NULL,
+codigo_Planeta CHAR(5) PRIMARY KEY,
+nome_Planeta VARCHAR(40) NOT NULL UNIQUE,
+galaxia VARCHAR(40) NOT NULL,
 coordenadas VARCHAR(20) NOT NULL UNIQUE
 );
 
 CREATE TABLE nEspaciales.HABITA(
-codigo_Planeta tipo_Codigo,
-nome_Raza nome_valido,
+codigo_Planeta CHAR(5),
+nome_Raza VARCHAR(40),
 poblacion_Parcial INTEGER NOT NULL,
 PRIMARY KEY (codigo_Planeta, nome_Raza),
 CHECK (poblacion_Parcial > 0)
