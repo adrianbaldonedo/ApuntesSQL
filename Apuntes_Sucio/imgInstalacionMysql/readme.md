@@ -15,7 +15,7 @@ CREATE SCHEMA IF NOT EXISTS nEspaciales;
 CREATE TABLE nEspaciales.SERVIZO (
 clave_Servizo CHAR(5),
 nome_Servizo VARCHAR(40),
-PRIMARY KEY (clave_Servizo, nome_servizo),
+PRIMARY KEY (clave_Servizo, nome_servizo)
 );
 
 CREATE TABLE nEspaciales.DEPENDENCIA(
