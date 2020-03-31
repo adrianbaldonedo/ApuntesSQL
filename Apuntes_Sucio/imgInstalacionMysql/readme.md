@@ -111,4 +111,15 @@ ON DELETE CASCADE ON UPDATE CASCADE;
 
 ```
 
+# Desinstalar MariaDB en Linux
+
+1. Para desinstalar normal 
+> sudo apt-get remove mariadb-server
+1. Para desinstalar mariadb y todos los paquetes dependientes que ya no sean necesarios
+> sudo apt-get remove --auto-remove mariadb-server
+1. Para realizar una purga e eliminar la información de la configuración
+> sudo apt-get purge mariadb-server
+1.  Para realizar una purga e eliminar la información de la configuración y todos los paquetes dependientes
+> sudo apt-get purge --auto-remove mariadb-server
+
 
