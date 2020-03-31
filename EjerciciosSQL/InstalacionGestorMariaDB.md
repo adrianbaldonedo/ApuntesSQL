@@ -67,6 +67,7 @@ ________________________________________________________________________________
 
 [Gist con el código sql de la base de datos proyecto de investigación](https://gist.github.com/dam108/f8101d74bb39870132f5843920477d7a#file-proyectodeinvestigacion-sql)
 
+[VOLVER AL INDICE](#INDICE)
 __________________________________________________________________________________________________
 
 # Desinstalar MariaDB en Linux <a name="DesIns"></a>
