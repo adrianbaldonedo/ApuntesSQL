@@ -38,11 +38,13 @@
   - ![captura13](https://github.com/dam108/ApuntesSQL/blob/master/Apuntes_Sucio/imgInstalacionMysql/img/Captura13.PNG)
 
 > NOTA: El archivo que nEspaciales.sql contiene el siguiente codigo 
+
 [Gist con el código sql de la base de datos naves espaciales](https://gist.github.com/dam108/0c0eb886708765cb92d0cfd01aaf9310#file-nespaciales-sql)
 
 # Creación de la base de datos proyecto de investigación
 
 
+> NOTA: El archivo que proyectoDeInvestigacion.sql contiene el siguiente codigo
 
 [Gist con el código sql de la base de datos proyecto de investigación](https://gist.github.com/dam108/f8101d74bb39870132f5843920477d7a#file-proyectodeinvestigacion-sql)
 
