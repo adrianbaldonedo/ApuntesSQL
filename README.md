@@ -11,3 +11,4 @@ Ejercicios DML y DDL:
 
 1. [BD Proyecto de investigación](https://github.com/dam108/ApuntesSQL/blob/master/EjerciciosSQL/Proyecto_de_investigaci%C3%B3n.md)
 1. [BD Naves espaciales ](https://github.com/dam108/ApuntesSQL/blob/master/EjerciciosSQL/Ejercicio_naves_Espaciales.md)
+1. [Instalacion Gestor de BD's MariaDB en Ubuntu](https://github.com/dam108/ApuntesSQL/blob/master/EjerciciosSQL/InstalacionGestorMariaDB.md)
