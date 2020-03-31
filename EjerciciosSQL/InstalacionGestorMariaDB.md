@@ -1,8 +1,13 @@
+# Indice de contenido <a name="INDICE"></a>
 
+1. [Instalacion Gestor MariaDB en Ubuntu](#Inst)
+1. [Creación de la base de datos nEspaciales](#nespaciales)
+1. [Creación de la base de datos Proyecto de investigación](#proInv)
+1. [Desinstalacion de MariaDB en Ubuntu](#DesIns)
 
 __________________________________________________________________________________________________
 
-# Instalación MariaDB Server en Ubuntu
+# Instalación MariaDB Server en Ubuntu <a name="Inst"></a>
 
 ### Abrimos la consola 
 
@@ -20,9 +25,10 @@ ________________________________________________________________________________
 ### Empieza el proceso de instalacion y esperamos hasta que acabe
   - ![captura07](https://github.com/dam108/ApuntesSQL/blob/master/EjerciciosSQL/img/Captura07.PNG)
   
+[VOLVER AL INDICE](#INDICE)
 __________________________________________________________________________________________________
  
-# Creación de la base de datos nEspaciales
+# Creación de la base de datos nEspaciales <a name="nespaciales"></a>
   
 ### Nos logueamos como root y entramos en el gestor
   - ![captura08](https://github.com/dam108/ApuntesSQL/blob/master/EjerciciosSQL/img/Captura08.PNG)
@@ -46,9 +52,10 @@ ________________________________________________________________________________
 
 [Gist con el código sql de la base de datos naves espaciales](https://gist.github.com/dam108/0c0eb886708765cb92d0cfd01aaf9310#file-nespaciales-sql)
 
+[VOLVER AL INDICE](#INDICE)
 __________________________________________________________________________________________________
 
-# Creación de la base de datos proyecto de investigación
+# Creación de la base de datos proyecto de investigación <a name="proInv"></a>
 
 ### Entramos en el gestor y creamos la base de datos proyecto de investigación
   - ![captura14](https://github.com/dam108/ApuntesSQL/blob/master/EjerciciosSQL/img/Captura14.PNG)
@@ -62,7 +69,7 @@ ________________________________________________________________________________
 
 __________________________________________________________________________________________________
 
-# Desinstalar MariaDB en Linux
+# Desinstalar MariaDB en Linux <a name="DesIns"></a>
 
 1. Para desinstalar normal 
 > sudo apt-get remove mariadb-server
@@ -74,3 +81,4 @@ ________________________________________________________________________________
 > sudo apt-get purge --auto-remove mariadb-server
 
 
+[VOLVER AL INDICE](#INDICE)
