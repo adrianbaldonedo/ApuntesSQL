@@ -141,6 +141,8 @@ ON DELETE CASCADE ON UPDATE CASCADE;
 
 ```
 
+[Gist con el código sql de la base de datos proyecto de investigación](https://gist.github.com/dam108/f8101d74bb39870132f5843920477d7a#file-proyectodeinvestigacion-sql)
+
 # Desinstalar MariaDB en Linux
 
 1. Para desinstalar normal 
