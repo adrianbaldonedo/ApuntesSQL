@@ -13,9 +13,11 @@
   - ![captura04](https://github.com/dam108/ApuntesSQL/blob/master/Apuntes_Sucio/imgInstalacionMysql/img/Captura04.PNG)
   - ![captura05](https://github.com/dam108/ApuntesSQL/blob/master/Apuntes_Sucio/imgInstalacionMysql/img/Captura05.PNG)
   - ![captura06](https://github.com/dam108/ApuntesSQL/blob/master/Apuntes_Sucio/imgInstalacionMysql/img/Captura06.PNG)
-
+  
 ### Empieza el proceso de instalacion y esperamos hasta que acabe
   - ![captura07](https://github.com/dam108/ApuntesSQL/blob/master/Apuntes_Sucio/imgInstalacionMysql/img/Captura07.PNG)
+  
+# Creación de la base de datos nEspaciales
   
 ### Nos logueamos como root y entramos en el gestor
   - ![captura08](https://github.com/dam108/ApuntesSQL/blob/master/Apuntes_Sucio/imgInstalacionMysql/img/Captura08.PNG)
