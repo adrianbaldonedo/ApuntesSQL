@@ -1,4 +1,4 @@
-# Instalación Mysql Server en Ubuntu
+# Instalación MariaDB Server en Ubuntu
 
 
 ### Abrimos la consola 
