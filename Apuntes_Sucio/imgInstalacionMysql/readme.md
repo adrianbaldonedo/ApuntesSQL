@@ -1,9 +1,35 @@
 # Instalación Mysql Server en Ubuntu
 
-1. Abrimos la consola 
-1. Ejecutamos el comando sudo apt-get update para actualizar la lista de paquetes
 
-1. Ejecutamos el comando sudo apt-get install mysql-server para instalar el mysql server con el que trabajaremos
+1. Abrimos la consola 
+
+2. Ejecutamos el comando sudo apt-get update para actualizar la lista de paquetes
+
+![captura01](https://github.com/dam108/ApuntesSQL/blob/master/Apuntes_Sucio/imgInstalacionMysql/img/Captura01.PNG)
+
+3. Ejecutamos los siguientes comandos para instalar MariaDB en nuestro equipo
+  - 
+
+![captura02](https://github.com/dam108/ApuntesSQL/blob/master/Apuntes_Sucio/imgInstalacionMysql/img/Captura02.PNG)
+![captura03](https://github.com/dam108/ApuntesSQL/blob/master/Apuntes_Sucio/imgInstalacionMysql/img/Captura03.PNG)
+![captura04](https://github.com/dam108/ApuntesSQL/blob/master/Apuntes_Sucio/imgInstalacionMysql/img/Captura04.PNG)
+![captura05](https://github.com/dam108/ApuntesSQL/blob/master/Apuntes_Sucio/imgInstalacionMysql/img/Captura05.PNG)
+![captura06](https://github.com/dam108/ApuntesSQL/blob/master/Apuntes_Sucio/imgInstalacionMysql/img/Captura06.PNG)
+
+
+![captura07](https://github.com/dam108/ApuntesSQL/blob/master/Apuntes_Sucio/imgInstalacionMysql/img/Captura07.PNG)
+![captura08](https://github.com/dam108/ApuntesSQL/blob/master/Apuntes_Sucio/imgInstalacionMysql/img/Captura08.PNG)
+![captura09](https://github.com/dam108/ApuntesSQL/blob/master/Apuntes_Sucio/imgInstalacionMysql/img/Captura09.PNG)
+![captura10](https://github.com/dam108/ApuntesSQL/blob/master/Apuntes_Sucio/imgInstalacionMysql/img/Captura10.PNG)
+![captura11](https://github.com/dam108/ApuntesSQL/blob/master/Apuntes_Sucio/imgInstalacionMysql/img/Captura11.PNG)
+![captura12](https://github.com/dam108/ApuntesSQL/blob/master/Apuntes_Sucio/imgInstalacionMysql/img/Captura12.PNG)
+![captura13](https://github.com/dam108/ApuntesSQL/blob/master/Apuntes_Sucio/imgInstalacionMysql/img/Captura13.PNG)
+
+
+
+
+
+
 
 1. Ejecutamos Mysql con el comando sudo mysql y ya podemos trabajar
 
