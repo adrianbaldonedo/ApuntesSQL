@@ -14,24 +14,28 @@
   - ![captura05](https://github.com/dam108/ApuntesSQL/blob/master/Apuntes_Sucio/imgInstalacionMysql/img/Captura05.PNG)
   - ![captura06](https://github.com/dam108/ApuntesSQL/blob/master/Apuntes_Sucio/imgInstalacionMysql/img/Captura06.PNG)
 
+4. Empieza el proceso de instalacion y esperamos hasta que acabe
+  - ![captura07](https://github.com/dam108/ApuntesSQL/blob/master/Apuntes_Sucio/imgInstalacionMysql/img/Captura07.PNG)
+  
+ 5. Nos logueamos como root y entramos en el gestor
+  - ![captura08](https://github.com/dam108/ApuntesSQL/blob/master/Apuntes_Sucio/imgInstalacionMysql/img/Captura08.PNG)
+  
+ 6. Creamos la base de datos , en este caso nEspaciales
+  - ![captura09](https://github.com/dam108/ApuntesSQL/blob/master/Apuntes_Sucio/imgInstalacionMysql/img/Captura09.PNG)
+ 
+ 7. Aqui podemos empezar a introducir las sentencias para crear las tablas y las Constraints o bien importar un archivo sql con todo ya escrito, en este caso importamos el archivo de la siguiente manera
+  - ![captura10](https://github.com/dam108/ApuntesSQL/blob/master/Apuntes_Sucio/imgInstalacionMysql/img/Captura10.PNG)
+  
+ 8. Entramos en el gestor y mostramos las bases de datos que hay
+  - ![captura11](https://github.com/dam108/ApuntesSQL/blob/master/Apuntes_Sucio/imgInstalacionMysql/img/Captura11.PNG)
+  
+ 9. Le indicamos que queremos unsar nuestra base de datos y que nos enseñe las tablas
+  - ![captura12](https://github.com/dam108/ApuntesSQL/blob/master/Apuntes_Sucio/imgInstalacionMysql/img/Captura12.PNG)
+  
+ 10. Tambien podemos ver una descripcion mas en profundidad de nuestras tablas con el comando desc
+  - ![captura13](https://github.com/dam108/ApuntesSQL/blob/master/Apuntes_Sucio/imgInstalacionMysql/img/Captura13.PNG)
 
-![captura07](https://github.com/dam108/ApuntesSQL/blob/master/Apuntes_Sucio/imgInstalacionMysql/img/Captura07.PNG)
-![captura08](https://github.com/dam108/ApuntesSQL/blob/master/Apuntes_Sucio/imgInstalacionMysql/img/Captura08.PNG)
-![captura09](https://github.com/dam108/ApuntesSQL/blob/master/Apuntes_Sucio/imgInstalacionMysql/img/Captura09.PNG)
-![captura10](https://github.com/dam108/ApuntesSQL/blob/master/Apuntes_Sucio/imgInstalacionMysql/img/Captura10.PNG)
-![captura11](https://github.com/dam108/ApuntesSQL/blob/master/Apuntes_Sucio/imgInstalacionMysql/img/Captura11.PNG)
-![captura12](https://github.com/dam108/ApuntesSQL/blob/master/Apuntes_Sucio/imgInstalacionMysql/img/Captura12.PNG)
-![captura13](https://github.com/dam108/ApuntesSQL/blob/master/Apuntes_Sucio/imgInstalacionMysql/img/Captura13.PNG)
-
-
-
-
-
-
-
-1. Ejecutamos Mysql con el comando sudo mysql y ya podemos trabajar
-
-1. Creamos las BBDD de el Ejercicio naves espaciales con este codigo
+> NOTA: El archivo que nEspaciales.sql contiene el siguiente codigo 
 
 ```sql
 CREATE SCHEMA IF NOT EXISTS nEspaciales;
